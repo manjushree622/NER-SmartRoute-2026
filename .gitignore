@@ -1,0 +1,24 @@
+# Frontend
+node_modules/
+dist/
+.env
+.env.local
+.vercel/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.venv/
+venv/
+ENV/
+env/
+*.egg-info/
+
+# IDE
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db

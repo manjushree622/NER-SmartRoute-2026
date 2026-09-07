@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>District Risk Prediction</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+    h2, h3 {
+      text-align: center;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    input, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      box-sizing: border-box;
+    }
+    button {
+      cursor: pointer;
+      background: #0078d7;
+      color: white;
+      border: none;
+      font-weight: bold;
+    }
+    #result {
+      margin-top: 20px;
+      padding: 15px;
+      background: #f2f2f2;
+      white-space: pre-wrap;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 30px;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 8px;
+      text-align: center;
+    }
+    th {
+      background: #0078d7;
+      color: white;
+    }
+    /* ✅ Risk level colors */
+    .low {
+      color: green;
+      font-weight: bold;
+    }
+    .medium {
+      color: orange;
+      font-weight: bold;
+    }
+    .high {
+      color: red;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>District Risk Prediction</h2>
+
+  <!-- Prediction Form -->
+  <form id="riskForm">
+    <label>Rainfall</label>
+    <input type="number" step="0.01" name="rainfall" required>
+    <label>Elevation</label>
+    <input type="number" step="0.01" name="elevation" required>
+    <label>Slope</label>
+    <input type="number" step="0.01" name="slope" required>
+    <label>Landslides</label>
+    <input type="number" name="landslides" required>
+    <button type="submit">Predict Risk</button>
+  </form>
+
+  <h3>Result:</h3>
+  <pre id="result">Enter values and click Predict Risk.</pre>
+
+  <!-- District Risk Table -->
+  <h2>All District Predictions</h2>
+  <table id="csvTable">
+    <thead></thead>
+    <tbody></tbody>
+  </table>
+
+  <script>
+    // Prediction form handler
+    document.getElementById("riskForm").addEventListener("submit", async function(e) {
+      e.preventDefault();
+      const form = e.target;
+      const data = {
+        rainfall: parseFloat(form.rainfall.value),
+        elevation: parseFloat(form.elevation.value),
+        slope: parseFloat(form.slope.value),
+        landslides: parseInt(form.landslides.value)
+      };
+      const resultBox = document.getElementById("result");
+      resultBox.textContent = "Predicting...";
+      try {
+        const response = await fetch("/predict", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data)
+        });
+        const result = await response.json();
+        if (!response.ok) throw new Error(result.detail || "Server error: " + response.status);
+        resultBox.textContent =
+          "Risk Probability: " + result.risk_probability +
+          "\nRisk Level: " + result.risk_level;
+      } catch (error) {
+        resultBox.textContent = "Error: " + error.message;
+      }
+    });
+
+    // CSV loader
+    async function loadCSV() {
+      const response = await fetch("/static/district_risk_predictions.csv");
+      const text = await response.text();
+      const rows = text.trim().split("\n").map(r => r.split(","));
+
+      // Header
+      const headerRow = rows[0];
+      const thead = document.querySelector("#csvTable thead");
+      thead.innerHTML = "<tr>" + headerRow.map(h => `<th>${h}</th>`).join("") + "</tr>";
+
+      // Body with color coding
+      const tbody = document.querySelector("#csvTable tbody");
+      tbody.innerHTML = rows.slice(1).map(r => {
+        let riskClass = "";
+        if (r[3] === "LOW") riskClass = "low";
+        if (r[3] === "MEDIUM") riskClass = "medium";
+        if (r[3] === "HIGH") riskClass = "high";
+
+        return `
+          <tr>
+            <td>${r[0]}</td>
+            <td>${r[1]}</td>
+            <td>${r[2]}</td>
+            <td class="${riskClass}">${r[3]}</td>
+          </tr>
+        `;
+      }).join("");
+    }
+    loadCSV();
+  </script>
+
+</body>
+</html>

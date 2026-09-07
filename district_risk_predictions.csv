@@ -1,0 +1,132 @@
+district_name,state_name,risk_probability,risk_level
+Anjaw district,Arunachal Pradesh,1.0,MEDIUM
+Bichom,Arunachal Pradesh,0.99,MEDIUM
+Changlang,Arunachal Pradesh,0.97,MEDIUM
+Dibang Valley,Arunachal Pradesh,1.0,MEDIUM
+East Kameng,Arunachal Pradesh,1.0,MEDIUM
+East Siang,Arunachal Pradesh,0.89,MEDIUM
+Kamle,Arunachal Pradesh,1.0,MEDIUM
+Keyi Panyor,Arunachal Pradesh,1.0,MEDIUM
+Kra Daadi,Arunachal Pradesh,1.0,MEDIUM
+Kurung Kumey,Arunachal Pradesh,1.0,MEDIUM
+Lepa Rada,Arunachal Pradesh,1.0,MEDIUM
+Lohit,Arunachal Pradesh,1.0,MEDIUM
+Lower Dibang Valley,Arunachal Pradesh,1.0,MEDIUM
+Lower Siang,Arunachal Pradesh,1.0,MEDIUM
+Lower Subansiri,Arunachal Pradesh,0.99,MEDIUM
+Namsai,Arunachal Pradesh,0.95,MEDIUM
+Pakke-Kessang,Arunachal Pradesh,0.99,MEDIUM
+Papum Pare,Arunachal Pradesh,1.0,MEDIUM
+Shi Yomi,Arunachal Pradesh,0.99,MEDIUM
+Siang,Arunachal Pradesh,1.0,MEDIUM
+Tawang district,Arunachal Pradesh,0.99,MEDIUM
+Tirap,Arunachal Pradesh,0.97,MEDIUM
+Upper Siang,Arunachal Pradesh,1.0,MEDIUM
+Upper Subansiri,Arunachal Pradesh,1.0,MEDIUM
+West Kameng,Arunachal Pradesh,0.99,MEDIUM
+West Siang,Arunachal Pradesh,1.0,MEDIUM
+Bajali,Assam,1.0,LOW
+Baksa,Assam,1.0,LOW
+Barpeta,Assam,1.0,LOW
+Biswanath,Assam,1.0,LOW
+Bongaigaon,Assam,1.0,LOW
+Cachar,Assam,0.97,LOW
+Charaideo,Assam,1.0,LOW
+Chirang,Assam,1.0,LOW
+Darrang,Assam,1.0,LOW
+Dhemaji,Assam,1.0,LOW
+Dhubri,Assam,1.0,LOW
+Dibrugarh,Assam,1.0,LOW
+Dima Hasao,Assam,0.97,LOW
+Goalpara,Assam,1.0,LOW
+Golaghat,Assam,1.0,LOW
+Hailakandi district,Assam,0.98,LOW
+Hojai,Assam,1.0,LOW
+Jorhat,Assam,1.0,LOW
+Kamrup,Assam,1.0,LOW
+Kamrup Metropolitan,Assam,0.99,LOW
+Karbi Anglong,Assam,0.97,LOW
+Karimganj,Assam,1.0,LOW
+Kokrajhar,Assam,1.0,LOW
+Lakhimpur,Assam,1.0,LOW
+Majuli,Assam,1.0,LOW
+Marigaon,Assam,1.0,LOW
+Nagaon,Assam,1.0,LOW
+Nalbari,Assam,1.0,LOW
+Sivasagar,Assam,1.0,LOW
+Sonitpur,Assam,1.0,LOW
+Tamulpur,Assam,1.0,LOW
+Tinsukia,Assam,1.0,LOW
+Udalguri,Assam,1.0,LOW
+West Karbi Anglong,Assam,0.99,LOW
+Bishnupur district,Manipur,1.0,LOW
+Chandel district,Manipur,1.0,LOW
+Churachandpur district,Manipur,0.98,LOW
+Imphal East,Manipur,1.0,LOW
+Imphal West,Manipur,1.0,LOW
+Jiribam district,Manipur,1.0,LOW
+Kakching district,Manipur,1.0,LOW
+Kamjong district,Manipur,1.0,LOW
+Kangpokpi district,Manipur,1.0,LOW
+Noney district,Manipur,1.0,LOW
+Pherzawl district,Manipur,1.0,LOW
+Senapati,Manipur,0.99,LOW
+Tamenglong district,Manipur,1.0,LOW
+Tengnoupal,Manipur,1.0,LOW
+Thoubal district,Manipur,0.99,LOW
+Ukhrul district,Manipur,0.99,LOW
+East Garo Hills,Meghalaya,0.98,HIGH
+East Jaintia Hills,Meghalaya,0.93,HIGH
+East Khasi Hills,Meghalaya,0.84,HIGH
+Eastern West Khasi Hills,Meghalaya,0.97,HIGH
+North Garo Hills,Meghalaya,0.86,HIGH
+Ri-Bhoi,Meghalaya,0.97,HIGH
+South Garo Hills,Meghalaya,0.96,HIGH
+South Salmara-Mankachar,Meghalaya,0.91,HIGH
+South West Garo Hills,Meghalaya,0.86,HIGH
+South West Khasi Hills,Meghalaya,1.0,HIGH
+West Garo Hills,Meghalaya,1.0,HIGH
+West Jaintia Hills,Meghalaya,1.0,HIGH
+West Khasi Hills,Meghalaya,0.98,HIGH
+Aizawl,Mizoram,0.98,MEDIUM
+Champhai district,Mizoram,0.99,MEDIUM
+Hnahthial,Mizoram,0.91,MEDIUM
+Khawzawl,Mizoram,0.98,MEDIUM
+Kolasib,Mizoram,0.88,MEDIUM
+Lawngtlai,Mizoram,0.96,MEDIUM
+Lunglei,Mizoram,0.95,MEDIUM
+Mamit,Mizoram,0.95,MEDIUM
+Saiha,Mizoram,0.87,MEDIUM
+Saitual,Mizoram,0.98,MEDIUM
+Serchhip,Mizoram,0.99,MEDIUM
+Chümoukedima,Nagaland,1.0,LOW
+Dimapur,Nagaland,1.0,LOW
+Kiphire,Nagaland,1.0,LOW
+Kohima,Nagaland,0.99,LOW
+Longleng,Nagaland,1.0,LOW
+Meluri district,Nagaland,0.96,LOW
+Mokokchung,Nagaland,1.0,LOW
+Mon,Nagaland,1.0,LOW
+Niuland,Nagaland,0.92,LOW
+Noklak,Nagaland,0.97,LOW
+Peren,Nagaland,0.98,LOW
+Phek,Nagaland,0.98,LOW
+Shamator,Nagaland,0.99,LOW
+Tseminyü,Nagaland,0.99,LOW
+Tuensang,Nagaland,0.99,LOW
+Wokha,Nagaland,0.99,LOW
+Zünheboto,Nagaland,0.99,LOW
+Gangtok,Sikkim,0.99,MEDIUM
+Gyalshing,Sikkim,0.99,MEDIUM
+Mangan,Sikkim,0.99,MEDIUM
+Namchi,Sikkim,0.97,MEDIUM
+Pakyong,Sikkim,0.99,MEDIUM
+Soreng,Sikkim,0.99,MEDIUM
+Dhalai,Tripura,0.97,LOW
+Gomati,Tripura,1.0,LOW
+Khowai,Tripura,1.0,LOW
+North Tripura,Tripura,1.0,LOW
+Sipahijala,Tripura,0.97,LOW
+South Tripura,Tripura,0.99,LOW
+Unakoti,Tripura,0.97,LOW
+West Tripura,Tripura,1.0,LOW

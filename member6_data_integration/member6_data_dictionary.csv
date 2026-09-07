@@ -1,0 +1,13 @@
+field,meaning,source_or_method,type
+district_name,District name,Member 4 boundary data,categorical
+state_name,NER state,Member 4 boundary data,categorical
+latitude,District centroid latitude,Derived from Member 4 district polygon,numeric
+longitude,District centroid longitude,Derived from Member 4 district polygon,numeric
+annual_rainfall_normal_mm,Annual rainfall normal,IMD rainfall normals,numeric
+monsoon_rainfall_normal_mm,Monsoon rainfall normal,IMD rainfall normals,numeric
+annual_rainfall_2022_mm,Annual rainfall in 2022,IMD-sourced NEC yearbook,numeric
+historical_landslides_1998_2022_state_count,"Historical landslide count for the state, 1998-2022",ISRO/NRSC Landslide Atlas,numeric
+elevation_m,Elevation at district centroid,Needs DEM/SRTM fill,numeric
+slope_deg,Slope at district centroid,Needs DEM/SRTM-derived fill,numeric
+prototype_risk_score,Transparent baseline proxy for prototype,Engineered from available rainfall + historical landslide features; not ground truth,numeric
+prototype_risk_level,LOW/MEDIUM/HIGH baseline,Binned prototype_risk_score; not final ML label,categorical

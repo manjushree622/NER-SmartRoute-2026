@@ -1,0 +1,1174 @@
+location_id,location_name,category,latitude,longitude,source
+245759577,Dibrugarh Mohanbari Airport,airport,27.4854679,95.0170764,OpenStreetMap/Geofabrik North-Eastern Zone
+245759577,Dibrugarh Mohanbari Airport,airport,27.4854679,95.0170764,OpenStreetMap/Geofabrik North-Eastern Zone
+399602847,মনতলা,railway_station,24.0693972,91.3450478,OpenStreetMap/Geofabrik North-Eastern Zone
+399602849,হরষপুর,railway_station,24.0170928,91.3106125,OpenStreetMap/Geofabrik North-Eastern Zone
+399602851,মুকুন্দপুর,railway_station,23.9636205,91.2645929,OpenStreetMap/Geofabrik North-Eastern Zone
+399602854,আজমপুর,railway_station,23.8933208,91.2207969,OpenStreetMap/Geofabrik North-Eastern Zone
+566647745,Changsari,railway_station,26.2615608,91.6940301,OpenStreetMap/Geofabrik North-Eastern Zone
+715070787,Rangiya Junction,railway_station,26.4467608,91.60698,OpenStreetMap/Geofabrik North-Eastern Zone
+715070829,Dimapur,railway_station,25.9068705,93.7284592,OpenStreetMap/Geofabrik North-Eastern Zone
+715071026,Kaithalkuchi,railway_station,26.4508759,91.3434365,OpenStreetMap/Geofabrik North-Eastern Zone
+715137476,Amguri Junction,railway_station,26.8129389,94.524155,OpenStreetMap/Geofabrik North-Eastern Zone
+715137525,Simaluguri Junction,railway_station,26.9174084,94.7559815,OpenStreetMap/Geofabrik North-Eastern Zone
+715137787,Sarupathar,railway_station,26.1951622,93.8621654,OpenStreetMap/Geofabrik North-Eastern Zone
+715137869,Naojan,railway_station,26.1212788,93.842764,OpenStreetMap/Geofabrik North-Eastern Zone
+715137958,Furkating Junction,railway_station,26.4647187,94.0018343,OpenStreetMap/Geofabrik North-Eastern Zone
+715178157,Jirania,railway_station,23.8269305,91.4309512,OpenStreetMap/Geofabrik North-Eastern Zone
+715178218,Murkongselek,railway_station,27.8311509,95.220213,OpenStreetMap/Geofabrik North-Eastern Zone
+715178411,Agartala,railway_station,23.7929171,91.2785939,OpenStreetMap/Geofabrik North-Eastern Zone
+718989329,Na Nadi,railway_station,27.4364566,94.3467124,OpenStreetMap/Geofabrik North-Eastern Zone
+719077047,Jogighopa,railway_station,26.240383,90.5754591,OpenStreetMap/Geofabrik North-Eastern Zone
+719077075,Abhayapuri,railway_station,26.3569213,90.6421552,OpenStreetMap/Geofabrik North-Eastern Zone
+746951076,Dangari,railway_station,27.7093285,95.5680312,OpenStreetMap/Geofabrik North-Eastern Zone
+746951085,Sookerating Airfield,airport,27.551521,95.5728029,OpenStreetMap/Geofabrik North-Eastern Zone
+746951085,Sookerating Airfield,airport,27.551521,95.5728029,OpenStreetMap/Geofabrik North-Eastern Zone
+746951089,Hansara,railway_station,27.5542808,95.5395773,OpenStreetMap/Geofabrik North-Eastern Zone
+746952719,Chabua Air Force Station,airport,27.4630047,95.1143134,OpenStreetMap/Geofabrik North-Eastern Zone
+746952719,Chabua Air Force Station,airport,27.4630047,95.1143134,OpenStreetMap/Geofabrik North-Eastern Zone
+828998749,Rangpara North Junction,railway_station,26.8216897,92.6829983,OpenStreetMap/Geofabrik North-Eastern Zone
+828998873,Khoirabari,railway_station,26.6030671,91.8121031,OpenStreetMap/Geofabrik North-Eastern Zone
+828999020,Lilabari,railway_station,27.2983121,94.0751195,OpenStreetMap/Geofabrik North-Eastern Zone
+828999092,North Lakhimpur,railway_station,27.254431,94.1120339,OpenStreetMap/Geofabrik North-Eastern Zone
+828999117,New Misamari,railway_station,26.8108957,92.5773509,OpenStreetMap/Geofabrik North-Eastern Zone
+828999190,Udalguri,railway_station,26.7445958,92.0971834,OpenStreetMap/Geofabrik North-Eastern Zone
+828999196,Bindukuri,railway_station,26.7085947,92.7343537,OpenStreetMap/Geofabrik North-Eastern Zone
+828999248,Missamari Airforce Station,airport,26.8186358,92.5989607,OpenStreetMap/Geofabrik North-Eastern Zone
+829908362,Nalbari,railway_station,26.4506915,91.4388694,OpenStreetMap/Geofabrik North-Eastern Zone
+830103537,শাহবাজপুর,railway_station,24.8042308,92.2368618,OpenStreetMap/Geofabrik North-Eastern Zone
+830103638,Karimganj Junction,railway_station,24.8604244,92.3726392,OpenStreetMap/Geofabrik North-Eastern Zone
+830103831,Dullabcherra,railway_station,24.4898055,92.4328226,OpenStreetMap/Geofabrik North-Eastern Zone
+830243153,Katakhal Junction,railway_station,24.8354595,92.626631,OpenStreetMap/Geofabrik North-Eastern Zone
+830243313,Jiribam,railway_station,24.8023996,93.1165145,OpenStreetMap/Geofabrik North-Eastern Zone
+830263797,Lalabazar,railway_station,24.560883,92.6128295,OpenStreetMap/Geofabrik North-Eastern Zone
+831175630,Golaghat Railway Station,railway_station,26.5091053,93.9617671,OpenStreetMap/Geofabrik North-Eastern Zone
+831207614,Jorhat Town,railway_station,26.7501729,94.2163277,OpenStreetMap/Geofabrik North-Eastern Zone
+831304375,Rowta Bagan,railway_station,26.7373464,92.215175,OpenStreetMap/Geofabrik North-Eastern Zone
+831304440,Langting,railway_station,25.4971872,93.1105601,OpenStreetMap/Geofabrik North-Eastern Zone
+831304708,Lumding Junction,railway_station,25.7502262,93.1766047,OpenStreetMap/Geofabrik North-Eastern Zone
+831340862,Balipara,railway_station,26.8194446,92.7721009,OpenStreetMap/Geofabrik North-Eastern Zone
+831340874,Bhalukpong,railway_station,27.000607,92.6449773,OpenStreetMap/Geofabrik North-Eastern Zone
+832464709,Silghat Town,railway_station,26.6074953,92.9299564,OpenStreetMap/Geofabrik North-Eastern Zone
+832590807,Mairabari,railway_station,26.4513296,92.4258203,OpenStreetMap/Geofabrik North-Eastern Zone
+832590885,Raha,railway_station,26.2320327,92.5272443,OpenStreetMap/Geofabrik North-Eastern Zone
+832590944,Senchoa Junction,railway_station,26.3113845,92.6425956,OpenStreetMap/Geofabrik North-Eastern Zone
+832590984,Chaparmukh Junction,railway_station,26.203175,92.5118391,OpenStreetMap/Geofabrik North-Eastern Zone
+832591007,Nagaon,railway_station,26.3480551,92.698018,OpenStreetMap/Geofabrik North-Eastern Zone
+832591052,Haibargaon,railway_station,26.3564809,92.672848,OpenStreetMap/Geofabrik North-Eastern Zone
+832743028,Moranhat,railway_station,27.1827599,94.9193188,OpenStreetMap/Geofabrik North-Eastern Zone
+832808317,Tuli,railway_station,26.7365334,94.6131009,OpenStreetMap/Geofabrik North-Eastern Zone
+856701915,Turial,airport,23.7458436,92.8030161,OpenStreetMap/Geofabrik North-Eastern Zone
+958035984,Doomdooma,railway_station,27.5737889,95.5560055,OpenStreetMap/Geofabrik North-Eastern Zone
+1018099500,Duliajaan Bus Station,bus_station,27.4849024,95.364433,OpenStreetMap/Geofabrik North-Eastern Zone
+1042045127,Baljek Airstrip,airport,25.6614876,90.3450394,OpenStreetMap/Geofabrik North-Eastern Zone
+1042147346,Pukpui Helipad,helipad,22.9422667,92.76885,OpenStreetMap/Geofabrik North-Eastern Zone
+1042147351,Lunglei Helipad,helipad,22.8683833,92.7633,OpenStreetMap/Geofabrik North-Eastern Zone
+1042147353,Vairengte Helipad,helipad,24.4789167,92.7539333,OpenStreetMap/Geofabrik North-Eastern Zone
+1042147382,HQ Eastern Air Command Helipad,helipad,25.5380909,91.8264749,OpenStreetMap/Geofabrik North-Eastern Zone
+1042147389,Indian Army Helipad,helipad,24.3267,93.6754667,OpenStreetMap/Geofabrik North-Eastern Zone
+1042147414,Kohima Helipad,helipad,25.6630667,94.1139333,OpenStreetMap/Geofabrik North-Eastern Zone
+1118546131,Panisagar,railway_station,24.2745283,92.1502149,OpenStreetMap/Geofabrik North-Eastern Zone
+1133639881,Krishnai,railway_station,26.0783016,90.679881,OpenStreetMap/Geofabrik North-Eastern Zone
+1133639965,Pancharatna,railway_station,26.1584097,90.5557927,OpenStreetMap/Geofabrik North-Eastern Zone
+1133640343,Mohanbari,railway_station,27.4570405,95.0191465,OpenStreetMap/Geofabrik North-Eastern Zone
+1133695418,Rupai,railway_station,27.5998165,95.5569781,OpenStreetMap/Geofabrik North-Eastern Zone
+1210735250,Kumarghat,railway_station,24.1511427,92.035408,OpenStreetMap/Geofabrik North-Eastern Zone
+1210735993,Ambassa,railway_station,23.9311541,91.8611485,OpenStreetMap/Geofabrik North-Eastern Zone
+1210736286,Mungiakami,railway_station,23.8849008,91.7120232,OpenStreetMap/Geofabrik North-Eastern Zone
+1299582748,ASTC,bus_station,26.1811683,91.7499743,OpenStreetMap/Geofabrik North-Eastern Zone
+1328017587,,helipad,27.74475,88.7764648,OpenStreetMap/Geofabrik North-Eastern Zone
+1334498773,Dangtal,railway_station,26.4692775,90.4951321,OpenStreetMap/Geofabrik North-Eastern Zone
+1334500301,Basugaon,railway_station,26.460047,90.4197069,OpenStreetMap/Geofabrik North-Eastern Zone
+1403967928,Barpeta Road,railway_station,26.5021259,90.9645713,OpenStreetMap/Geofabrik North-Eastern Zone
+1403967944,Pathsala,railway_station,26.497126,91.1777196,OpenStreetMap/Geofabrik North-Eastern Zone
+1403967947,Sorbhog,railway_station,26.4945638,90.8887291,OpenStreetMap/Geofabrik North-Eastern Zone
+1420700033,Rani Gaidinliu station,railway_station,24.7423346,93.2370957,OpenStreetMap/Geofabrik North-Eastern Zone
+1420700233,Tupul,railway_station,24.8048991,93.6747553,OpenStreetMap/Geofabrik North-Eastern Zone
+1420700787,Shribar,railway_station,24.8165348,93.0099493,OpenStreetMap/Geofabrik North-Eastern Zone
+1420700805,Khongsang,railway_station,24.8358361,93.4882544,OpenStreetMap/Geofabrik North-Eastern Zone
+1425184439,Mijicajan Airstrip,airport,26.823096,93.2164283,OpenStreetMap/Geofabrik North-Eastern Zone
+1437215872,Dhemaji,railway_station,27.4894645,94.5425052,OpenStreetMap/Geofabrik North-Eastern Zone
+1437223034,Ahunli Airstrip,airport,28.8337912,95.9605256,OpenStreetMap/Geofabrik North-Eastern Zone
+1437223034,Ahunli Airstrip,airport,28.8337912,95.9605256,OpenStreetMap/Geofabrik North-Eastern Zone
+1449670747,Mendipathar,railway_station,25.914975,90.6338596,OpenStreetMap/Geofabrik North-Eastern Zone
+1455773215,SRGT Parking Lot,bus_station,25.5824923,91.8904024,OpenStreetMap/Geofabrik North-Eastern Zone
+1472729172,বাল্লা,railway_station,24.0848133,91.5933871,OpenStreetMap/Geofabrik North-Eastern Zone
+1495316531,Lanka,railway_station,25.9157407,92.9576495,OpenStreetMap/Geofabrik North-Eastern Zone
+1495316536,Hojai,railway_station,26.001873,92.8520353,OpenStreetMap/Geofabrik North-Eastern Zone
+1495483775,New Sisibargaon,railway_station,27.5357587,94.6848265,OpenStreetMap/Geofabrik North-Eastern Zone
+1495483820,Boxirhat,railway_station,26.3069121,89.7375178,OpenStreetMap/Geofabrik North-Eastern Zone
+1496087870,Harmuti Junction,railway_station,27.1190192,93.8606073,OpenStreetMap/Geofabrik North-Eastern Zone
+1498837932,Walong Advanced Landing Ground,airport,28.1286766,97.0189209,OpenStreetMap/Geofabrik North-Eastern Zone
+1498837932,Walong Advanced Landing Ground,airport,28.1286766,97.0189209,OpenStreetMap/Geofabrik North-Eastern Zone
+1516328090,,helipad,24.062106,91.6039941,OpenStreetMap/Geofabrik North-Eastern Zone
+1579672842,,ferry_terminal,26.1813856,91.7357204,OpenStreetMap/Geofabrik North-Eastern Zone
+1579672845,,ferry_terminal,26.1843684,91.7374867,OpenStreetMap/Geofabrik North-Eastern Zone
+1579672848,Mazgaon Ferry Ghat,ferry_terminal,26.1862405,91.7220828,OpenStreetMap/Geofabrik North-Eastern Zone
+1579672882,,ferry_terminal,26.20644,91.7481474,OpenStreetMap/Geofabrik North-Eastern Zone
+1596051550,Dekargaon,railway_station,26.6806068,92.7628282,OpenStreetMap/Geofabrik North-Eastern Zone
+1600760123,Diphu,railway_station,25.8371941,93.4383663,OpenStreetMap/Geofabrik North-Eastern Zone
+1621473136,Baraigram Junction,railway_station,24.6825788,92.3412269,OpenStreetMap/Geofabrik North-Eastern Zone
+1668477314,Rupahigaon,railway_halt,26.4125204,92.7418286,OpenStreetMap/Geofabrik North-Eastern Zone
+1668508409,,ferry_terminal,26.659539,93.173513,OpenStreetMap/Geofabrik North-Eastern Zone
+1676604026,Naharlagun,railway_station,27.1308555,93.709712,OpenStreetMap/Geofabrik North-Eastern Zone
+1698266422,Kamakhya Mandir,bus_station,26.1650799,91.7072072,OpenStreetMap/Geofabrik North-Eastern Zone
+1698296685,,bus_station,26.1773109,91.7348759,OpenStreetMap/Geofabrik North-Eastern Zone
+1699637246,,ferry_terminal,27.5258115,95.0114831,OpenStreetMap/Geofabrik North-Eastern Zone
+1699637364,,ferry_terminal,27.8384523,95.3515622,OpenStreetMap/Geofabrik North-Eastern Zone
+1699638062,,ferry_terminal,28.0769077,95.3360762,OpenStreetMap/Geofabrik North-Eastern Zone
+1739986504,Chabua,railway_station,27.4811319,95.1718214,OpenStreetMap/Geofabrik North-Eastern Zone
+1739986514,Dikom,railway_station,27.463866,95.0804522,OpenStreetMap/Geofabrik North-Eastern Zone
+1810911573,,ferry_terminal,26.6187555,92.9414286,OpenStreetMap/Geofabrik North-Eastern Zone
+1810911969,Nizchatia,railway_station,26.769328,93.1637328,OpenStreetMap/Geofabrik North-Eastern Zone
+1810912049,Dhalai Beel,railway_station,26.7916234,92.923201,OpenStreetMap/Geofabrik North-Eastern Zone
+1811463083,Tangla,railway_station,26.6571914,91.9052083,OpenStreetMap/Geofabrik North-Eastern Zone
+1845657278,,bus_station,26.2313363,90.231133,OpenStreetMap/Geofabrik North-Eastern Zone
+1848205878,Lahoal,railway_station,27.4526983,94.9995008,OpenStreetMap/Geofabrik North-Eastern Zone
+1858241659,Udaipur,railway_station,23.5105401,91.4798796,OpenStreetMap/Geofabrik North-Eastern Zone
+1939429673,Nimati ghat,ferry_terminal,26.8616341,94.2413393,OpenStreetMap/Geofabrik North-Eastern Zone
+1985336560,Haipo Jadonang,railway_station,24.7358566,93.3061318,OpenStreetMap/Geofabrik North-Eastern Zone
+1985336561,Thingu,railway_station,24.8086961,93.405236,OpenStreetMap/Geofabrik North-Eastern Zone
+2037923460,Fakirganj,ferry_terminal,25.9645817,90.0756196,OpenStreetMap/Geofabrik North-Eastern Zone
+2037923461,Phulbari Ghat (wet season only?),ferry_terminal,25.8903444,90.0208117,OpenStreetMap/Geofabrik North-Eastern Zone
+2081913984,Hailakandi,railway_station,24.6812721,92.5679553,OpenStreetMap/Geofabrik North-Eastern Zone
+2081913989,Panchgram,railway_station,24.865508,92.5984489,OpenStreetMap/Geofabrik North-Eastern Zone
+2081914624,Salchapra,railway_station,24.8249889,92.6677585,OpenStreetMap/Geofabrik North-Eastern Zone
+2081914715,,bus_station,24.8311862,92.7979855,OpenStreetMap/Geofabrik North-Eastern Zone
+2081914813,Arunachal Junction,railway_station,24.8557436,92.7431452,OpenStreetMap/Geofabrik North-Eastern Zone
+2081915256,New Haflong,railway_station,25.1480102,93.0320565,OpenStreetMap/Geofabrik North-Eastern Zone
+2084596919,,ferry_terminal,24.2357908,93.0231942,OpenStreetMap/Geofabrik North-Eastern Zone
+2084877071,Rangapahar Airbase,airport,25.8558364,93.706297,OpenStreetMap/Geofabrik North-Eastern Zone
+2084877956,Khotkhoti,railway_station,25.9527954,93.7547838,OpenStreetMap/Geofabrik North-Eastern Zone
+2084878606,Bokajan,railway_station,26.0193348,93.7802127,OpenStreetMap/Geofabrik North-Eastern Zone
+2137910081,Gohpur,railway_station,26.897071,93.6218307,OpenStreetMap/Geofabrik North-Eastern Zone
+2164024492,Mazbat,railway_station,26.7843747,92.2872235,OpenStreetMap/Geofabrik North-Eastern Zone
+2164275096,,ferry_terminal,27.5945732,94.908031,OpenStreetMap/Geofabrik North-Eastern Zone
+2286315964,Nagaland State Transportation,bus_station,25.6718196,94.1070801,OpenStreetMap/Geofabrik North-Eastern Zone
+2309770462,Sibsagar Town,railway_station,26.9902574,94.6432322,OpenStreetMap/Geofabrik North-Eastern Zone
+2316321277,Kamarbandha Ali,railway_station,26.5291145,94.0558033,OpenStreetMap/Geofabrik North-Eastern Zone
+2329495881,Barpathar,railway_station,26.2750082,93.8998677,OpenStreetMap/Geofabrik North-Eastern Zone
+2340755592,Bhalukmara,railway_station,26.6695435,94.1238453,OpenStreetMap/Geofabrik North-Eastern Zone
+2340755593,Cinnamara,railway_station,26.7064259,94.2396687,OpenStreetMap/Geofabrik North-Eastern Zone
+2340755594,Rowriah Sdg,railway_station,26.7216321,94.1723058,OpenStreetMap/Geofabrik North-Eastern Zone
+2340780169,Baihata,railway_station,26.3417693,91.6892274,OpenStreetMap/Geofabrik North-Eastern Zone
+2340780174,Kendukona,railway_station,26.3685532,91.6444261,OpenStreetMap/Geofabrik North-Eastern Zone
+2346871970,Namti,railway_station,26.855288,94.627418,OpenStreetMap/Geofabrik North-Eastern Zone
+2346871972,Desang,railway_station,27.0606645,94.6925459,OpenStreetMap/Geofabrik North-Eastern Zone
+2346871974,Lakswa,railway_station,27.0052163,94.8445527,OpenStreetMap/Geofabrik North-Eastern Zone
+2346871975,Longpatia,railway_station,27.079077,95.0936685,OpenStreetMap/Geofabrik North-Eastern Zone
+2346871976,MohKhuti,railway_station,27.1059291,94.8066994,OpenStreetMap/Geofabrik North-Eastern Zone
+2346871977,Mahutgaon,railway_station,26.9643383,94.7940882,OpenStreetMap/Geofabrik North-Eastern Zone
+2346871978,Mezenga,railway_station,26.8860486,94.6889971,OpenStreetMap/Geofabrik North-Eastern Zone
+2346871979,Moran,railway_station,27.1472108,94.8885611,OpenStreetMap/Geofabrik North-Eastern Zone
+2346871982,Sepon,railway_station,27.1144283,94.8532408,OpenStreetMap/Geofabrik North-Eastern Zone
+2346882129,Chalkhoa,railway_station,27.4660132,94.9594599,OpenStreetMap/Geofabrik North-Eastern Zone
+2346882130,Naharkatiya,railway_station,27.2891913,95.3296513,OpenStreetMap/Geofabrik North-Eastern Zone
+2365222327,Sorupeta,railway_station,26.4996415,91.0772008,OpenStreetMap/Geofabrik North-Eastern Zone
+2365253018,Ghograpar,railway_station,26.4511473,91.5288433,OpenStreetMap/Geofabrik North-Eastern Zone
+2383182599,Public Bus Stand,bus_station,26.7596339,94.2105123,OpenStreetMap/Geofabrik North-Eastern Zone
+2571343421,কসবা,railway_station,23.7402697,91.1555601,OpenStreetMap/Geofabrik North-Eastern Zone
+2595949839,,ferry_terminal,26.1933156,91.7516921,OpenStreetMap/Geofabrik North-Eastern Zone
+2595949845,,ferry_terminal,26.1959383,91.7452022,OpenStreetMap/Geofabrik North-Eastern Zone
+2665437088,Bishalgarh,railway_station,23.6766774,91.2728164,OpenStreetMap/Geofabrik North-Eastern Zone
+2665458458,Goreswar,railway_station,26.5279198,91.722188,OpenStreetMap/Geofabrik North-Eastern Zone
+2665458472,Khandikar,railway_station,26.4655849,91.6458978,OpenStreetMap/Geofabrik North-Eastern Zone
+2665458597,Harisinga,railway_station,26.7252841,91.9865809,OpenStreetMap/Geofabrik North-Eastern Zone
+2665528108,NST Bus Station,bus_station,26.3241814,94.5213309,OpenStreetMap/Geofabrik North-Eastern Zone
+2669094329,Guwahati,railway_station,26.1823701,91.7501234,OpenStreetMap/Geofabrik North-Eastern Zone
+2671296500,Dibrugarh,railway_station,27.4647373,94.9371639,OpenStreetMap/Geofabrik North-Eastern Zone
+2671658260,গঙ্গাসাগর,railway_station,23.8261502,91.193755,OpenStreetMap/Geofabrik North-Eastern Zone
+2689538357,Jogendranagar,railway_station,23.8114171,91.3074081,OpenStreetMap/Geofabrik North-Eastern Zone
+2885039366,Tihu,railway_station,26.4716298,91.2682154,OpenStreetMap/Geofabrik North-Eastern Zone
+2885091539,Jagi Road,railway_station,26.1254384,92.1973032,OpenStreetMap/Geofabrik North-Eastern Zone
+2885091555,Sonuabari,railway_station,26.1732313,92.3114617,OpenStreetMap/Geofabrik North-Eastern Zone
+2885091569,Thekeraguri,railway_station,26.2061133,92.434601,OpenStreetMap/Geofabrik North-Eastern Zone
+2885092718,,ferry_terminal,26.407355,92.232907,OpenStreetMap/Geofabrik North-Eastern Zone
+2885143622,,ferry_terminal,27.5914059,95.3235222,OpenStreetMap/Geofabrik North-Eastern Zone
+2885250561,Simen Chapori,railway_station,27.723845,94.8868742,OpenStreetMap/Geofabrik North-Eastern Zone
+2885275506,Kamalabari Ghat,ferry_terminal,26.9198444,94.1642878,OpenStreetMap/Geofabrik North-Eastern Zone
+2885275517,,ferry_terminal,26.9100184,94.2773858,OpenStreetMap/Geofabrik North-Eastern Zone
+2913304439,Gogamukh,railway_station,27.4417161,94.3212387,OpenStreetMap/Geofabrik North-Eastern Zone
+3011847711,Sairang,railway_station,23.7981904,92.6512294,OpenStreetMap/Geofabrik North-Eastern Zone
+3158896790,,ferry_terminal,24.8452933,92.8134665,OpenStreetMap/Geofabrik North-Eastern Zone
+3224653102,Gumto,railway_station,27.1369868,93.791461,OpenStreetMap/Geofabrik North-Eastern Zone
+3281558055,Longai,railway_station,24.8544306,92.3433549,OpenStreetMap/Geofabrik North-Eastern Zone
+3281638676,Sekerkote,railway_station,23.7436934,91.2773921,OpenStreetMap/Geofabrik North-Eastern Zone
+3281652396,Bairabi,railway_station,24.1960499,92.5412872,OpenStreetMap/Geofabrik North-Eastern Zone
+3337653201,Kathalpukhari,railway_station,27.176593,93.9711292,OpenStreetMap/Geofabrik North-Eastern Zone
+3422982364,Hilara,railway_station,24.9419816,92.6028609,OpenStreetMap/Geofabrik North-Eastern Zone
+3546843597,ASTC Bus Stand,bus_station,27.825574,95.2278445,OpenStreetMap/Geofabrik North-Eastern Zone
+3547039788,Laimekuri,railway_station,27.7507684,95.0760932,OpenStreetMap/Geofabrik North-Eastern Zone
+3547327331,Telem,railway_station,27.7660461,95.0038982,OpenStreetMap/Geofabrik North-Eastern Zone
+3555169044,ASTC Bus Station,bus_station,26.6209126,92.7943959,OpenStreetMap/Geofabrik North-Eastern Zone
+3555172843,,bus_station,26.6233153,92.7901634,OpenStreetMap/Geofabrik North-Eastern Zone
+3555219587,Simen Chapori,railway_station,27.7237427,94.8869276,OpenStreetMap/Geofabrik North-Eastern Zone
+3684324222,Dhalpukhuri,railway_station,25.9598593,92.90648,OpenStreetMap/Geofabrik North-Eastern Zone
+3684324223,Habaipur,railway_station,25.8714739,92.985367,OpenStreetMap/Geofabrik North-Eastern Zone
+3684324224,Laopani,railway_station,26.1994939,92.5945394,OpenStreetMap/Geofabrik North-Eastern Zone
+3684357942,Amoni,railway_station,26.4482495,92.9198178,OpenStreetMap/Geofabrik North-Eastern Zone
+3684357943,Jakhalabandha,railway_station,26.5804062,92.9906325,OpenStreetMap/Geofabrik North-Eastern Zone
+3684357944,Samaguri,railway_station,26.4164936,92.8501979,OpenStreetMap/Geofabrik North-Eastern Zone
+3684464484,Amronga,railway_station,25.9819801,90.8540009,OpenStreetMap/Geofabrik North-Eastern Zone
+3684464485,Chaprakata,railway_station,26.4922948,90.612514,OpenStreetMap/Geofabrik North-Eastern Zone
+3687006707,Bahadur Chariali,railway_station,27.4481151,95.3507001,OpenStreetMap/Geofabrik North-Eastern Zone
+3687006708,Bogapani,railway_station,27.4339386,95.6083922,OpenStreetMap/Geofabrik North-Eastern Zone
+3687006709,Dhamalgaon Junction,railway_station,27.3874433,94.8375445,OpenStreetMap/Geofabrik North-Eastern Zone
+3687006710,Makum,railway_station,27.4869637,95.4393434,OpenStreetMap/Geofabrik North-Eastern Zone
+3687006711,Powai,railway_station,27.3497387,95.6475824,OpenStreetMap/Geofabrik North-Eastern Zone
+3765264557,Thakurkuchi,railway_station,26.2336261,91.9219307,OpenStreetMap/Geofabrik North-Eastern Zone
+3933174897,Soleartek Ghat,ferry_terminal,25.8897459,90.0181091,OpenStreetMap/Geofabrik North-Eastern Zone
+4117423764,Anipur,railway_station,24.5497017,92.4282504,OpenStreetMap/Geofabrik North-Eastern Zone
+4192839854,Margherita,railway_station,27.2892845,95.6729223,OpenStreetMap/Geofabrik North-Eastern Zone
+4264716321,Algapur,railway_station,24.7518835,92.59482,OpenStreetMap/Geofabrik North-Eastern Zone
+4324640966,Borhat,railway_station,27.1638447,95.2771766,OpenStreetMap/Geofabrik North-Eastern Zone
+4334992593,New Tinsukia Junction,railway_station,27.4797097,95.3340578,OpenStreetMap/Geofabrik North-Eastern Zone
+4407020393,Barpeta Road bus station,bus_station,26.5004873,90.9681296,OpenStreetMap/Geofabrik North-Eastern Zone
+4566446598,Dawki - Guwahati bus stand,bus_station,25.5735853,91.8768251,OpenStreetMap/Geofabrik North-Eastern Zone
+4570916154,Dhubri,ferry_terminal,26.0158012,89.9922107,OpenStreetMap/Geofabrik North-Eastern Zone
+4612200291,Barbari,bus_station,26.4552176,91.7938825,OpenStreetMap/Geofabrik North-Eastern Zone
+4622072596,,ferry_terminal,24.9957002,90.7042152,OpenStreetMap/Geofabrik North-Eastern Zone
+4622072600,,ferry_terminal,24.9945119,90.7040065,OpenStreetMap/Geofabrik North-Eastern Zone
+4633620396,Sululya Bus Station,bus_station,27.5999385,93.8257835,OpenStreetMap/Geofabrik North-Eastern Zone
+4640111959,Saikhoa Ghat,ferry_terminal,27.7635417,95.565662,OpenStreetMap/Geofabrik North-Eastern Zone
+4724765528,Silapathar,railway_station,27.5928149,94.7179231,OpenStreetMap/Geofabrik North-Eastern Zone
+4729610919,Nimati Ghat River Port,ferry_terminal,26.8614488,94.2420248,OpenStreetMap/Geofabrik North-Eastern Zone
+4738896144,Panitola,railway_station,27.4950278,95.2565607,OpenStreetMap/Geofabrik North-Eastern Zone
+4740596718,Guijan,ferry_terminal,27.5779056,95.3249466,OpenStreetMap/Geofabrik North-Eastern Zone
+4743832371,Talap,railway_station,27.6731524,95.5632056,OpenStreetMap/Geofabrik North-Eastern Zone
+4751283163,Ledo,railway_station,27.2911125,95.7386007,OpenStreetMap/Geofabrik North-Eastern Zone
+4868280221,SNT - Sikkim Nationalised Transport,bus_station,27.3339366,88.614527,OpenStreetMap/Geofabrik North-Eastern Zone
+4885324846,Sadiya Ghat,ferry_terminal,27.8176853,95.64421,OpenStreetMap/Geofabrik North-Eastern Zone
+4885324898,,ferry_terminal,27.8898414,95.6135724,OpenStreetMap/Geofabrik North-Eastern Zone
+4885599919,Teliamura,railway_station,23.8615463,91.6183175,OpenStreetMap/Geofabrik North-Eastern Zone
+4885600974,Maishashan,railway_station,24.8225002,92.2884241,OpenStreetMap/Geofabrik North-Eastern Zone
+4885601110,Chandkhira Bagn,railway_station,24.5586826,92.2997333,OpenStreetMap/Geofabrik North-Eastern Zone
+4925330124,Vajra stand,bus_station,27.3428304,88.6131673,OpenStreetMap/Geofabrik North-Eastern Zone
+4925330129,Southwest jeep stand,bus_station,27.329669,88.6115871,OpenStreetMap/Geofabrik North-Eastern Zone
+4925330149,SNT Bus Station (ground floor),bus_station,27.1660672,88.3632526,OpenStreetMap/Geofabrik North-Eastern Zone
+4925330237,Advanced ticket to Darjeeling namchi ravangla south&west sikkim,bus_station,27.3297012,88.6116472,OpenStreetMap/Geofabrik North-Eastern Zone
+4925330238,Namchi Bus 7am,bus_station,27.3340463,88.6146237,OpenStreetMap/Geofabrik North-Eastern Zone
+4925338221,Prepaid taxi (1st floor),bus_station,27.1660523,88.3630227,OpenStreetMap/Geofabrik North-Eastern Zone
+5232412822,,helipad,24.6834722,92.5633228,OpenStreetMap/Geofabrik North-Eastern Zone
+5265226721,Kamalabari ghat,ferry_terminal,26.914931,94.1553855,OpenStreetMap/Geofabrik North-Eastern Zone
+5283289823,Bus to Churachandpur,bus_station,24.7987581,93.9343991,OpenStreetMap/Geofabrik North-Eastern Zone
+5283500422,,bus_station,24.3414536,93.6973282,OpenStreetMap/Geofabrik North-Eastern Zone
+5298833844,,helipad,24.8303415,92.7964957,OpenStreetMap/Geofabrik North-Eastern Zone
+5302057025,Apsts Bus Stand,bus_station,27.5948593,91.8726057,OpenStreetMap/Geofabrik North-Eastern Zone
+5314360022,"Network Bus, Sumo Stand",bus_station,27.2639132,92.4228934,OpenStreetMap/Geofabrik North-Eastern Zone
+5315126846,Vans towards Imphal,bus_station,24.5003289,93.7755451,OpenStreetMap/Geofabrik North-Eastern Zone
+5318116022,,bus_station,28.0576523,95.332144,OpenStreetMap/Geofabrik North-Eastern Zone
+5318172921,Sumo stand,bus_station,28.0590756,95.3324435,OpenStreetMap/Geofabrik North-Eastern Zone
+5320174522,Sumo stand,bus_station,28.1750078,94.8013777,OpenStreetMap/Geofabrik North-Eastern Zone
+5330896822,APSTS,bus_station,28.1696523,94.7967926,OpenStreetMap/Geofabrik North-Eastern Zone
+5336146821,,bus_station,28.1354855,95.8430791,OpenStreetMap/Geofabrik North-Eastern Zone
+5336488221,APSTS Counter,bus_station,27.9248086,96.1639168,OpenStreetMap/Geofabrik North-Eastern Zone
+5346165121,APSTS,bus_station,27.4871254,96.2048684,OpenStreetMap/Geofabrik North-Eastern Zone
+5463769106,Garjee,railway_station,23.430471,91.4967565,OpenStreetMap/Geofabrik North-Eastern Zone
+5549380362,Sumo to Shillong,bus_station,25.2850303,91.7215246,OpenStreetMap/Geofabrik North-Eastern Zone
+5549380535,Sumo station,bus_station,25.2703774,91.7325825,OpenStreetMap/Geofabrik North-Eastern Zone
+5623038881,,ferry_terminal,26.2060025,91.7919838,OpenStreetMap/Geofabrik North-Eastern Zone
+5623038905,Kurua,ferry_terminal,26.2349023,91.8229868,OpenStreetMap/Geofabrik North-Eastern Zone
+5631122816,,helipad,27.5387224,95.2700812,OpenStreetMap/Geofabrik North-Eastern Zone
+5647749125,Stop-2  (NBS),bus_station,26.159911,91.7741412,OpenStreetMap/Geofabrik North-Eastern Zone
+5650760021,Khanapara South (NBS),bus_station,26.1194679,91.823815,OpenStreetMap/Geofabrik North-Eastern Zone
+5749944523,Ditokcherra,railway_station,25.0924066,92.8044064,OpenStreetMap/Geofabrik North-Eastern Zone
+5760548342,Dhekiajuli Road,railway_station,26.809858,92.4516665,OpenStreetMap/Geofabrik North-Eastern Zone
+5760677605,,ferry_terminal,26.2465331,91.140494,OpenStreetMap/Geofabrik North-Eastern Zone
+5775285558,Silanibari,railway_station,27.2009813,94.0312314,OpenStreetMap/Geofabrik North-Eastern Zone
+5781710892,Tatibahar,railway_station,26.980337,93.819799,OpenStreetMap/Geofabrik North-Eastern Zone
+5781711576,Dubia,railway_station,26.9196497,93.7202292,OpenStreetMap/Geofabrik North-Eastern Zone
+5782201450,Nizbargang,railway_station,26.8459516,93.3022942,OpenStreetMap/Geofabrik North-Eastern Zone
+5798480633,আখাউড়া,railway_station,23.8692316,91.2060188,OpenStreetMap/Geofabrik North-Eastern Zone
+5812887388,Gossaigaon Hat,railway_station,26.4295596,89.9769569,OpenStreetMap/Geofabrik North-Eastern Zone
+5821327357,Patiladaha,railway_station,26.4986937,90.7983885,OpenStreetMap/Geofabrik North-Eastern Zone
+5834920246,Nakachari,railway_station,26.7077164,94.3939506,OpenStreetMap/Geofabrik North-Eastern Zone
+6089210485,Sumo Stand (To Reiek),bus_station,23.7211265,92.7069764,OpenStreetMap/Geofabrik North-Eastern Zone
+6124504988,Titabar,railway_station,26.6025309,94.2012161,OpenStreetMap/Geofabrik North-Eastern Zone
+6148371633,Basbari,railway_station,26.1911942,89.901896,OpenStreetMap/Geofabrik North-Eastern Zone
+6148372178,Moterjhar,railway_station,26.1385693,89.8704977,OpenStreetMap/Geofabrik North-Eastern Zone
+6152370604,,ferry_terminal,27.4203144,94.7391629,OpenStreetMap/Geofabrik North-Eastern Zone
+6152370612,,ferry_terminal,27.3869867,94.7724706,OpenStreetMap/Geofabrik North-Eastern Zone
+6152585721,Bihara,railway_station,24.9528855,92.644809,OpenStreetMap/Geofabrik North-Eastern Zone
+6152585759,Damchara,railway_station,25.0112027,92.7437023,OpenStreetMap/Geofabrik North-Eastern Zone
+6152585857,Bandarkhal,railway_station,25.0584956,92.8012197,OpenStreetMap/Geofabrik North-Eastern Zone
+6152586017,Vangaichungpao,railway_station,24.757964,93.1797527,OpenStreetMap/Geofabrik North-Eastern Zone
+6152586128,Pencharthal,railway_station,24.1959036,92.1090201,OpenStreetMap/Geofabrik North-Eastern Zone
+6152586154,Nalkata,railway_station,24.0627242,92.0007953,OpenStreetMap/Geofabrik North-Eastern Zone
+6152586172,Manu,railway_station,23.9878937,91.9990031,OpenStreetMap/Geofabrik North-Eastern Zone
+6152586177,SK Para,railway_station,23.976048,91.9692832,OpenStreetMap/Geofabrik North-Eastern Zone
+6152586446,Bishramganj,railway_station,23.5984072,91.3591951,OpenStreetMap/Geofabrik North-Eastern Zone
+6152588047,Jolaibari,railway_station,23.1901429,91.5967894,OpenStreetMap/Geofabrik North-Eastern Zone
+6152588816,Belonia,railway_station,23.2479453,91.4844914,OpenStreetMap/Geofabrik North-Eastern Zone
+6153569109,New Harangajao,railway_station,25.1126333,92.868281,OpenStreetMap/Geofabrik North-Eastern Zone
+6153569125,Jatinga Lampur,railway_station,25.1109302,92.9496194,OpenStreetMap/Geofabrik North-Eastern Zone
+6153569502,Mahur,railway_station,25.1856262,93.1050391,OpenStreetMap/Geofabrik North-Eastern Zone
+6153569545,Migrendisa,railway_station,25.1751762,93.0658254,OpenStreetMap/Geofabrik North-Eastern Zone
+6154014204,Maibang,railway_station,25.3048267,93.1358671,OpenStreetMap/Geofabrik North-Eastern Zone
+6154014518,Sukritipur,railway_station,24.9005164,92.5771557,OpenStreetMap/Geofabrik North-Eastern Zone
+6156191732,Sukleshwar Ghat,ferry_terminal,26.186963,91.7401153,OpenStreetMap/Geofabrik North-Eastern Zone
+6162693187,Bus Station to Imphal 130¥,bus_station,24.2449579,94.3044052,OpenStreetMap/Geofabrik North-Eastern Zone
+6165158185,Ticket counter bus for everywhere,bus_station,24.8160923,93.9435413,OpenStreetMap/Geofabrik North-Eastern Zone
+6166426054,Sapat Gram,railway_station,26.3343959,90.1096058,OpenStreetMap/Geofabrik North-Eastern Zone
+6166426055,Tipkai,railway_station,26.2872972,90.0323274,OpenStreetMap/Geofabrik North-Eastern Zone
+6166426056,Monglajhora Halt,railway_halt,26.2506083,89.953748,OpenStreetMap/Geofabrik North-Eastern Zone
+6166426057,Agomoni,railway_station,26.2779157,89.7659102,OpenStreetMap/Geofabrik North-Eastern Zone
+6166426058,Bidyadabri,railway_station,26.2114291,89.7822905,OpenStreetMap/Geofabrik North-Eastern Zone
+6167435957,Chautara,railway_station,26.4028612,90.0845726,OpenStreetMap/Geofabrik North-Eastern Zone
+6167435958,Srirampur Assam,railway_station,26.4274307,89.9048996,OpenStreetMap/Geofabrik North-Eastern Zone
+6167498842,Singra,railway_station,25.9851361,91.1413068,OpenStreetMap/Geofabrik North-Eastern Zone
+6167498843,Dhupdhara,railway_station,25.9810637,91.0479766,OpenStreetMap/Geofabrik North-Eastern Zone
+6167498844,Rangjuli,railway_station,25.9882873,90.9559473,OpenStreetMap/Geofabrik North-Eastern Zone
+6167498845,Nolbari,railway_station,25.9533226,90.7132852,OpenStreetMap/Geofabrik North-Eastern Zone
+6167498846,Majgaon Assam,railway_station,26.4150746,90.5827019,OpenStreetMap/Geofabrik North-Eastern Zone
+6167541019,Gamani,railway_halt,26.9202858,92.8046089,OpenStreetMap/Geofabrik North-Eastern Zone
+6167541020,Charduar,railway_halt,26.8633476,92.7917397,OpenStreetMap/Geofabrik North-Eastern Zone
+6167541023,Misamari Halt,railway_halt,26.8124972,92.5953913,OpenStreetMap/Geofabrik North-Eastern Zone
+6167541024,Belsiri Halt,railway_station,26.8002592,92.5148097,OpenStreetMap/Geofabrik North-Eastern Zone
+6167541025,Hugrajuli Halt,railway_halt,26.8060408,92.3592576,OpenStreetMap/Geofabrik North-Eastern Zone
+6167541026,Nizsariha Halt,railway_halt,26.4856384,91.2221217,OpenStreetMap/Geofabrik North-Eastern Zone
+6167541027,Guagachha Halt,railway_halt,26.5008122,91.0240781,OpenStreetMap/Geofabrik North-Eastern Zone
+6167541028,Agthori,railway_station,26.198642,91.6860097,OpenStreetMap/Geofabrik North-Eastern Zone
+6167985523,Jonekarang,railway_halt,27.7846919,95.1612005,OpenStreetMap/Geofabrik North-Eastern Zone
+6167985524,Dipa Halt,railway_halt,27.7071205,94.849568,OpenStreetMap/Geofabrik North-Eastern Zone
+6167985525,Archipathar,railway_station,27.6557446,94.7797716,OpenStreetMap/Geofabrik North-Eastern Zone
+6167985526,Sisiborgaon,railway_halt,27.567644,94.6838772,OpenStreetMap/Geofabrik North-Eastern Zone
+6167985527,Sripani,railway_station,27.558656,94.6325719,OpenStreetMap/Geofabrik North-Eastern Zone
+6167985528,Moridhal,railway_halt,27.5393031,94.5947233,OpenStreetMap/Geofabrik North-Eastern Zone
+6167985529,Jiadhal,railway_halt,27.4515231,94.5031393,OpenStreetMap/Geofabrik North-Eastern Zone
+6167985530,Bordoloni,railway_station,27.4233618,94.4379455,OpenStreetMap/Geofabrik North-Eastern Zone
+6167985531,Subansiri,railway_halt,27.4541104,94.2439654,OpenStreetMap/Geofabrik North-Eastern Zone
+6167985532,Siajuli,railway_halt,27.3567888,94.1196048,OpenStreetMap/Geofabrik North-Eastern Zone
+6167985533,Tanijan Halt,railway_halt,27.1293193,93.8986981,OpenStreetMap/Geofabrik North-Eastern Zone
+6167985534,Tipling,railway_halt,27.0466279,93.8326728,OpenStreetMap/Geofabrik North-Eastern Zone
+6167985535,Uttar Kathani,railway_halt,26.9371011,93.791781,OpenStreetMap/Geofabrik North-Eastern Zone
+6167985536,Brahmajan,railway_halt,26.8531444,93.5427904,OpenStreetMap/Geofabrik North-Eastern Zone
+6167985537,Helem,railway_station,26.8729733,93.4528023,OpenStreetMap/Geofabrik North-Eastern Zone
+6167985538,Bedetti,railway_halt,26.8506126,93.3914977,OpenStreetMap/Geofabrik North-Eastern Zone
+6167985539,Monabari,railway_halt,26.801406,93.2515776,OpenStreetMap/Geofabrik North-Eastern Zone
+6172161638,Dhing Halt,railway_halt,26.4515782,92.4475493,OpenStreetMap/Geofabrik North-Eastern Zone
+6172161639,Dhing Bazar,railway_halt,26.4559115,92.4797639,OpenStreetMap/Geofabrik North-Eastern Zone
+6172161640,Batadrawa Road,railway_halt,26.4674,92.5418691,OpenStreetMap/Geofabrik North-Eastern Zone
+6172161641,Balikotia,railway_halt,26.4681408,92.5696313,OpenStreetMap/Geofabrik North-Eastern Zone
+6172161642,Dahgaon,railway_halt,26.4430697,92.615194,OpenStreetMap/Geofabrik North-Eastern Zone
+6172161643,Juriagaon,railway_halt,26.4400713,92.6537105,OpenStreetMap/Geofabrik North-Eastern Zone
+6172161644,Tarabari,railway_halt,26.4297701,92.6947108,OpenStreetMap/Geofabrik North-Eastern Zone
+6172161645,Bebejia,railway_station,26.2985369,92.6271299,OpenStreetMap/Geofabrik North-Eastern Zone
+6172161646,Phulaguri,railway_station,26.267398,92.5867626,OpenStreetMap/Geofabrik North-Eastern Zone
+6172161647,Dharamtul,railway_station,26.1882989,92.3653087,OpenStreetMap/Geofabrik North-Eastern Zone
+6172161648,Aujari,railway_station,26.1448057,92.267003,OpenStreetMap/Geofabrik North-Eastern Zone
+6172161649,Barahu,railway_station,26.1163496,92.139464,OpenStreetMap/Geofabrik North-Eastern Zone
+6172161650,Kamrup Khetri,railway_station,26.1272108,92.0833817,OpenStreetMap/Geofabrik North-Eastern Zone
+6172161651,Digaru,railway_station,26.1535793,91.9787595,OpenStreetMap/Geofabrik North-Eastern Zone
+6172161652,Panbari,railway_station,26.1999813,91.9775417,OpenStreetMap/Geofabrik North-Eastern Zone
+6172161653,Panikhaiti,railway_station,26.2116095,91.8752959,OpenStreetMap/Geofabrik North-Eastern Zone
+6172161654,New Guwahati,railway_station,26.1818507,91.7942583,OpenStreetMap/Geofabrik North-Eastern Zone
+6202698985,Moreh shared taxi,bus_station,24.7952381,93.9408259,OpenStreetMap/Geofabrik North-Eastern Zone
+6239801470,Dhansiri,railway_station,25.8114142,93.6021705,OpenStreetMap/Geofabrik North-Eastern Zone
+6240255034,Lamsakhang,railway_station,25.7958728,93.0472389,OpenStreetMap/Geofabrik North-Eastern Zone
+6242205278,Hathikali,railway_station,25.6401191,93.1015107,OpenStreetMap/Geofabrik North-Eastern Zone
+6253305186,Jorhat bus terminal,bus_station,26.7522813,94.1875195,OpenStreetMap/Geofabrik North-Eastern Zone
+6284153985,Difficult to find with works;),bus_station,24.828049,92.7997144,OpenStreetMap/Geofabrik North-Eastern Zone
+6284188189,,bus_station,24.8163338,92.7993162,OpenStreetMap/Geofabrik North-Eastern Zone
+6285730585,Bus and Winger to Dimapur (600₹) and other cities,bus_station,24.8109358,93.9369616,OpenStreetMap/Geofabrik North-Eastern Zone
+6285730685,Shared taxis to Imphal (500₹),bus_station,24.2479249,94.3037521,OpenStreetMap/Geofabrik North-Eastern Zone
+6286817989,Kamalajari,railway_station,26.0907327,91.9462911,OpenStreetMap/Geofabrik North-Eastern Zone
+6287513085,Winger to Dimapur,bus_station,24.8108778,93.9366991,OpenStreetMap/Geofabrik North-Eastern Zone
+6334165497,Dihakho,railway_station,25.4307228,93.1264767,OpenStreetMap/Geofabrik North-Eastern Zone
+6334165531,Manderdisa,railway_station,25.7196912,93.1275255,OpenStreetMap/Geofabrik North-Eastern Zone
+6336198469,Wadrengdisa,railway_station,25.2639726,93.1780159,OpenStreetMap/Geofabrik North-Eastern Zone
+6336198470,Kalachand,railway_station,25.3436168,93.1333256,OpenStreetMap/Geofabrik North-Eastern Zone
+6336198472,Mupa,railway_station,25.373568,93.1229772,OpenStreetMap/Geofabrik North-Eastern Zone
+6336198474,Dibolong,railway_station,25.5951762,93.0855886,OpenStreetMap/Geofabrik North-Eastern Zone
+6336198900,Daotuhaja,railway_station,25.2393544,93.1702832,OpenStreetMap/Geofabrik North-Eastern Zone
+6336255016,Chandranathpur,railway_station,24.9628074,92.6882518,OpenStreetMap/Geofabrik North-Eastern Zone
+6336270474,New Karimganj Junction,railway_station,24.8429273,92.3947736,OpenStreetMap/Geofabrik North-Eastern Zone
+6336366847,Ratabari,railway_station,24.6105627,92.3968185,OpenStreetMap/Geofabrik North-Eastern Zone
+6336366851,Phakhoagram,railway_station,24.6615379,92.4108486,OpenStreetMap/Geofabrik North-Eastern Zone
+6336366857,Eraligul,railway_station,24.6735166,92.3712626,OpenStreetMap/Geofabrik North-Eastern Zone
+6338287404,Katlicherra,railway_station,24.4687279,92.5544376,OpenStreetMap/Geofabrik North-Eastern Zone
+6338287417,Manipur Bagan,railway_station,24.40847,92.5416528,OpenStreetMap/Geofabrik North-Eastern Zone
+6338287909,Ramnathpur,railway_station,24.2314586,92.5268411,OpenStreetMap/Geofabrik North-Eastern Zone
+6338320308,Monacherra,railway_station,24.611951,92.550058,OpenStreetMap/Geofabrik North-Eastern Zone
+6338320309,Mohammadpur,railway_station,24.5091037,92.5927369,OpenStreetMap/Geofabrik North-Eastern Zone
+6487970788,Nagaland State Transport,bus_station,26.7213894,95.0268732,OpenStreetMap/Geofabrik North-Eastern Zone
+6544603985,Sumo to Mon,bus_station,27.0240578,95.0287347,OpenStreetMap/Geofabrik North-Eastern Zone
+6550861285,Bus to Moirang (Loktak),bus_station,24.8065339,93.9332922,OpenStreetMap/Geofabrik North-Eastern Zone
+6559128285,Manipur State Transport - Bus to Moreh,bus_station,24.7955653,93.9403237,OpenStreetMap/Geofabrik North-Eastern Zone
+6583206085,New Yuzana Travels,bus_station,24.8315811,92.8000844,OpenStreetMap/Geofabrik North-Eastern Zone
+6598618485,,bus_station,25.1714755,92.0194547,OpenStreetMap/Geofabrik North-Eastern Zone
+6627280464,Bilasipara,railway_station,26.2424337,90.2359298,OpenStreetMap/Geofabrik North-Eastern Zone
+6774579589,Lepetkata,railway_halt,27.3479856,94.8392266,OpenStreetMap/Geofabrik North-Eastern Zone
+6805346066,,airport,27.5449321,95.2381291,OpenStreetMap/Geofabrik North-Eastern Zone
+6842759285,buses for everywhere,bus_station,24.8189794,93.9455017,OpenStreetMap/Geofabrik North-Eastern Zone
+6842759385,buses for everywhere,bus_station,24.8247134,93.9487188,OpenStreetMap/Geofabrik North-Eastern Zone
+6856784108,Nagaland State Transportation,bus_station,24.8156521,93.9405877,OpenStreetMap/Geofabrik North-Eastern Zone
+6876823585,Guwahati airport,bus_station,25.5748618,91.8826797,OpenStreetMap/Geofabrik North-Eastern Zone
+6881013885,Tezpur 200rupees,bus_station,26.1197426,91.8257158,OpenStreetMap/Geofabrik North-Eastern Zone
+6897144087,Sumo stand,bus_station,28.1698267,94.7982352,OpenStreetMap/Geofabrik North-Eastern Zone
+6897382601,Lumding Bus Stand,bus_station,25.7586701,93.1744036,OpenStreetMap/Geofabrik North-Eastern Zone
+6912526286,APSTS,bus_station,28.4163909,94.6777528,OpenStreetMap/Geofabrik North-Eastern Zone
+6912526287,Sumo Stand,bus_station,28.4143369,94.6779278,OpenStreetMap/Geofabrik North-Eastern Zone
+6912527086,Sumo Stand,bus_station,28.530604,94.375382,OpenStreetMap/Geofabrik North-Eastern Zone
+6934229532,,bus_station,27.2900412,95.6797525,OpenStreetMap/Geofabrik North-Eastern Zone
+6936877960,Manu Bazar,railway_station,23.0618468,91.6458607,OpenStreetMap/Geofabrik North-Eastern Zone
+6959952550,,bus_station,25.5770121,91.8834264,OpenStreetMap/Geofabrik North-Eastern Zone
+6986663585,Sumo stand,bus_station,25.5734159,91.8830383,OpenStreetMap/Geofabrik North-Eastern Zone
+7071787085,"sig,daj,pelling etc.",bus_station,27.1303217,88.2862587,OpenStreetMap/Geofabrik North-Eastern Zone
+7099561458,Alamganj,railway_station,26.1190373,90.0255937,OpenStreetMap/Geofabrik North-Eastern Zone
+7099593560,Bagribari,railway_station,26.2045466,90.1205867,OpenStreetMap/Geofabrik North-Eastern Zone
+7099895549,Dhubri,railway_station,26.0228197,89.9779442,OpenStreetMap/Geofabrik North-Eastern Zone
+7099901986,Gauripur,railway_station,26.077224,89.9555665,OpenStreetMap/Geofabrik North-Eastern Zone
+7103310140,Tetelia,railway_station,26.1258634,92.0215581,OpenStreetMap/Geofabrik North-Eastern Zone
+7106704703,Narangi,railway_station,26.182101,91.8333811,OpenStreetMap/Geofabrik North-Eastern Zone
+7113216241,Kamakhya Junction,railway_station,26.1572797,91.6920689,OpenStreetMap/Geofabrik North-Eastern Zone
+7122862136,Azara,railway_station,26.1020792,91.616621,OpenStreetMap/Geofabrik North-Eastern Zone
+7123383785,Mirza,railway_station,26.0731453,91.5180445,OpenStreetMap/Geofabrik North-Eastern Zone
+7129320089,Chaygaon,railway_station,26.0551154,91.3703245,OpenStreetMap/Geofabrik North-Eastern Zone
+7134808985,Private Bus Stand,bus_station,27.2374557,94.1076254,OpenStreetMap/Geofabrik North-Eastern Zone
+7141409144,Bamunigaon,railway_station,26.0149836,91.2958047,OpenStreetMap/Geofabrik North-Eastern Zone
+7141886460,Boko,railway_station,25.9996208,91.2189943,OpenStreetMap/Geofabrik North-Eastern Zone
+7142134186,,bus_station,27.2026883,94.44346,OpenStreetMap/Geofabrik North-Eastern Zone
+7152416066,Dudhnai,railway_station,26.0014891,90.7618909,OpenStreetMap/Geofabrik North-Eastern Zone
+7158627864,Goalpara Town,railway_station,26.1270795,90.6211111,OpenStreetMap/Geofabrik North-Eastern Zone
+7158912835,Bijni,railway_station,26.4973796,90.7074554,OpenStreetMap/Geofabrik North-Eastern Zone
+7159379654,New Bongaigaon Junction,railway_station,26.4758239,90.5372357,OpenStreetMap/Geofabrik North-Eastern Zone
+7270778685,,bus_station,24.831463,92.800193,OpenStreetMap/Geofabrik North-Eastern Zone
+7281924285,Jeeps to Silchar,bus_station,24.8067525,93.9327504,OpenStreetMap/Geofabrik North-Eastern Zone
+7406558628,,helipad,27.7496233,93.3885768,OpenStreetMap/Geofabrik North-Eastern Zone
+7662581206,Patharkhola,railway_station,25.7778513,93.1028384,OpenStreetMap/Geofabrik North-Eastern Zone
+7980121746,NST Station,bus_station,26.1044731,94.2576778,OpenStreetMap/Geofabrik North-Eastern Zone
+8432231123,Bhanga,railway_station,24.8540093,92.4801341,OpenStreetMap/Geofabrik North-Eastern Zone
+8680762994,,helipad,26.0339535,89.9702375,OpenStreetMap/Geofabrik North-Eastern Zone
+8753544766,Imambari Railway Station,railway_station,23.7920599,91.1727717,OpenStreetMap/Geofabrik North-Eastern Zone
+8913811029,,helipad,23.085396,93.291288,OpenStreetMap/Geofabrik North-Eastern Zone
+8999694693,Bordubi Road,railway_station,27.399181,95.314595,OpenStreetMap/Geofabrik North-Eastern Zone
+8999694694,Baginadi,railway_station,27.3991671,94.1824856,OpenStreetMap/Geofabrik North-Eastern Zone
+8999694695,Chakiting,railway_station,26.5616754,94.0956546,OpenStreetMap/Geofabrik North-Eastern Zone
+8999694696,Daldali,railway_station,25.820221,93.517152,OpenStreetMap/Geofabrik North-Eastern Zone
+9228599493,Mondorbag Railway station,railway_station,23.6879655,91.1523503,OpenStreetMap/Geofabrik North-Eastern Zone
+9470745970,Mawsynram Station,bus_station,25.2988116,91.5814165,OpenStreetMap/Geofabrik North-Eastern Zone
+9470762651,Taxi to Shillong,bus_station,25.2990071,91.5816423,OpenStreetMap/Geofabrik North-Eastern Zone
+9730174642,Numaligarh,railway_station,26.6095389,93.8628504,OpenStreetMap/Geofabrik North-Eastern Zone
+9761003858,Langcholiet railway station,railway_station,25.7583156,93.3076183,OpenStreetMap/Geofabrik North-Eastern Zone
+9761003859,Nailalung railway station,railway_station,25.7729148,93.387018,OpenStreetMap/Geofabrik North-Eastern Zone
+9761003860,Bar Langfer S railway station,railway_station,25.7549185,93.2436485,OpenStreetMap/Geofabrik North-Eastern Zone
+9761003882,Lahing,railway_station,26.7412014,94.4371491,OpenStreetMap/Geofabrik North-Eastern Zone
+9761003883,Seleng Hat,railway_station,26.78379,94.482874,OpenStreetMap/Geofabrik North-Eastern Zone
+9761004250,Kampur railway station,railway_station,26.1605194,92.6573324,OpenStreetMap/Geofabrik North-Eastern Zone
+9761004251,Jamunamukh,railway_station,26.1094687,92.7405312,OpenStreetMap/Geofabrik North-Eastern Zone
+9761004252,Jugijan railway station,railway_station,26.0393796,92.8027958,OpenStreetMap/Geofabrik North-Eastern Zone
+9761004253,Barua Bamungaon,railway_station,26.6691375,93.9838504,OpenStreetMap/Geofabrik North-Eastern Zone
+9831789932,Bechimari,railway_station,26.3574273,90.5222958,OpenStreetMap/Geofabrik North-Eastern Zone
+9834431224,Chapar,railway_station,26.2753278,90.4378626,OpenStreetMap/Geofabrik North-Eastern Zone
+9837266184,Awangkhal,railway_station,24.8317856,93.5630089,OpenStreetMap/Geofabrik North-Eastern Zone
+9839806385,Noney,railway_station,24.8591099,93.6325027,OpenStreetMap/Geofabrik North-Eastern Zone
+9839806388,Haochong,railway_station,24.8383213,93.7178287,OpenStreetMap/Geofabrik North-Eastern Zone
+9839806399,Phayeng,railway_station,24.8195117,93.8205385,OpenStreetMap/Geofabrik North-Eastern Zone
+9839807719,Imphal,railway_station,24.7639447,93.8654977,OpenStreetMap/Geofabrik North-Eastern Zone
+9846000357,Mualkhang,railway_station,23.9012663,92.6640593,OpenStreetMap/Geofabrik North-Eastern Zone
+9846000395,Kawnpui,railway_station,23.9951904,92.6453589,OpenStreetMap/Geofabrik North-Eastern Zone
+9846000396,Hortoki,railway_station,24.0778717,92.6282269,OpenStreetMap/Geofabrik North-Eastern Zone
+9848396241,Sukhovi,railway_station,25.7602149,93.7125172,OpenStreetMap/Geofabrik North-Eastern Zone
+9848396304,Dhansiripar,railway_station,25.7821432,93.6354232,OpenStreetMap/Geofabrik North-Eastern Zone
+9848477377,Molvom,railway_station,25.7427091,93.8501834,OpenStreetMap/Geofabrik North-Eastern Zone
+9948639404,Thakurbari Railway Station,railway_station,26.797227,92.7000432,OpenStreetMap/Geofabrik North-Eastern Zone
+9989489381,ASTC Lakhimpur bus station,bus_station,27.2383122,94.1057007,OpenStreetMap/Geofabrik North-Eastern Zone
+9989765050,,helipad,25.8460975,93.4390747,OpenStreetMap/Geofabrik North-Eastern Zone
+10139464266,আনন্দপুর,railway_station,23.0903909,91.4313018,OpenStreetMap/Geofabrik North-Eastern Zone
+10139535698,Belonia Railway Station,railway_station,23.2416662,91.4501419,OpenStreetMap/Geofabrik North-Eastern Zone
+10139557255,পরশুরাম রেলওয়ে স্টেশন,railway_station,23.216143,91.4453042,OpenStreetMap/Geofabrik North-Eastern Zone
+10140023315,ফুলগাজী রেলওয়ে স্টেশন,railway_station,23.1475271,91.4312649,OpenStreetMap/Geofabrik North-Eastern Zone
+10223064287,Shantirbazar Railway Station,railway_station,23.3224074,91.5322665,OpenStreetMap/Geofabrik North-Eastern Zone
+10231895524,Jamuguri,railway_station,26.3861147,93.9591679,OpenStreetMap/Geofabrik North-Eastern Zone
+10236153518,Bagma,railway_station,23.555555,91.4214589,OpenStreetMap/Geofabrik North-Eastern Zone
+10236180792,Thailik Twisa,railway_halt,23.1245846,91.6140138,OpenStreetMap/Geofabrik North-Eastern Zone
+10236190225,Jirighat,railway_station,24.8040772,93.1076785,OpenStreetMap/Geofabrik North-Eastern Zone
+10236190226,Kamranga,railway_halt,24.8512706,93.0548813,OpenStreetMap/Geofabrik North-Eastern Zone
+10236190227,Moinarband,railway_station,24.8538743,92.8340336,OpenStreetMap/Geofabrik North-Eastern Zone
+10729730937,Bus stand at Hawakhana,bus_station,25.5155614,90.2162754,OpenStreetMap/Geofabrik North-Eastern Zone
+10729730944,Bus stand at Chandmari,bus_station,25.5197081,90.2189239,OpenStreetMap/Geofabrik North-Eastern Zone
+10729730946,Bus stand at Dobasipara,bus_station,25.5079247,90.2153556,OpenStreetMap/Geofabrik North-Eastern Zone
+10737181272,Phulbari/Salmara Dry Season Ferry Ghat (March 2023),ferry_terminal,25.9216197,90.0063451,OpenStreetMap/Geofabrik North-Eastern Zone
+10737181273,,ferry_terminal,25.8909424,90.0166775,OpenStreetMap/Geofabrik North-Eastern Zone
+10831428906,Shared jeeps in this parking garage,bus_station,27.1321154,88.2826972,OpenStreetMap/Geofabrik North-Eastern Zone
+11127426064,,ferry_terminal,26.1971074,92.5202597,OpenStreetMap/Geofabrik North-Eastern Zone
+11127426092,,ferry_terminal,26.1976103,92.519589,OpenStreetMap/Geofabrik North-Eastern Zone
+11190651304,,helipad,23.4269816,91.8952627,OpenStreetMap/Geofabrik North-Eastern Zone
+11191115876,,helipad,23.3931615,91.8620154,OpenStreetMap/Geofabrik North-Eastern Zone
+11192445513,,helipad,23.6764526,92.2611828,OpenStreetMap/Geofabrik North-Eastern Zone
+11192445617,,helipad,23.6513552,92.2405141,OpenStreetMap/Geofabrik North-Eastern Zone
+11192445718,,helipad,23.6901377,92.1719171,OpenStreetMap/Geofabrik North-Eastern Zone
+11192445842,,helipad,23.7335852,92.1427492,OpenStreetMap/Geofabrik North-Eastern Zone
+11193854828,,helipad,23.4499334,92.3120109,OpenStreetMap/Geofabrik North-Eastern Zone
+11207889137,Bike taxi stop - never recommend,bus_station,26.1197045,91.8222045,OpenStreetMap/Geofabrik North-Eastern Zone
+11351136765,"Mopungchucket, Impur station",bus_station,26.326575,94.5230084,OpenStreetMap/Geofabrik North-Eastern Zone
+11356598240,NST counter,bus_station,26.4544737,94.550657,OpenStreetMap/Geofabrik North-Eastern Zone
+11378891069,Down Town,bus_station,26.1383001,91.799712,OpenStreetMap/Geofabrik North-Eastern Zone
+11383078880,"Pandu Terminal, NW - 2",ferry_terminal,26.1713775,91.6791148,OpenStreetMap/Geofabrik North-Eastern Zone
+11526669769,Jeeps to Nungba,bus_station,24.8066509,93.9324152,OpenStreetMap/Geofabrik North-Eastern Zone
+11542181369,,bus_station,24.3736679,92.1685242,OpenStreetMap/Geofabrik North-Eastern Zone
+11637338969,Guwahati sumo & shared taxi,bus_station,25.5680759,91.8817937,OpenStreetMap/Geofabrik North-Eastern Zone
+11860941706,Golakganj Junction,railway_station,26.1081741,89.830652,OpenStreetMap/Geofabrik North-Eastern Zone
+11906862908,ISBT,bus_station,25.6311051,91.8927209,OpenStreetMap/Geofabrik North-Eastern Zone
+11908063511,Fakiragram Junction,railway_station,26.3644473,90.1858583,OpenStreetMap/Geofabrik North-Eastern Zone
+11917607650,Kokrajhar,railway_station,26.4046355,90.2725956,OpenStreetMap/Geofabrik North-Eastern Zone
+11917638020,Salakati,railway_station,26.4426999,90.3538048,OpenStreetMap/Geofabrik North-Eastern Zone
+11918395548,Bongaigaon,railway_station,26.4785333,90.5602987,OpenStreetMap/Geofabrik North-Eastern Zone
+12027975910,Basistha Mandir,bus_station,26.0950539,91.7861454,OpenStreetMap/Geofabrik North-Eastern Zone
+12081841056,Tingrai,railway_station,27.4580349,95.5601249,OpenStreetMap/Geofabrik North-Eastern Zone
+12081841061,Digboi,railway_station,27.3821246,95.6175003,OpenStreetMap/Geofabrik North-Eastern Zone
+12081842899,Bargolai,railway_station,27.285878,95.7075912,OpenStreetMap/Geofabrik North-Eastern Zone
+12089547380,Dibrugarh Town,railway_station,27.4778622,94.9007841,OpenStreetMap/Geofabrik North-Eastern Zone
+12090652555,Niz Chatia,railway_station,26.7480438,93.0476504,OpenStreetMap/Geofabrik North-Eastern Zone
+12091831658,Mariani Junction,railway_station,26.652632,94.3081909,OpenStreetMap/Geofabrik North-Eastern Zone
+12096013703,Meleng,railway_station,26.6793365,94.3569854,OpenStreetMap/Geofabrik North-Eastern Zone
+12097812007,Sapekhati,railway_station,27.1106702,95.1620903,OpenStreetMap/Geofabrik North-Eastern Zone
+12097812012,Bhojo,railway_station,27.0635781,95.0323418,OpenStreetMap/Geofabrik North-Eastern Zone
+12101438061,Safrai,railway_station,27.0281263,94.9408681,OpenStreetMap/Geofabrik North-Eastern Zone
+12102228019,Duliajan,railway_station,27.3673631,95.30665,OpenStreetMap/Geofabrik North-Eastern Zone
+12117351376,Daklongia,railway_station,26.685548,94.2826536,OpenStreetMap/Geofabrik North-Eastern Zone
+12122704336,Namrup,railway_station,27.1967993,95.3141575,OpenStreetMap/Geofabrik North-Eastern Zone
+12133563130,Kharahat,railway_station,27.0704615,94.7496423,OpenStreetMap/Geofabrik North-Eastern Zone
+12134441643,Khowang,railway_station,27.282388,94.9025738,OpenStreetMap/Geofabrik North-Eastern Zone
+12134463046,Tangni,railway_station,27.4523264,94.7145979,OpenStreetMap/Geofabrik North-Eastern Zone
+12135699591,Khumtai,railway_station,26.6244997,93.8501863,OpenStreetMap/Geofabrik North-Eastern Zone
+12135699596,Badulipar,railway_station,26.64702,93.8748077,OpenStreetMap/Geofabrik North-Eastern Zone
+12135699598,Rangaliting,railway_station,26.6570212,93.918533,OpenStreetMap/Geofabrik North-Eastern Zone
+12144740373,Nazira,railway_station,26.9032579,94.7224246,OpenStreetMap/Geofabrik North-Eastern Zone
+12149478467,Oating,railway_station,26.4277177,93.9859276,OpenStreetMap/Geofabrik North-Eastern Zone
+12149545625,Bhilgaon,railway_station,26.3417538,93.9220212,OpenStreetMap/Geofabrik North-Eastern Zone
+12150235774,Hojai,railway_station,26.0019487,92.8521239,OpenStreetMap/Geofabrik North-Eastern Zone
+12150235775,Hojai,railway_station,26.0018174,92.8519455,OpenStreetMap/Geofabrik North-Eastern Zone
+12150235778,Hojai,railway_station,26.0019592,92.8516602,OpenStreetMap/Geofabrik North-Eastern Zone
+12182993883,Badarpur Junction,railway_station,24.865057,92.556227,OpenStreetMap/Geofabrik North-Eastern Zone
+12182993888,Badarpur Ghat,railway_station,24.8741217,92.5823262,OpenStreetMap/Geofabrik North-Eastern Zone
+12184952368,Dijaobra,railway_station,25.5580278,93.0934048,OpenStreetMap/Geofabrik North-Eastern Zone
+12209522479,Bhasha Shahid,railway_station,24.830302,92.7875689,OpenStreetMap/Geofabrik North-Eastern Zone
+12209522494,New Silchar,railway_station,24.8479977,92.7718538,OpenStreetMap/Geofabrik North-Eastern Zone
+12209566420,Arunachal Junction,railway_station,24.8557762,92.7429584,OpenStreetMap/Geofabrik North-Eastern Zone
+12228576515,Chargola,railway_station,24.8471926,92.4243412,OpenStreetMap/Geofabrik North-Eastern Zone
+12279681714,,ferry_terminal,24.8468265,92.8139421,OpenStreetMap/Geofabrik North-Eastern Zone
+12288807057,Rupasibari,railway_station,24.8549889,92.5292896,OpenStreetMap/Geofabrik North-Eastern Zone
+12288998618,Nischintapur,railway_station,23.7990985,91.240755,OpenStreetMap/Geofabrik North-Eastern Zone
+12303088363,Maishashan,railway_station,24.8223116,92.2883644,OpenStreetMap/Geofabrik North-Eastern Zone
+12303098547,Maishashan,railway_station,24.8222839,92.2884018,OpenStreetMap/Geofabrik North-Eastern Zone
+12307928802,Sabroom,railway_station,23.013792,91.7011609,OpenStreetMap/Geofabrik North-Eastern Zone
+12335682236,Nilambazar,railway_station,24.7459471,92.3556393,OpenStreetMap/Geofabrik North-Eastern Zone
+12346971703,Ratabari,railway_station,24.5700112,92.4098977,OpenStreetMap/Geofabrik North-Eastern Zone
+12377117643,Kanaibazar,railway_station,24.6405457,92.3239504,OpenStreetMap/Geofabrik North-Eastern Zone
+12442401956,Jamira,railway_station,24.3184824,92.5279312,OpenStreetMap/Geofabrik North-Eastern Zone
+12451667827,Patharkandi,railway_station,24.6106514,92.3221278,OpenStreetMap/Geofabrik North-Eastern Zone
+12451813140,Churaibari,railway_station,24.4337328,92.2414357,OpenStreetMap/Geofabrik North-Eastern Zone
+12451813157,Kathaltali Halt,railway_halt,24.4685199,92.2463883,OpenStreetMap/Geofabrik North-Eastern Zone
+12451844203,Dharmanagar,railway_station,24.369978,92.1699319,OpenStreetMap/Geofabrik North-Eastern Zone
+12451844313,Tilbhum,railway_station,24.4887616,92.2719126,OpenStreetMap/Geofabrik North-Eastern Zone
+12451844314,Tilbhum,railway_station,24.4887927,92.2718768,OpenStreetMap/Geofabrik North-Eastern Zone
+12451844755,Kalkalighat,railway_station,24.5806377,92.2954645,OpenStreetMap/Geofabrik North-Eastern Zone
+12651112924,Inter State Bus Terminal - ISBT Khanapara,bus_station,26.1189284,91.8225255,OpenStreetMap/Geofabrik North-Eastern Zone
+12651661134,Inter State Bus Terminal - ISBT North Lakhimpur,bus_station,27.2709922,94.0882769,OpenStreetMap/Geofabrik North-Eastern Zone
+12778201163,Phiding,railway_station,25.2052554,93.1447144,OpenStreetMap/Geofabrik North-Eastern Zone
+13362894538,Kayasthagram,railway_station,24.7191348,92.3476402,OpenStreetMap/Geofabrik North-Eastern Zone
+13362930362,Jawaharnagar,railway_station,23.9198349,91.9017652,OpenStreetMap/Geofabrik North-Eastern Zone
+13362990742,Moabund,railway_station,26.6688953,94.0721921,OpenStreetMap/Geofabrik North-Eastern Zone
+13363026886,Viswanath Charali,railway_station,26.7696912,93.1654234,OpenStreetMap/Geofabrik North-Eastern Zone
+13363029722,Tinsukia Junction,railway_station,27.4868393,95.3577202,OpenStreetMap/Geofabrik North-Eastern Zone
+13421031861,,helipad,25.1133519,94.2455426,OpenStreetMap/Geofabrik North-Eastern Zone
+13432204290,Shashidal Railway Station,railway_station,23.6385282,91.1468792,OpenStreetMap/Geofabrik North-Eastern Zone
+13446105316,,helipad,26.1441412,93.9401114,OpenStreetMap/Geofabrik North-Eastern Zone
+13519256141,,helipad,23.2561868,92.8889349,OpenStreetMap/Geofabrik North-Eastern Zone
+13602813556,,helipad,23.22144,92.3325907,OpenStreetMap/Geofabrik North-Eastern Zone
+13602813776,,helipad,23.0383528,92.3516883,OpenStreetMap/Geofabrik North-Eastern Zone
+13975137288,,ferry_terminal,26.5135336,92.2360933,OpenStreetMap/Geofabrik North-Eastern Zone
+14021294679,Rangapahar,railway_station,25.8341812,93.6655766,OpenStreetMap/Geofabrik North-Eastern Zone
+245705252,Lawngtlai,major_town,22.5280366,92.898086,OpenStreetMap/Geofabrik North-Eastern Zone
+245710288,Lunglei,major_town,22.8931695,92.7470391,OpenStreetMap/Geofabrik North-Eastern Zone
+245711451,Sabroom,major_town,23.0031179,91.7294043,OpenStreetMap/Geofabrik North-Eastern Zone
+245712879,Thenzawl,major_town,23.2812916,92.7753393,OpenStreetMap/Geofabrik North-Eastern Zone
+245714005,Melaghar,major_town,23.4947164,91.3300645,OpenStreetMap/Geofabrik North-Eastern Zone
+245714160,Udaipur,major_town,23.5416162,91.4917593,OpenStreetMap/Geofabrik North-Eastern Zone
+245714304,Champhai,major_town,23.4787183,93.3198879,OpenStreetMap/Geofabrik North-Eastern Zone
+245716231,Aizawl,major_city,23.7277631,92.7179947,OpenStreetMap/Geofabrik North-Eastern Zone
+245716313,Lengpui,major_town,23.8314147,92.6287719,OpenStreetMap/Geofabrik North-Eastern Zone
+245717374,Agartala,major_city,23.8312377,91.2823821,OpenStreetMap/Geofabrik North-Eastern Zone
+245717922,Ambassa,major_town,23.9216436,91.8511393,OpenStreetMap/Geofabrik North-Eastern Zone
+245719719,Kamalpur,major_town,24.1737224,91.8171322,OpenStreetMap/Geofabrik North-Eastern Zone
+245720562,Kailashahar,major_town,24.3194297,91.9984289,OpenStreetMap/Geofabrik North-Eastern Zone
+245722452,Katlicherra,major_town,24.469067,92.5581981,OpenStreetMap/Geofabrik North-Eastern Zone
+245722860,Palel,major_town,24.450839,94.0262982,OpenStreetMap/Geofabrik North-Eastern Zone
+245724699,Thoubal,major_town,24.6386954,93.996871,OpenStreetMap/Geofabrik North-Eastern Zone
+245724723,Bishnupur,major_town,24.6267287,93.7600454,OpenStreetMap/Geofabrik North-Eastern Zone
+245725264,Hailakandi,major_town,24.6846916,92.5645836,OpenStreetMap/Geofabrik North-Eastern Zone
+245726361,Lakhipur,major_town,24.7928227,93.0090947,OpenStreetMap/Geofabrik North-Eastern Zone
+245726854,Karimganj,major_town,24.8647214,92.3681114,OpenStreetMap/Geofabrik North-Eastern Zone
+245727220,Kamjong,major_town,24.8559107,94.5119827,OpenStreetMap/Geofabrik North-Eastern Zone
+245729854,Haflong,major_town,25.1645049,93.017599,OpenStreetMap/Geofabrik North-Eastern Zone
+245730074,Mahur,major_town,25.1830797,93.1133862,OpenStreetMap/Geofabrik North-Eastern Zone
+245730239,Baghmara,major_town,25.1927615,90.6459328,OpenStreetMap/Geofabrik North-Eastern Zone
+245731299,Sohra (Cherrapunji),major_town,25.2777336,91.7292416,OpenStreetMap/Geofabrik North-Eastern Zone
+245731951,Maibong,major_town,25.3021275,93.1332922,OpenStreetMap/Geofabrik North-Eastern Zone
+245732875,Khliehriat,major_town,25.3587124,92.3669702,OpenStreetMap/Geofabrik North-Eastern Zone
+245733742,Jowai,major_town,25.4434703,92.1973181,OpenStreetMap/Geofabrik North-Eastern Zone
+245734459,Langting,major_town,25.4972313,93.1136328,OpenStreetMap/Geofabrik North-Eastern Zone
+245735780,Shillong,major_city,25.5759931,91.8827872,OpenStreetMap/Geofabrik North-Eastern Zone
+245736454,Meluri,major_town,25.6844515,94.6284816,OpenStreetMap/Geofabrik North-Eastern Zone
+245736606,Phek,major_town,25.7098345,94.4633429,OpenStreetMap/Geofabrik North-Eastern Zone
+245738612,Lumding,major_town,25.7535433,93.1731676,OpenStreetMap/Geofabrik North-Eastern Zone
+245740030,Lanka,major_town,25.9207022,92.9502797,OpenStreetMap/Geofabrik North-Eastern Zone
+245741300,Wokha,major_town,26.0962958,94.2544489,OpenStreetMap/Geofabrik North-Eastern Zone
+245741532,Shamator Town,major_town,26.0714153,94.8745224,OpenStreetMap/Geofabrik North-Eastern Zone
+245741680,Dhubri,major_city,26.019642,89.991393,OpenStreetMap/Geofabrik North-Eastern Zone
+245743490,Goalpara,major_city,26.1783623,90.6226683,OpenStreetMap/Geofabrik North-Eastern Zone
+245744921,Bilasipara,major_town,26.2316753,90.2324363,OpenStreetMap/Geofabrik North-Eastern Zone
+245746325,Barpeta,major_city,26.3257824,91.0075712,OpenStreetMap/Geofabrik North-Eastern Zone
+245747060,Nagaon,major_city,26.3482238,92.6858215,OpenStreetMap/Geofabrik North-Eastern Zone
+245748064,Rangia,major_town,26.4444441,91.6172816,OpenStreetMap/Geofabrik North-Eastern Zone
+245748094,Mangaldoi,major_town,26.436303,92.0306569,OpenStreetMap/Geofabrik North-Eastern Zone
+245748181,Nalbari,major_town,26.445568,91.4354335,OpenStreetMap/Geofabrik North-Eastern Zone
+245748446,Dhing,major_town,26.4582273,92.4819173,OpenStreetMap/Geofabrik North-Eastern Zone
+245748464,Moirabari,major_town,26.4549295,92.4228752,OpenStreetMap/Geofabrik North-Eastern Zone
+245748937,Golaghat,major_city,26.5108262,93.9743686,OpenStreetMap/Geofabrik North-Eastern Zone
+245750088,Titabor,major_town,26.5924877,94.1951629,OpenStreetMap/Geofabrik North-Eastern Zone
+245750237,Kalaigaon,major_town,26.5741395,91.9755449,OpenStreetMap/Geofabrik North-Eastern Zone
+245750654,Changtongya,major_town,26.5348636,94.6797413,OpenStreetMap/Geofabrik North-Eastern Zone
+245750977,Tezpur,major_town,26.6229928,92.7976082,OpenStreetMap/Geofabrik North-Eastern Zone
+245751791,Mon,major_town,26.7252584,95.0304359,OpenStreetMap/Geofabrik North-Eastern Zone
+245752537,Udalguri,major_town,26.7503815,92.0977245,OpenStreetMap/Geofabrik North-Eastern Zone
+245753279,Amguri,major_town,26.8098175,94.5249646,OpenStreetMap/Geofabrik North-Eastern Zone
+245753934,Chariduar,major_town,26.8628617,92.7809069,OpenStreetMap/Geofabrik North-Eastern Zone
+245753972,Gohpur,major_town,26.8814942,93.6138414,OpenStreetMap/Geofabrik North-Eastern Zone
+245754553,Nazira,major_town,26.9164974,94.736043,OpenStreetMap/Geofabrik North-Eastern Zone
+245755348,Sivasagar,major_city,26.9834936,94.6394226,OpenStreetMap/Geofabrik North-Eastern Zone
+245755376,Bhalukpong,major_town,27.0137235,92.6358068,OpenStreetMap/Geofabrik North-Eastern Zone
+245755386,Khonsa,major_town,26.9910099,95.5061065,OpenStreetMap/Geofabrik North-Eastern Zone
+245756072,Dimow,major_town,27.1272894,94.7405111,OpenStreetMap/Geofabrik North-Eastern Zone
+245756095,Itanagar,major_city,27.0979659,93.6237291,OpenStreetMap/Geofabrik North-Eastern Zone
+245756235,Rangpo,major_town,27.1744361,88.5303403,OpenStreetMap/Geofabrik North-Eastern Zone
+245756401,Namchi,major_town,27.1661262,88.3651981,OpenStreetMap/Geofabrik North-Eastern Zone
+245756912,Deomali,major_town,27.1959185,95.4642398,OpenStreetMap/Geofabrik North-Eastern Zone
+245757287,North Lakhimpur,major_town,27.236211,94.1038765,OpenStreetMap/Geofabrik North-Eastern Zone
+245757650,Naharkatia,major_town,27.286295,95.3258308,OpenStreetMap/Geofabrik North-Eastern Zone
+245757974,Kimin,major_town,27.3057191,93.9656023,OpenStreetMap/Geofabrik North-Eastern Zone
+245758236,Jairampur,major_town,27.3568967,96.0134152,OpenStreetMap/Geofabrik North-Eastern Zone
+245760084,Mangan,major_town,27.5011476,88.5355333,OpenStreetMap/Geofabrik North-Eastern Zone
+245760104,Ziro,major_city,27.538668,93.815355,OpenStreetMap/Geofabrik North-Eastern Zone
+259186488,Kakching,major_town,24.4974827,93.9835543,OpenStreetMap/Geofabrik North-Eastern Zone
+290481241,Gelling,major_town,29.1345196,94.9776827,OpenStreetMap/Geofabrik North-Eastern Zone
+299448214,Dibrugarh,major_city,27.4844597,94.9019447,OpenStreetMap/Geofabrik North-Eastern Zone
+299448217,Chabua,major_town,27.4826767,95.1730318,OpenStreetMap/Geofabrik North-Eastern Zone
+342097621,Gangtok,major_city,27.329046,88.6122673,OpenStreetMap/Geofabrik North-Eastern Zone
+342097673,Bomdila,major_city,27.264445,92.4206519,OpenStreetMap/Geofabrik North-Eastern Zone
+342097760,Tawang,major_city,27.5879186,91.863733,OpenStreetMap/Geofabrik North-Eastern Zone
+342097944,Senge,major_town,27.45621,92.11212,OpenStreetMap/Geofabrik North-Eastern Zone
+342097975,Zemithang,major_town,27.7106891,91.730053,OpenStreetMap/Geofabrik North-Eastern Zone
+342098150,Dirang,major_town,27.36008,92.24121,OpenStreetMap/Geofabrik North-Eastern Zone
+342098270,Thingbu,major_town,27.6615349,92.0987879,OpenStreetMap/Geofabrik North-Eastern Zone
+342098314,Pakyong,major_town,27.2436107,88.5984989,OpenStreetMap/Geofabrik North-Eastern Zone
+342098339,Singtam,major_town,27.2319975,88.4970841,OpenStreetMap/Geofabrik North-Eastern Zone
+342098351,Ravangla,major_town,27.3051271,88.3644723,OpenStreetMap/Geofabrik North-Eastern Zone
+342098659,Rongli,major_town,27.20352,88.70087,OpenStreetMap/Geofabrik North-Eastern Zone
+342098800,Lachen,major_town,27.7306136,88.5495009,OpenStreetMap/Geofabrik North-Eastern Zone
+342098863,Kaying,major_town,28.41339,94.67881,OpenStreetMap/Geofabrik North-Eastern Zone
+342098982,Naharlagun,major_town,27.103045,93.6923923,OpenStreetMap/Geofabrik North-Eastern Zone
+342099543,Bishwanath Charaili,major_town,26.7283548,93.1495466,OpenStreetMap/Geofabrik North-Eastern Zone
+342099777,Mechuka,major_town,28.5987453,94.1335827,OpenStreetMap/Geofabrik North-Eastern Zone
+342099988,Kharupetia,major_town,26.5174808,92.1469174,OpenStreetMap/Geofabrik North-Eastern Zone
+342100005,Dalgoan,major_town,26.556165,92.2003464,OpenStreetMap/Geofabrik North-Eastern Zone
+342100221,Sipajhar,major_town,26.3974,91.89652,OpenStreetMap/Geofabrik North-Eastern Zone
+342100483,Dergaon,major_town,26.71463,93.97019,OpenStreetMap/Geofabrik North-Eastern Zone
+342104453,Gyalshing,major_town,27.29004,88.2573,OpenStreetMap/Geofabrik North-Eastern Zone
+566672795,Hajo,major_town,26.2491886,91.5265279,OpenStreetMap/Geofabrik North-Eastern Zone
+566672797,Dispur,major_town,26.1409355,91.7910265,OpenStreetMap/Geofabrik North-Eastern Zone
+566672798,Jorabat,major_town,26.0993157,91.8773204,OpenStreetMap/Geofabrik North-Eastern Zone
+566672800,Sonapur,major_town,26.1192493,91.9702229,OpenStreetMap/Geofabrik North-Eastern Zone
+566672801,Nakhola,major_town,26.1248565,92.2012506,OpenStreetMap/Geofabrik North-Eastern Zone
+566672802,Guwahati,major_city,26.1805978,91.753943,OpenStreetMap/Geofabrik North-Eastern Zone
+567383141,Marigaon,major_town,26.2514907,92.3443835,OpenStreetMap/Geofabrik North-Eastern Zone
+567777060,Silchar,major_city,24.829588,92.797148,OpenStreetMap/Geofabrik North-Eastern Zone
+569040820,Imphal,major_city,24.7991162,93.9364419,OpenStreetMap/Geofabrik North-Eastern Zone
+569243331,Bongaigaon,major_city,26.4800126,90.5580387,OpenStreetMap/Geofabrik North-Eastern Zone
+569366501,Gauripur,major_town,26.0865358,89.964662,OpenStreetMap/Geofabrik North-Eastern Zone
+569366516,Sapatgram,major_town,26.3309065,90.1078152,OpenStreetMap/Geofabrik North-Eastern Zone
+569366522,Kokrajhar,major_town,26.4003745,90.2710412,OpenStreetMap/Geofabrik North-Eastern Zone
+746931793,Dambuk,major_town,28.2689331,95.615816,OpenStreetMap/Geofabrik North-Eastern Zone
+830103529,Abhayapuri,major_town,26.334307,90.6669044,OpenStreetMap/Geofabrik North-Eastern Zone
+830103551,Dullabhcherra,major_town,24.48627,92.4355853,OpenStreetMap/Geofabrik North-Eastern Zone
+830186199,Kumarghat,major_town,24.1610217,92.0383879,OpenStreetMap/Geofabrik North-Eastern Zone
+830186210,Dharmanagar,major_town,24.3734077,92.1655262,OpenStreetMap/Geofabrik North-Eastern Zone
+830186270,Manu,major_town,23.9970074,91.9967767,OpenStreetMap/Geofabrik North-Eastern Zone
+830186299,Siaha,major_town,22.4899565,92.9812107,OpenStreetMap/Geofabrik North-Eastern Zone
+830297611,Senapati,major_town,25.2726634,94.0267486,OpenStreetMap/Geofabrik North-Eastern Zone
+831395790,Roing,major_town,28.1368472,95.8430824,OpenStreetMap/Geofabrik North-Eastern Zone
+832590772,Raha,major_town,26.2297145,92.5168395,OpenStreetMap/Geofabrik North-Eastern Zone
+832676201,Changlang,major_town,27.1398402,95.7382485,OpenStreetMap/Geofabrik North-Eastern Zone
+835189774,Kibithu,major_town,28.282565,97.016511,OpenStreetMap/Geofabrik North-Eastern Zone
+856728463,Bairabi,major_town,24.1830512,92.5354313,OpenStreetMap/Geofabrik North-Eastern Zone
+957093807,Duliajan,major_town,27.3559134,95.3192307,OpenStreetMap/Geofabrik North-Eastern Zone
+958035755,Makum,major_town,27.4845427,95.4381283,OpenStreetMap/Geofabrik North-Eastern Zone
+1133036828,Bijni,major_town,26.4969244,90.7014587,OpenStreetMap/Geofabrik North-Eastern Zone
+1262013973,Mawsynram,major_town,25.2988198,91.5824514,OpenStreetMap/Geofabrik North-Eastern Zone
+1262014743,Mawshynrut,major_town,25.6614608,91.0617256,OpenStreetMap/Geofabrik North-Eastern Zone
+1262015418,Pynursla,major_town,25.3090785,91.9005116,OpenStreetMap/Geofabrik North-Eastern Zone
+1262084462,Chokpot,major_town,25.3234752,90.4216374,OpenStreetMap/Geofabrik North-Eastern Zone
+1262084811,Resubelpara,major_town,25.9041666,90.607134,OpenStreetMap/Geofabrik North-Eastern Zone
+1262085093,Dalu,major_town,25.2394094,90.1918773,OpenStreetMap/Geofabrik North-Eastern Zone
+1262085191,Selsella,major_town,25.6391885,90.0415585,OpenStreetMap/Geofabrik North-Eastern Zone
+1262085259,Garobadha,major_town,25.5780383,90.023199,OpenStreetMap/Geofabrik North-Eastern Zone
+1262085291,Dadenggiri,major_town,25.7616516,90.2201182,OpenStreetMap/Geofabrik North-Eastern Zone
+1328010317,Lachung,major_town,27.6897097,88.7425876,OpenStreetMap/Geofabrik North-Eastern Zone
+1329752274,Dudhnai,major_town,25.9827514,90.7824497,OpenStreetMap/Geofabrik North-Eastern Zone
+1351481042,Goreswar,major_town,26.5282906,91.7249869,OpenStreetMap/Geofabrik North-Eastern Zone
+1364843581,Howly,major_town,26.4249628,90.9712027,OpenStreetMap/Geofabrik North-Eastern Zone
+1380070099,Sualkuchi,major_town,26.1699129,91.5708517,OpenStreetMap/Geofabrik North-Eastern Zone
+1403967925,Barama,major_town,26.5258068,91.3503161,OpenStreetMap/Geofabrik North-Eastern Zone
+1403967946,Pathsala,major_town,26.5051095,91.1778073,OpenStreetMap/Geofabrik North-Eastern Zone
+1404297653,Miao,major_town,27.4873015,96.2063386,OpenStreetMap/Geofabrik North-Eastern Zone
+1420699824,Jiribam,major_town,24.8098254,93.1137269,OpenStreetMap/Geofabrik North-Eastern Zone
+1425184442,Seppa,major_city,27.3594183,93.0406098,OpenStreetMap/Geofabrik North-Eastern Zone
+1431033281,আখাউড়া,major_town,23.8681221,91.2088835,OpenStreetMap/Geofabrik North-Eastern Zone
+1437215871,Dhemaji,major_town,27.4763797,94.5629622,OpenStreetMap/Geofabrik North-Eastern Zone
+1437223037,Chapakhowa,major_town,27.9165575,95.7644593,OpenStreetMap/Geofabrik North-Eastern Zone
+1477920201,Jorethang,major_town,27.131523,88.2825347,OpenStreetMap/Geofabrik North-Eastern Zone
+1492148094,Fakiragram,major_town,26.3632189,90.1802714,OpenStreetMap/Geofabrik North-Eastern Zone
+1516327511,Khowai,major_town,24.081208,91.5989065,OpenStreetMap/Geofabrik North-Eastern Zone
+1668496397,Rangapara,major_town,26.8177808,92.6862372,OpenStreetMap/Geofabrik North-Eastern Zone
+1676604024,Doimukh,major_town,27.150677,93.7549422,OpenStreetMap/Geofabrik North-Eastern Zone
+1676852794,Tuli,major_town,26.6796166,94.6451344,OpenStreetMap/Geofabrik North-Eastern Zone
+1676893235,Longleng,major_town,26.4888846,94.8131535,OpenStreetMap/Geofabrik North-Eastern Zone
+1698494190,Rupa,major_town,27.2038979,92.3998289,OpenStreetMap/Geofabrik North-Eastern Zone
+1698582149,Chongkham,major_town,27.8091598,96.0327786,OpenStreetMap/Geofabrik North-Eastern Zone
+1698582154,Namsai,major_town,27.6658391,95.861432,OpenStreetMap/Geofabrik North-Eastern Zone
+1699239233,Jonai,major_town,27.8291446,95.2234184,OpenStreetMap/Geofabrik North-Eastern Zone
+1699659378,Mebo,major_town,28.1674961,95.4234708,OpenStreetMap/Geofabrik North-Eastern Zone
+1728676326,Lad Rymbai,major_town,25.369275,92.3261195,OpenStreetMap/Geofabrik North-Eastern Zone
+1739998761,Tengapani,major_town,27.7708903,95.9808556,OpenStreetMap/Geofabrik North-Eastern Zone
+1786432760,রামগড়,major_town,22.9961764,91.7372895,OpenStreetMap/Geofabrik North-Eastern Zone
+1795712259,Tuipang,major_town,22.3159369,93.0262288,OpenStreetMap/Geofabrik North-Eastern Zone
+1810911320,Bohori,major_town,26.2570007,91.137184,OpenStreetMap/Geofabrik North-Eastern Zone
+1811387315,Williamnagar,major_town,25.506085,90.60381,OpenStreetMap/Geofabrik North-Eastern Zone
+1848134157,Ukhrul,major_city,25.0978641,94.3610713,OpenStreetMap/Geofabrik North-Eastern Zone
+2017884064,Sairang,major_town,23.810344,92.652259,OpenStreetMap/Geofabrik North-Eastern Zone
+2084662997,Saikul,major_town,25.0595866,94.0288671,OpenStreetMap/Geofabrik North-Eastern Zone
+2135982227,ရိဒ်ခေါဒါရ်မြို့,major_town,23.3632468,93.3898227,OpenStreetMap/Geofabrik North-Eastern Zone
+2135982229,Zokhawthar,major_town,23.36595,93.383898,OpenStreetMap/Geofabrik North-Eastern Zone
+2138091867,Jorhat,major_city,26.7577925,94.2079645,OpenStreetMap/Geofabrik North-Eastern Zone
+2329495882,Barpathar,major_town,26.2765594,93.9021107,OpenStreetMap/Geofabrik North-Eastern Zone
+2329495972,Bokajan,major_town,26.0235087,93.7707012,OpenStreetMap/Geofabrik North-Eastern Zone
+2329587324,Barapujia,major_town,26.274224,92.4992256,OpenStreetMap/Geofabrik North-Eastern Zone
+2329587325,Kahibari,major_town,26.2852477,92.4551642,OpenStreetMap/Geofabrik North-Eastern Zone
+2365222325,Bhawanipur,major_town,26.4622386,91.0654076,OpenStreetMap/Geofabrik North-Eastern Zone
+2365222326,Sarupeta,major_town,26.4985058,91.0776156,OpenStreetMap/Geofabrik North-Eastern Zone
+2385333812,Khairabari,major_town,26.6042737,91.8146519,OpenStreetMap/Geofabrik North-Eastern Zone
+2385333813,Mazbat,major_town,26.7911078,92.2910036,OpenStreetMap/Geofabrik North-Eastern Zone
+2398002936,Boko,major_town,25.9753282,91.2276033,OpenStreetMap/Geofabrik North-Eastern Zone
+2453864993,Mokokchung,major_town,26.3238761,94.5214104,OpenStreetMap/Geofabrik North-Eastern Zone
+2454682914,Serchhip,major_town,23.3095426,92.857116,OpenStreetMap/Geofabrik North-Eastern Zone
+2459047665,Hungpung,major_town,25.0629102,94.3456319,OpenStreetMap/Geofabrik North-Eastern Zone
+2459082772,,major_town,25.2025591,94.4495991,OpenStreetMap/Geofabrik North-Eastern Zone
+2459097897,Jessami,major_town,25.6169442,94.5394336,OpenStreetMap/Geofabrik North-Eastern Zone
+2459266817,Kiphire,major_town,25.88673,94.7863485,OpenStreetMap/Geofabrik North-Eastern Zone
+2459412845,Tuensang,major_town,26.2393314,94.8146931,OpenStreetMap/Geofabrik North-Eastern Zone
+2461591964,Teliamura,major_town,23.8398163,91.6264584,OpenStreetMap/Geofabrik North-Eastern Zone
+2461651923,Bishalgarh,major_town,23.6738397,91.2829685,OpenStreetMap/Geofabrik North-Eastern Zone
+2461651931,Bishramganj,major_town,23.607676,91.3479074,OpenStreetMap/Geofabrik North-Eastern Zone
+2462046982,Mamit,major_town,23.9160087,92.4935815,OpenStreetMap/Geofabrik North-Eastern Zone
+2466236060,Rongram,major_town,25.5981138,90.2518759,OpenStreetMap/Geofabrik North-Eastern Zone
+2468833075,Daboka,major_town,26.1129473,92.8658755,OpenStreetMap/Geofabrik North-Eastern Zone
+2469894280,Manja,major_town,25.9695246,93.4373259,OpenStreetMap/Geofabrik North-Eastern Zone
+2481967216,পরশুরাম,major_town,23.215108,91.4437172,OpenStreetMap/Geofabrik North-Eastern Zone
+2491833516,Kolasib,major_town,24.2264657,92.6773489,OpenStreetMap/Geofabrik North-Eastern Zone
+2501011503,Singngat,major_town,24.1460781,93.5901636,OpenStreetMap/Geofabrik North-Eastern Zone
+2501933129,Tura,major_town,25.5125616,90.2171526,OpenStreetMap/Geofabrik North-Eastern Zone
+2529834682,勒乡 སླད།,major_town,27.8183747,91.7508716,OpenStreetMap/Geofabrik North-Eastern Zone
+2671615976,Belonia,major_town,23.2497879,91.4550309,OpenStreetMap/Geofabrik North-Eastern Zone
+2719492919,Mangkolemba,major_town,26.4988414,94.4407904,OpenStreetMap/Geofabrik North-Eastern Zone
+2720296299,Alichen,major_town,26.2712924,94.455345,OpenStreetMap/Geofabrik North-Eastern Zone
+2722661478,Naginimora,major_town,26.8109509,94.8099886,OpenStreetMap/Geofabrik North-Eastern Zone
+2885091537,Bhuragaon,major_town,26.4049192,92.2343866,OpenStreetMap/Geofabrik North-Eastern Zone
+2885275507,Kamalabari,major_town,26.9465639,94.1657745,OpenStreetMap/Geofabrik North-Eastern Zone
+2913304438,Gogamukh,major_town,27.4348123,94.3160033,OpenStreetMap/Geofabrik North-Eastern Zone
+2914322362,Chandel,major_town,24.3312009,94.0011081,OpenStreetMap/Geofabrik North-Eastern Zone
+2917220463,Khawzawl,major_town,23.5216539,93.1861639,OpenStreetMap/Geofabrik North-Eastern Zone
+3158957159,Badarpur,major_town,24.8711319,92.558515,OpenStreetMap/Geofabrik North-Eastern Zone
+3158968781,Pailapool,major_town,24.8285252,93.0253248,OpenStreetMap/Geofabrik North-Eastern Zone
+3253385745,Zunheboto,major_town,26.0150293,94.5288731,OpenStreetMap/Geofabrik North-Eastern Zone
+3337652501,Niz Lakuk,major_town,27.1206808,93.9314185,OpenStreetMap/Geofabrik North-Eastern Zone
+3396281149,জকিগঞ্জ,major_town,24.8774566,92.3698833,OpenStreetMap/Geofabrik North-Eastern Zone
+3396286397,জৈন্তাপুর,major_town,25.1355762,92.1233925,OpenStreetMap/Geofabrik North-Eastern Zone
+3613137018,Kohima,major_city,25.6618755,94.1019156,OpenStreetMap/Geofabrik North-Eastern Zone
+3622932320,Along,major_town,28.1698002,94.79854,OpenStreetMap/Geofabrik North-Eastern Zone
+3677614767,Mushalpur,major_town,26.6620387,91.3410716,OpenStreetMap/Geofabrik North-Eastern Zone
+3677614769,Tamulpur,major_town,26.6108401,91.5761562,OpenStreetMap/Geofabrik North-Eastern Zone
+3677642606,Lakhipur,major_town,26.0344991,90.3017871,OpenStreetMap/Geofabrik North-Eastern Zone
+3703264835,Yingkiong,major_town,28.6410598,95.0276607,OpenStreetMap/Geofabrik North-Eastern Zone
+3717696160,Tezu,major_town,27.9254195,96.1647135,OpenStreetMap/Geofabrik North-Eastern Zone
+3877646240,Koloriang,major_city,27.9054828,93.3536693,OpenStreetMap/Geofabrik North-Eastern Zone
+3881502677,Moirang,major_town,24.5005506,93.7767476,OpenStreetMap/Geofabrik North-Eastern Zone
+3885878071,Amarpur,major_town,23.5155013,91.6548554,OpenStreetMap/Geofabrik North-Eastern Zone
+3901517090,Peren,major_town,25.5403534,93.7350642,OpenStreetMap/Geofabrik North-Eastern Zone
+3911459976,Churachandpur,major_town,24.3468839,93.6994143,OpenStreetMap/Geofabrik North-Eastern Zone
+3927938119,Noney,major_town,24.8599146,93.6236365,OpenStreetMap/Geofabrik North-Eastern Zone
+3964170398,Hojai,major_town,26.0031945,92.8522896,OpenStreetMap/Geofabrik North-Eastern Zone
+4021621745,Nongstoin,major_town,25.5193851,91.2677506,OpenStreetMap/Geofabrik North-Eastern Zone
+4192831028,Margherita,major_town,27.2895321,95.6727142,OpenStreetMap/Geofabrik North-Eastern Zone
+4193219849,Jagun,major_town,27.3829158,95.900287,OpenStreetMap/Geofabrik North-Eastern Zone
+4193219852,Kharsang,major_town,27.4210397,96.0214903,OpenStreetMap/Geofabrik North-Eastern Zone
+4242599910,,major_town,25.4141105,94.0981905,OpenStreetMap/Geofabrik North-Eastern Zone
+4283849570,Tamenglong,major_town,24.9858596,93.5039967,OpenStreetMap/Geofabrik North-Eastern Zone
+4323994882,Tinsukia,major_town,27.4879722,95.3601855,OpenStreetMap/Geofabrik North-Eastern Zone
+4332977533,Diphu,major_town,25.8456705,93.4381214,OpenStreetMap/Geofabrik North-Eastern Zone
+4343368415,Digboi,major_town,27.3956145,95.614868,OpenStreetMap/Geofabrik North-Eastern Zone
+4474732777,Nacho,major_town,28.3949883,93.8379715,OpenStreetMap/Geofabrik North-Eastern Zone
+4478297332,Chaglagam,major_town,28.3098445,96.6057369,OpenStreetMap/Geofabrik North-Eastern Zone
+4485112204,Bilat,major_town,27.9456052,95.180935,OpenStreetMap/Geofabrik North-Eastern Zone
+4485212189,Tali,major_town,28.0208202,93.7519801,OpenStreetMap/Geofabrik North-Eastern Zone
+4486938872,Wakching,major_town,26.7003342,94.8949315,OpenStreetMap/Geofabrik North-Eastern Zone
+4513148289,Daporijo,major_town,27.9843402,94.2190544,OpenStreetMap/Geofabrik North-Eastern Zone
+4621727703,Basar,major_town,27.9831179,94.6879423,OpenStreetMap/Geofabrik North-Eastern Zone
+4621727741,Baririjo,major_town,27.9443035,94.4495905,OpenStreetMap/Geofabrik North-Eastern Zone
+4621735951,Liromoba,major_town,28.0713461,94.4967115,OpenStreetMap/Geofabrik North-Eastern Zone
+4622776537,Gensi,major_town,27.8428172,94.6253071,OpenStreetMap/Geofabrik North-Eastern Zone
+4658564869,Hawai,major_city,27.8843894,96.8124468,OpenStreetMap/Geofabrik North-Eastern Zone
+4658587428,Metengliang,major_town,28.2053139,96.5325529,OpenStreetMap/Geofabrik North-Eastern Zone
+4668787051,Silapathar,major_town,27.5893833,94.7255857,OpenStreetMap/Geofabrik North-Eastern Zone
+4726836613,Kulajan,major_town,27.5247513,94.7287378,OpenStreetMap/Geofabrik North-Eastern Zone
+4740749855,Doom Dooma,major_town,27.5699757,95.5539549,OpenStreetMap/Geofabrik North-Eastern Zone
+4751245343,Ledo,major_town,27.2945211,95.73688,OpenStreetMap/Geofabrik North-Eastern Zone
+4775180839,Tangla,major_town,26.6589755,91.9087761,OpenStreetMap/Geofabrik North-Eastern Zone
+4806814527,Barpeta Road,major_town,26.5048418,90.9667636,OpenStreetMap/Geofabrik North-Eastern Zone
+4885600720,Panisagar,major_town,24.2670804,92.1521831,OpenStreetMap/Geofabrik North-Eastern Zone
+4967349524,Anini,major_town,28.796932,95.9044795,OpenStreetMap/Geofabrik North-Eastern Zone
+5063642841,Moreh,major_town,24.2481189,94.3028748,OpenStreetMap/Geofabrik North-Eastern Zone
+5228170550,Pasighat,major_town,28.0589676,95.3324944,OpenStreetMap/Geofabrik North-Eastern Zone
+5232413103,Vairengte,major_town,24.4956623,92.7604866,OpenStreetMap/Geofabrik North-Eastern Zone
+5263416924,Garamur,major_town,26.980306,94.1574452,OpenStreetMap/Geofabrik North-Eastern Zone
+5409330579,Bongkhar,major_town,27.5233664,91.7947659,OpenStreetMap/Geofabrik North-Eastern Zone
+5416147078,Taksing,major_town,28.4345031,93.2038913,OpenStreetMap/Geofabrik North-Eastern Zone
+5432468244,Damin,major_town,28.1041982,93.3343841,OpenStreetMap/Geofabrik North-Eastern Zone
+5763183353,Medziphema,major_town,25.760326,93.8831218,OpenStreetMap/Geofabrik North-Eastern Zone
+5775285633,Panigaon,major_town,27.1406337,94.1113007,OpenStreetMap/Geofabrik North-Eastern Zone
+5839997990,Sarthebari,major_town,26.3692537,91.223334,OpenStreetMap/Geofabrik North-Eastern Zone
+5880408167,Jang,major_town,27.5799661,91.983,OpenStreetMap/Geofabrik North-Eastern Zone
+5943791367,Mankachar,major_town,25.5352682,89.8627782,OpenStreetMap/Geofabrik North-Eastern Zone
+6128048387,Golakganj,major_town,26.1047528,89.8252916,OpenStreetMap/Geofabrik North-Eastern Zone
+6151697435,Pangchau,major_town,26.7252969,95.2718818,OpenStreetMap/Geofabrik North-Eastern Zone
+6152586898,ছাগলনাইয়া,major_town,23.0398704,91.5148258,OpenStreetMap/Geofabrik North-Eastern Zone
+6163787851,Maligaon,major_town,26.1600453,91.6958086,OpenStreetMap/Geofabrik North-Eastern Zone
+6197847416,Kangpokpi,major_town,25.1527725,93.9713691,OpenStreetMap/Geofabrik North-Eastern Zone
+6233955157,Heirok,major_town,24.590661,94.0725589,OpenStreetMap/Geofabrik North-Eastern Zone
+6241309608,Sonai,major_town,24.7334137,92.8903055,OpenStreetMap/Geofabrik North-Eastern Zone
+6241314333,Lala,major_town,24.5599949,92.6078313,OpenStreetMap/Geofabrik North-Eastern Zone
+6284459627,Talap,major_town,27.6751482,95.5645966,OpenStreetMap/Geofabrik North-Eastern Zone
+6284529551,Chumukedima,major_town,25.8090286,93.788116,OpenStreetMap/Geofabrik North-Eastern Zone
+6286817795,Byrnihat,major_town,26.0543348,91.8696498,OpenStreetMap/Geofabrik North-Eastern Zone
+6301170168,Umrangso,major_town,25.5078273,92.7342802,OpenStreetMap/Geofabrik North-Eastern Zone
+6338319948,Ramkrishna Nagar,major_town,24.5664058,92.4617958,OpenStreetMap/Geofabrik North-Eastern Zone
+6426787788,Longding,major_town,26.8872823,95.320301,OpenStreetMap/Geofabrik North-Eastern Zone
+6426816486,Raga,major_city,27.7968313,94.0692973,OpenStreetMap/Geofabrik North-Eastern Zone
+6432998596,Nongpoh,major_town,25.8989839,91.8812907,OpenStreetMap/Geofabrik North-Eastern Zone
+6443655200,Noklak,major_town,26.2002677,95.0208592,OpenStreetMap/Geofabrik North-Eastern Zone
+6464778886,Hamren,major_town,25.8449919,92.5748777,OpenStreetMap/Geofabrik North-Eastern Zone
+6482378186,Kajalgaon,major_town,26.513931,90.525509,OpenStreetMap/Geofabrik North-Eastern Zone
+6534229637,Rhenock,major_town,27.1746652,88.6443365,OpenStreetMap/Geofabrik North-Eastern Zone
+6815355785,Palin,major_city,27.695143,93.6301961,OpenStreetMap/Geofabrik North-Eastern Zone
+6815432585,Dumporijo,major_town,27.9809482,94.2790246,OpenStreetMap/Geofabrik North-Eastern Zone
+6815432686,Limeking,major_town,28.369199,93.6114549,OpenStreetMap/Geofabrik North-Eastern Zone
+6815657488,Boleng,major_town,28.3224401,94.9542331,OpenStreetMap/Geofabrik North-Eastern Zone
+6815667985,Kamba,major_town,28.2679881,94.6763563,OpenStreetMap/Geofabrik North-Eastern Zone
+6815696285,Oyan,major_town,27.8814942,95.3151941,OpenStreetMap/Geofabrik North-Eastern Zone
+6815697687,Lemmi,major_city,27.1594297,93.220666,OpenStreetMap/Geofabrik North-Eastern Zone
+6815893085,Katan,major_town,28.3146954,95.1592397,OpenStreetMap/Geofabrik North-Eastern Zone
+6815893186,Tuting,major_town,28.9922633,94.8924779,OpenStreetMap/Geofabrik North-Eastern Zone
+6815895088,Mipi,major_town,28.950424,95.8144355,OpenStreetMap/Geofabrik North-Eastern Zone
+6816012386,Walong,major_town,28.1288221,97.0165515,OpenStreetMap/Geofabrik North-Eastern Zone
+6816012387,Goiliang,major_town,28.1452486,96.6390547,OpenStreetMap/Geofabrik North-Eastern Zone
+6818263796,Tizit,major_town,26.8987837,95.0774002,OpenStreetMap/Geofabrik North-Eastern Zone
+6818305739,Angphang,major_town,26.4993912,94.9814093,OpenStreetMap/Geofabrik North-Eastern Zone
+6818305779,Aboi,major_town,26.6028408,94.9655628,OpenStreetMap/Geofabrik North-Eastern Zone
+6818321787,Shangnyu,major_town,26.7709781,95.1360225,OpenStreetMap/Geofabrik North-Eastern Zone
+6818979690,Tamlu,major_town,26.6704706,94.7358692,OpenStreetMap/Geofabrik North-Eastern Zone
+6818979691,Bora Namsang,major_town,26.722537,94.7974741,OpenStreetMap/Geofabrik North-Eastern Zone
+6819068386,Chessore,major_town,26.0823796,94.7346568,OpenStreetMap/Geofabrik North-Eastern Zone
+6819105785,Thonoknyu Town,major_town,25.9885428,94.9073267,OpenStreetMap/Geofabrik North-Eastern Zone
+6819154386,Pungro,major_town,25.8138385,94.8457861,OpenStreetMap/Geofabrik North-Eastern Zone
+6819961592,Chizami,major_town,25.5991689,94.3921119,OpenStreetMap/Geofabrik North-Eastern Zone
+6819961693,Pfütsero,major_town,25.5723401,94.2969846,OpenStreetMap/Geofabrik North-Eastern Zone
+6820746526,Mishilimi,major_town,25.8870254,94.2629528,OpenStreetMap/Geofabrik North-Eastern Zone
+6826316787,Khawbung,major_town,23.1717094,93.2201314,OpenStreetMap/Geofabrik North-Eastern Zone
+6827118489,Hnahthial,major_town,22.9665679,92.9285377,OpenStreetMap/Geofabrik North-Eastern Zone
+6876126305,Wakka,major_town,26.791585,95.4479933,OpenStreetMap/Geofabrik North-Eastern Zone
+6888332990,Lawnu,major_town,27.0943515,95.3658729,OpenStreetMap/Geofabrik North-Eastern Zone
+7021011777,Sonamura,major_town,23.4757939,91.2653482,OpenStreetMap/Geofabrik North-Eastern Zone
+7089595149,Nafra,major_town,27.3716595,92.5450945,OpenStreetMap/Geofabrik North-Eastern Zone
+7159004379,Chapar,major_town,26.2717515,90.4422855,OpenStreetMap/Geofabrik North-Eastern Zone
+7159959457,Sarupathar,major_town,26.1958971,93.8635826,OpenStreetMap/Geofabrik North-Eastern Zone
+7160962613,Baikhora,major_town,23.2676452,91.5734911,OpenStreetMap/Geofabrik North-Eastern Zone
+7161894034,Bagafa,major_town,23.3086803,91.5652728,OpenStreetMap/Geofabrik North-Eastern Zone
+7162274354,Mawkyrwat,major_town,25.3670039,91.461997,OpenStreetMap/Geofabrik North-Eastern Zone
+7162321060,Tikrikilla,major_town,25.951292,90.2133965,OpenStreetMap/Geofabrik North-Eastern Zone
+7162457087,Manchal,major_town,27.984497,96.6391171,OpenStreetMap/Geofabrik North-Eastern Zone
+7164508037,Sangram,major_town,27.8115031,93.5323405,OpenStreetMap/Geofabrik North-Eastern Zone
+7164628776,Thembang,major_town,27.3419989,92.3872518,OpenStreetMap/Geofabrik North-Eastern Zone
+7418609008,Dimapur,major_city,25.911744,93.721703,OpenStreetMap/Geofabrik North-Eastern Zone
+7772225596,Mariani,major_town,26.6539744,94.3165916,OpenStreetMap/Geofabrik North-Eastern Zone
+8484112277,Saiton,major_town,24.4281026,93.7504256,OpenStreetMap/Geofabrik North-Eastern Zone
+8897466392,Mipi HQ,major_town,28.9641685,95.8081308,OpenStreetMap/Geofabrik North-Eastern Zone
+8920737481,Hayuliang,major_town,28.0759322,96.5429569,OpenStreetMap/Geofabrik North-Eastern Zone
+9139175182,চৌদ্দগ্রাম,major_town,23.224766,91.3134925,OpenStreetMap/Geofabrik North-Eastern Zone
+9215982196,ফুলগাজী,major_town,23.1554703,91.4326469,OpenStreetMap/Geofabrik North-Eastern Zone
+9290944802,Baghuliaghat,major_town,26.0565077,93.1971692,OpenStreetMap/Geofabrik North-Eastern Zone
+9450490090,Kakopathar,major_town,27.6325591,95.6625457,OpenStreetMap/Geofabrik North-Eastern Zone
+9569488213,Gaurisagar Tiniali,major_town,26.9484393,94.53558,OpenStreetMap/Geofabrik North-Eastern Zone
+9638194046,Chaobok,major_town,24.6557921,93.9817782,OpenStreetMap/Geofabrik North-Eastern Zone
+9761779661,Singa,major_town,28.8204142,95.1833642,OpenStreetMap/Geofabrik North-Eastern Zone
+9790620535,,major_town,26.7353009,95.0612287,OpenStreetMap/Geofabrik North-Eastern Zone
+9802475812,Jaboka,major_town,26.9342978,95.1433603,OpenStreetMap/Geofabrik North-Eastern Zone
+9917849179,Kamalanagar,major_town,22.618943,92.6418685,OpenStreetMap/Geofabrik North-Eastern Zone
+9952197355,Poi,major_town,25.2776608,94.556631,OpenStreetMap/Geofabrik North-Eastern Zone
+10223133166,Khumulwng,major_town,23.8001795,91.4409328,OpenStreetMap/Geofabrik North-Eastern Zone
+10303891377,Bihpuria,major_town,27.019264,93.9167974,OpenStreetMap/Geofabrik North-Eastern Zone
+10316275579,Gandacherra,major_town,23.6037511,91.8201876,OpenStreetMap/Geofabrik North-Eastern Zone
+10824064061,Merapani,major_town,26.3190752,94.0929346,OpenStreetMap/Geofabrik North-Eastern Zone
+10877035264,Thrizino,major_town,27.3412254,92.7400734,OpenStreetMap/Geofabrik North-Eastern Zone
+10950091370,Sugnu,major_town,24.2962998,93.874791,OpenStreetMap/Geofabrik North-Eastern Zone
+10959768733,Zenhang Lamka,major_town,24.3464882,93.7028573,OpenStreetMap/Geofabrik North-Eastern Zone
+11037619860,Leimakhong,major_town,24.9441878,93.8405561,OpenStreetMap/Geofabrik North-Eastern Zone
+11069941209,Rengkai,major_town,24.3410618,93.7047625,OpenStreetMap/Geofabrik North-Eastern Zone
+11073061874,,major_town,26.478183,92.6711853,OpenStreetMap/Geofabrik North-Eastern Zone
+11082012094,Hiangtam Lamka,major_town,24.3450472,93.6973632,OpenStreetMap/Geofabrik North-Eastern Zone
+11087066696,Kwakta,major_town,24.455028,93.7379277,OpenStreetMap/Geofabrik North-Eastern Zone
+11642174626,Jangphutse,major_town,27.4946933,91.6302907,OpenStreetMap/Geofabrik North-Eastern Zone
+11694154600,Tuinem,major_town,25.1150723,94.2483675,OpenStreetMap/Geofabrik North-Eastern Zone
+11834704091,Yazali,major_town,27.4031809,93.7444704,OpenStreetMap/Geofabrik North-Eastern Zone
+12102473417,Morān,major_town,27.1857364,94.9104273,OpenStreetMap/Geofabrik North-Eastern Zone
+12106856619,Sonari,major_town,27.0266981,95.0183272,OpenStreetMap/Geofabrik North-Eastern Zone
+12122765794,Namrup,major_town,27.1932851,95.3567576,OpenStreetMap/Geofabrik North-Eastern Zone
+12144809342,Santak,major_town,26.8632615,94.8006928,OpenStreetMap/Geofabrik North-Eastern Zone
+12498305920,Namsa,major_town,26.9443184,95.0567472,OpenStreetMap/Geofabrik North-Eastern Zone
+12638756480,ITC Dan,major_town,26.2854424,95.1240348,OpenStreetMap/Geofabrik North-Eastern Zone
+12872853039,Longpuighat,major_town,22.3613271,92.6385425,OpenStreetMap/Geofabrik North-Eastern Zone
+12989376876,Tsudikong,major_town,26.6728846,94.6449522,OpenStreetMap/Geofabrik North-Eastern Zone
+13185904010,Lumla,major_town,27.5297383,91.7133923,OpenStreetMap/Geofabrik North-Eastern Zone
+13241541288,Lilong,major_town,24.7164167,93.9408376,OpenStreetMap/Geofabrik North-Eastern Zone
+13290022327,Yachuli,major_town,27.4640703,93.7686146,OpenStreetMap/Geofabrik North-Eastern Zone
+13977886168,珞瓦乡,major_town,28.6052698,93.4017715,OpenStreetMap/Geofabrik North-Eastern Zone
+2383182625,Unnayan Market,marketplace,26.7597021,94.2075832,OpenStreetMap/Geofabrik North-Eastern Zone
+2387271266,Fish Market,marketplace,24.7923792,93.0018645,OpenStreetMap/Geofabrik North-Eastern Zone
+2388176738,Fulertal Vag & Fish Market,marketplace,24.7901718,93.0180347,OpenStreetMap/Geofabrik North-Eastern Zone
+2389289040,Pailapool Market,marketplace,24.8280946,93.0213805,OpenStreetMap/Geofabrik North-Eastern Zone
+2582079155,Talpatri Bazar,marketplace,23.375987,91.2723835,OpenStreetMap/Geofabrik North-Eastern Zone
+2582094415,Lampur Bazar,marketplace,23.3749761,91.2567477,OpenStreetMap/Geofabrik North-Eastern Zone
+2585462351,Mamun Store,marketplace,23.38152,91.2735198,OpenStreetMap/Geofabrik North-Eastern Zone
+3546852189,Do:nyi-Polo Supermarket,marketplace,27.8248149,95.2280055,OpenStreetMap/Geofabrik North-Eastern Zone
+3547052272,Laimekuri Weekly Market,marketplace,27.7522709,95.0781048,OpenStreetMap/Geofabrik North-Eastern Zone
+3547327332,Telam Weekly Market,marketplace,27.7642459,95.0017795,OpenStreetMap/Geofabrik North-Eastern Zone
+3637659871,Bhutia Market,marketplace,26.7593154,94.2096525,OpenStreetMap/Geofabrik North-Eastern Zone
+3637659876,Doss and Co. Supermarket,marketplace,26.7538042,94.2120835,OpenStreetMap/Geofabrik North-Eastern Zone
+3700994867,,marketplace,25.2851946,91.7215802,OpenStreetMap/Geofabrik North-Eastern Zone
+3701126950,,marketplace,25.7260706,92.4479208,OpenStreetMap/Geofabrik North-Eastern Zone
+3701333313,Kailashahar market,marketplace,24.3190775,91.9972165,OpenStreetMap/Geofabrik North-Eastern Zone
+3777829124,ATC Mall,marketplace,27.4919432,95.3616683,OpenStreetMap/Geofabrik North-Eastern Zone
+3777897051,Vishal Mega Mart,marketplace,27.4892818,95.3569837,OpenStreetMap/Geofabrik North-Eastern Zone
+3912941346,Gol Dighi Mall,marketplace,24.8227877,92.8000109,OpenStreetMap/Geofabrik North-Eastern Zone
+3914775756,M Bazaar - Old Debdoot Cinema Hall,marketplace,24.8288775,92.7997706,OpenStreetMap/Geofabrik North-Eastern Zone
+3921072111,,marketplace,24.8228701,92.8013867,OpenStreetMap/Geofabrik North-Eastern Zone
+3921076867,Birbal Bazaar,marketplace,24.7900403,92.7933525,OpenStreetMap/Geofabrik North-Eastern Zone
+4193266101,New Market,marketplace,27.3551927,96.0138803,OpenStreetMap/Geofabrik North-Eastern Zone
+4196339703,Segunbari Tiniali,marketplace,27.293615,95.6591061,OpenStreetMap/Geofabrik North-Eastern Zone
+4196638621,,marketplace,24.8104405,93.9354119,OpenStreetMap/Geofabrik North-Eastern Zone
+4376821290,D K Associates,marketplace,26.178892,91.8300415,OpenStreetMap/Geofabrik North-Eastern Zone
+4406966490,garaimari,marketplace,26.3645816,90.9312227,OpenStreetMap/Geofabrik North-Eastern Zone
+4406999489,khandakar para bazar,marketplace,26.3996748,90.9423545,OpenStreetMap/Geofabrik North-Eastern Zone
+4407020592,kaljhar,marketplace,26.4209918,91.0119153,OpenStreetMap/Geofabrik North-Eastern Zone
+4409804494,jania,marketplace,26.3304634,90.9224613,OpenStreetMap/Geofabrik North-Eastern Zone
+4476175189,Bogaijan para,marketplace,26.4018673,90.9637486,OpenStreetMap/Geofabrik North-Eastern Zone
+4662581553,Supermarket Pasighat,marketplace,28.0611706,95.3312831,OpenStreetMap/Geofabrik North-Eastern Zone
+4741358880,Delight,marketplace,26.625181,92.7969405,OpenStreetMap/Geofabrik North-Eastern Zone
+4767273052,Borpokor Par,marketplace,23.4409617,91.23254,OpenStreetMap/Geofabrik North-Eastern Zone
+4845128118,Bapaka,marketplace,25.5697181,91.8585015,OpenStreetMap/Geofabrik North-Eastern Zone
+4871342884,101 Army Canteen,marketplace,25.5667745,91.8623533,OpenStreetMap/Geofabrik North-Eastern Zone
+4874614954,Kalighat Tea Garden Bazar,marketplace,24.2682552,91.7309132,OpenStreetMap/Geofabrik North-Eastern Zone
+4893695814,Muraichhara Bazar,marketplace,24.3957869,92.0273334,OpenStreetMap/Geofabrik North-Eastern Zone
+4907229224,Lal Bazar,marketplace,27.3262301,88.6110497,OpenStreetMap/Geofabrik North-Eastern Zone
+4918718257,Reliance Xpress Mini,marketplace,26.4788231,90.5547693,OpenStreetMap/Geofabrik North-Eastern Zone
+5103430914,Rajai,marketplace,25.1973302,91.2209883,OpenStreetMap/Geofabrik North-Eastern Zone
+5103430917,Joy Bangla Bazar,marketplace,25.1975151,91.1834448,OpenStreetMap/Geofabrik North-Eastern Zone
+5124111283,Suagazi Gorur Hat,marketplace,23.3697598,91.2446389,OpenStreetMap/Geofabrik North-Eastern Zone
+5125768344,মেসার্স নূর এন্টারপ্রাইজ Nur Enterprise,marketplace,23.3355392,91.2715992,OpenStreetMap/Geofabrik North-Eastern Zone
+5160148706,Dudhukchara Bazar,marketplace,23.3879505,91.8831743,OpenStreetMap/Geofabrik North-Eastern Zone
+5645299364,agriculture development organization agricultural product market,marketplace,25.5477292,89.8633126,OpenStreetMap/Geofabrik North-Eastern Zone
+5653173955,Anando Bazar,marketplace,25.5151556,89.8469381,OpenStreetMap/Geofabrik North-Eastern Zone
+5899782348,Lee Kosto,marketplace,24.7901457,93.9416063,OpenStreetMap/Geofabrik North-Eastern Zone
+5899782349,Kwik & Easy,marketplace,24.7903903,93.941709,OpenStreetMap/Geofabrik North-Eastern Zone
+5975619699,Koukandi Bazar,marketplace,25.1884327,91.1877277,OpenStreetMap/Geofabrik North-Eastern Zone
+6096308946,Vishal Mega Mart,marketplace,26.6266888,92.7901929,OpenStreetMap/Geofabrik North-Eastern Zone
+6132668196,Dakhingaon Tiniali,marketplace,26.1356764,91.7622007,OpenStreetMap/Geofabrik North-Eastern Zone
+6149095817,Suagazi Market,marketplace,23.3760698,91.2409056,OpenStreetMap/Geofabrik North-Eastern Zone
+6155030763,Shopping Center,marketplace,23.4953486,91.2069498,OpenStreetMap/Geofabrik North-Eastern Zone
+6162842843,Komolpur Bazar,marketplace,23.4345084,91.2308711,OpenStreetMap/Geofabrik North-Eastern Zone
+6263891638,Vishal,marketplace,25.6892581,94.0984386,OpenStreetMap/Geofabrik North-Eastern Zone
+6350328485,Over-d-counter,marketplace,26.1910543,91.7514038,OpenStreetMap/Geofabrik North-Eastern Zone
+6350328486,Over-d-counter,marketplace,26.1922018,91.7522625,OpenStreetMap/Geofabrik North-Eastern Zone
+6454389301,The Grocer Supermarket,marketplace,26.1602459,91.6853365,OpenStreetMap/Geofabrik North-Eastern Zone
+6514711892,Nute Bazaar,marketplace,24.340707,93.6968856,OpenStreetMap/Geofabrik North-Eastern Zone
+6516579150,Vishal Mega Mart,marketplace,24.8279066,93.9449217,OpenStreetMap/Geofabrik North-Eastern Zone
+6516579169,Temporary Womens Market,marketplace,24.8081549,93.9354477,OpenStreetMap/Geofabrik North-Eastern Zone
+6627298241,,marketplace,26.3310377,90.6711745,OpenStreetMap/Geofabrik North-Eastern Zone
+6754606823,nalgaria market,marketplace,23.8276486,91.3780484,OpenStreetMap/Geofabrik North-Eastern Zone
+6840189628,Amin Market আমিন বাজার,marketplace,23.1129519,91.3326162,OpenStreetMap/Geofabrik North-Eastern Zone
+6849446518,Local marketplace,marketplace,24.2496205,94.302569,OpenStreetMap/Geofabrik North-Eastern Zone
+6854562585,Moirang Marketplace,marketplace,24.5012502,93.7760431,OpenStreetMap/Geofabrik North-Eastern Zone
+6876715685,Old Daly Marketplace,marketplace,25.9066994,93.7260576,OpenStreetMap/Geofabrik North-Eastern Zone
+6897140685,Supermarket,marketplace,28.1689984,94.7966179,OpenStreetMap/Geofabrik North-Eastern Zone
+6897144085,Old Aalo Marketplace,marketplace,28.1760996,94.8017673,OpenStreetMap/Geofabrik North-Eastern Zone
+6912471587,Ghandi Marketplace,marketplace,28.6008476,94.1337721,OpenStreetMap/Geofabrik North-Eastern Zone
+6912471593,Local vegetable marketplace,marketplace,28.5996842,94.135318,OpenStreetMap/Geofabrik North-Eastern Zone
+6917492585,Chicken & Fish center marketplace,marketplace,27.9828724,94.6897636,OpenStreetMap/Geofabrik North-Eastern Zone
+6917492586,Vegetable stalls marketplace,marketplace,27.9818099,94.6894749,OpenStreetMap/Geofabrik North-Eastern Zone
+6926040185,Ghada market,marketplace,27.0876399,93.6123362,OpenStreetMap/Geofabrik North-Eastern Zone
+6926040486,Vegetable stalls marketplace,marketplace,27.0867168,93.6106347,OpenStreetMap/Geofabrik North-Eastern Zone
+6934551785,Abotani marketplace,marketplace,27.5404446,93.8170287,OpenStreetMap/Geofabrik North-Eastern Zone
+6934593085,Local Marketplace,marketplace,27.5394112,93.8157969,OpenStreetMap/Geofabrik North-Eastern Zone
+6936956885,Akash Deep marketplace,marketplace,27.0878583,93.6143623,OpenStreetMap/Geofabrik North-Eastern Zone
+6956627185,Old Market,marketplace,27.5945317,91.8720495,OpenStreetMap/Geofabrik North-Eastern Zone
+6996288286,Dawki marketplace,marketplace,25.1856939,92.0209225,OpenStreetMap/Geofabrik North-Eastern Zone
+7006997537,Chowk Bazaar,marketplace,26.5106988,93.9717981,OpenStreetMap/Geofabrik North-Eastern Zone
+7138554711,,marketplace,25.2083287,92.3738329,OpenStreetMap/Geofabrik North-Eastern Zone
+7203773286,Easy Mart,marketplace,26.1588089,91.8167198,OpenStreetMap/Geofabrik North-Eastern Zone
+7388687152,Mosjid Market,marketplace,24.3452081,91.9766202,OpenStreetMap/Geofabrik North-Eastern Zone
+7485314690,Hausapi Niangta Bazaar,marketplace,24.0852046,93.480884,OpenStreetMap/Geofabrik North-Eastern Zone
+7822089745,,marketplace,25.6620812,93.6946784,OpenStreetMap/Geofabrik North-Eastern Zone
+7996334615,,marketplace,24.7458445,93.4256171,OpenStreetMap/Geofabrik North-Eastern Zone
+7997384230,Daily Market,marketplace,25.8102681,93.7881458,OpenStreetMap/Geofabrik North-Eastern Zone
+7998406601,Weekly Market,marketplace,25.8179443,93.7846875,OpenStreetMap/Geofabrik North-Eastern Zone
+8133424506,TYO Bamboo Market,marketplace,25.6585567,94.0993622,OpenStreetMap/Geofabrik North-Eastern Zone
+8186438408,Bishnupur Bazar,marketplace,24.6280257,93.7623699,OpenStreetMap/Geofabrik North-Eastern Zone
+8344720057,Meat Market,marketplace,28.167259,94.7997902,OpenStreetMap/Geofabrik North-Eastern Zone
+9195671347,,marketplace,27.4241767,96.0270393,OpenStreetMap/Geofabrik North-Eastern Zone
+9214231563,Goenka Market,marketplace,27.4807933,94.9067943,OpenStreetMap/Geofabrik North-Eastern Zone
+9376232961,CAK Building,marketplace,25.8428091,93.4395778,OpenStreetMap/Geofabrik North-Eastern Zone
+9376333074,Diphu Market,marketplace,25.8438669,93.4406189,OpenStreetMap/Geofabrik North-Eastern Zone
+9610472282,IDNOAAS Fancy Bazaar,marketplace,24.8127756,92.8613714,OpenStreetMap/Geofabrik North-Eastern Zone
+9653481521,,marketplace,26.4525932,92.3924643,OpenStreetMap/Geofabrik North-Eastern Zone
+9812030833,Pariwar,marketplace,26.1375874,91.6285762,OpenStreetMap/Geofabrik North-Eastern Zone
+9812030834,Jio Smart Point,marketplace,26.1375905,91.6282721,OpenStreetMap/Geofabrik North-Eastern Zone
+10143104026,উদয়পুর বাজার,marketplace,23.3776929,92.3587405,OpenStreetMap/Geofabrik North-Eastern Zone
+10221832519,Sarkari Bagan Market,marketplace,25.1837207,93.014171,OpenStreetMap/Geofabrik North-Eastern Zone
+10221832633,Mahadev tilla,marketplace,25.1561556,93.0213342,OpenStreetMap/Geofabrik North-Eastern Zone
+10222875919,Haflong Town Fish and Meat Market,marketplace,25.168776,93.0165275,OpenStreetMap/Geofabrik North-Eastern Zone
+10223210217,Tribal Market,marketplace,25.1705348,93.0159663,OpenStreetMap/Geofabrik North-Eastern Zone
+10250305639,Kaliksar Kazi Market,marketplace,23.1678574,91.3190243,OpenStreetMap/Geofabrik North-Eastern Zone
+10260278287,Orphanage Market,marketplace,23.1982357,91.3151987,OpenStreetMap/Geofabrik North-Eastern Zone
+10268924865,Kalir bazar,marketplace,23.2379583,91.3128697,OpenStreetMap/Geofabrik North-Eastern Zone
+10273616594,Chowdhury Market,marketplace,23.2706775,91.3043294,OpenStreetMap/Geofabrik North-Eastern Zone
+10809942500,Ratanpur Weekly Market,marketplace,26.2484686,94.0420614,OpenStreetMap/Geofabrik North-Eastern Zone
+10893565360,Vishal Mega Mart,marketplace,25.5799885,91.8978083,OpenStreetMap/Geofabrik North-Eastern Zone
+11027590905,Sontila Market,marketplace,25.2154663,93.0175847,OpenStreetMap/Geofabrik North-Eastern Zone
+11350592364,District Transport Office,marketplace,25.5201724,90.1827485,OpenStreetMap/Geofabrik North-Eastern Zone
+11350592399,Doordarshan Kendra,marketplace,25.5201843,90.1775038,OpenStreetMap/Geofabrik North-Eastern Zone
+11353484640,Nazing Bazar,marketplace,25.5130968,90.1906514,OpenStreetMap/Geofabrik North-Eastern Zone
+11353484688,,marketplace,25.5131848,90.191087,OpenStreetMap/Geofabrik North-Eastern Zone
+11355834904,common market,marketplace,26.7218636,93.1474258,OpenStreetMap/Geofabrik North-Eastern Zone
+11356011334,Spk Daily Market,marketplace,27.1046735,95.1606401,OpenStreetMap/Geofabrik North-Eastern Zone
+11356011356,Phukan market,marketplace,27.1039882,95.1598558,OpenStreetMap/Geofabrik North-Eastern Zone
+11356560157,BAMBOO ENTERPRISE,marketplace,26.6854401,94.3976522,OpenStreetMap/Geofabrik North-Eastern Zone
+11356647333,Paruwa Daily Bazar,marketplace,26.6531802,92.7989736,OpenStreetMap/Geofabrik North-Eastern Zone
+11356661696,nachou bazar shed,marketplace,24.5971516,93.7729634,OpenStreetMap/Geofabrik North-Eastern Zone
+11357212739,daily market,marketplace,26.2041228,93.1286353,OpenStreetMap/Geofabrik North-Eastern Zone
+11357212740,daily market,marketplace,26.2031618,93.1286697,OpenStreetMap/Geofabrik North-Eastern Zone
+11357589910,Nayantara Supermarket1,marketplace,26.1325804,91.8071481,OpenStreetMap/Geofabrik North-Eastern Zone
+11357589919,BAKER'S MART,marketplace,26.1385851,91.7980981,OpenStreetMap/Geofabrik North-Eastern Zone
+11357607187,,marketplace,26.100955,91.5977474,OpenStreetMap/Geofabrik North-Eastern Zone
+11357618025,Grocery store,marketplace,26.1171034,91.7977441,OpenStreetMap/Geofabrik North-Eastern Zone
+11357618026,Grocery store,marketplace,26.118529,91.7982095,OpenStreetMap/Geofabrik North-Eastern Zone
+11357651040,URBAN HUB,marketplace,25.5155732,90.2207123,OpenStreetMap/Geofabrik North-Eastern Zone
+11357651042,SANGMA COMPLEX,marketplace,25.5170522,90.2211361,OpenStreetMap/Geofabrik North-Eastern Zone
+11357651046,COUNCIL BUILDING,marketplace,25.5121056,90.2172932,OpenStreetMap/Geofabrik North-Eastern Zone
+11377270069,Organic Vegetable market,marketplace,27.1660966,88.3635577,OpenStreetMap/Geofabrik North-Eastern Zone
+11510866643,Kailash Bhandar,marketplace,26.8102598,94.5227123,OpenStreetMap/Geofabrik North-Eastern Zone
+11560194769,Quick Shoppe supermarket,marketplace,26.1590114,91.7818318,OpenStreetMap/Geofabrik North-Eastern Zone
+11687979077,Vishal Mega Mart,marketplace,26.1492151,91.7862632,OpenStreetMap/Geofabrik North-Eastern Zone
+11704866357,Banglabari Bazar,marketplace,26.3965091,90.0280152,OpenStreetMap/Geofabrik North-Eastern Zone
+11711565461,Balapara Bazar,marketplace,26.3355065,90.0969169,OpenStreetMap/Geofabrik North-Eastern Zone
+11905593569,New market,marketplace,25.668845,94.1060657,OpenStreetMap/Geofabrik North-Eastern Zone
+11916122122,K. Ashang Khullen Aze trade centre,marketplace,24.5668344,94.4545652,OpenStreetMap/Geofabrik North-Eastern Zone
+11933474272,Krishna Market,marketplace,26.1806309,91.7498467,OpenStreetMap/Geofabrik North-Eastern Zone
+11933550671,G. Z. Complex,marketplace,26.1770554,91.7547404,OpenStreetMap/Geofabrik North-Eastern Zone
+11934124442,Ratneswari Dutta Market,marketplace,26.1780131,91.7421883,OpenStreetMap/Geofabrik North-Eastern Zone
+11934402310,Giridhar Market,marketplace,26.1781488,91.7529201,OpenStreetMap/Geofabrik North-Eastern Zone
+11937535189,Didar Market,marketplace,26.1806632,91.7501167,OpenStreetMap/Geofabrik North-Eastern Zone
+11937542119,Probir Market,marketplace,26.1807933,91.7502699,OpenStreetMap/Geofabrik North-Eastern Zone
+11939583316,Janapriya Market,marketplace,26.180021,91.7509333,OpenStreetMap/Geofabrik North-Eastern Zone
+11939597452,Vijoya Market,marketplace,26.1798259,91.7510445,OpenStreetMap/Geofabrik North-Eastern Zone
+11939597456,Bhim Sain Verma Complex,marketplace,26.1798237,91.7510208,OpenStreetMap/Geofabrik North-Eastern Zone
+11939597582,Subha Market,marketplace,26.1799141,91.751007,OpenStreetMap/Geofabrik North-Eastern Zone
+11940313414,Kejriwal Bhavan,marketplace,26.1787289,91.7515779,OpenStreetMap/Geofabrik North-Eastern Zone
+11942178090,Niharika enterprise,marketplace,26.1453925,91.6449823,OpenStreetMap/Geofabrik North-Eastern Zone
+11942239769,SK store,marketplace,26.1471895,91.6464703,OpenStreetMap/Geofabrik North-Eastern Zone
+11955481270,Lower Market,marketplace,28.9949832,94.8971918,OpenStreetMap/Geofabrik North-Eastern Zone
+11955481271,Upper Market,marketplace,28.9955955,94.8921621,OpenStreetMap/Geofabrik North-Eastern Zone
+12101755001,"Ziekezou, DBS colony",marketplace,25.687385,94.1180714,OpenStreetMap/Geofabrik North-Eastern Zone
+12138120507,যাতনবাড়ি বাজার,marketplace,23.4209041,91.7578733,OpenStreetMap/Geofabrik North-Eastern Zone
+12350379779,,marketplace,26.1623369,91.7494334,OpenStreetMap/Geofabrik North-Eastern Zone
+12350526591,Daily Market,marketplace,26.40361,90.2705743,OpenStreetMap/Geofabrik North-Eastern Zone
+12350546613,HARDWERE STORE,marketplace,27.0267817,95.0203495,OpenStreetMap/Geofabrik North-Eastern Zone
+12350546743,KRIYANMOYEE SHOP,marketplace,27.0249865,95.0106284,OpenStreetMap/Geofabrik North-Eastern Zone
+12353534551,,marketplace,25.5820909,91.8872247,OpenStreetMap/Geofabrik North-Eastern Zone
+12462563735,,marketplace,25.2848946,91.7214199,OpenStreetMap/Geofabrik North-Eastern Zone
+12473749867,Katakhal Bazaar,marketplace,24.8324208,92.6321531,OpenStreetMap/Geofabrik North-Eastern Zone
+12811553742,Laxmikura Shahid Zia Bazar,marketplace,25.1756687,90.32297,OpenStreetMap/Geofabrik North-Eastern Zone
+12811562901,"Boishaki Kachabazar, Market",marketplace,25.1891733,90.2385701,OpenStreetMap/Geofabrik North-Eastern Zone
+12897088964,Sowari Poitari Bazar,marketplace,26.1033758,90.3738902,OpenStreetMap/Geofabrik North-Eastern Zone
+12969139198,Shriji Point,marketplace,26.1804551,91.7391616,OpenStreetMap/Geofabrik North-Eastern Zone
+12969373960,F N Market,marketplace,26.1815757,91.7404656,OpenStreetMap/Geofabrik North-Eastern Zone
+12972353864,City Center,marketplace,26.1818881,91.7409033,OpenStreetMap/Geofabrik North-Eastern Zone
+12972665661,MANGALAM MARKETING,marketplace,26.1720416,91.7576247,OpenStreetMap/Geofabrik North-Eastern Zone
+12976478116,BABU BAZAR,marketplace,26.1817723,91.7407915,OpenStreetMap/Geofabrik North-Eastern Zone
+12976879924,Suraj Market,marketplace,26.1811887,91.7402299,OpenStreetMap/Geofabrik North-Eastern Zone
+13016688131,Pulen Das Super Market,marketplace,26.1582363,91.8386242,OpenStreetMap/Geofabrik North-Eastern Zone
+13020524859,sandhiram Dainik Bazaar,marketplace,26.1213176,91.7871688,OpenStreetMap/Geofabrik North-Eastern Zone
+13022615299,Dharamshala market,marketplace,26.1798377,91.741418,OpenStreetMap/Geofabrik North-Eastern Zone
+13022630811,Bee Gee Market,marketplace,26.1804306,91.7406087,OpenStreetMap/Geofabrik North-Eastern Zone
+13022649612,Bajoria Market,marketplace,26.1810941,91.7395859,OpenStreetMap/Geofabrik North-Eastern Zone
+13152617502,এম বাজাৰ লংকা,marketplace,25.9172345,92.9505303,OpenStreetMap/Geofabrik North-Eastern Zone
+13175119712,Piyong Rural Hat,marketplace,27.5988079,95.9291226,OpenStreetMap/Geofabrik North-Eastern Zone
+13195195127,Hamro Bazar,marketplace,27.3279269,88.6115843,OpenStreetMap/Geofabrik North-Eastern Zone
+13197730395,"Sutarkandi Bazar, Market",marketplace,24.8742988,92.2440077,OpenStreetMap/Geofabrik North-Eastern Zone
+13371466214,Trends,marketplace,26.3544336,92.6968839,OpenStreetMap/Geofabrik North-Eastern Zone
+13391675306,,marketplace,26.555231,92.198413,OpenStreetMap/Geofabrik North-Eastern Zone
+13391675307,,marketplace,26.5550216,92.1988197,OpenStreetMap/Geofabrik North-Eastern Zone
+13450203433,Vishal Mega Mart,marketplace,28.1188755,95.8238161,OpenStreetMap/Geofabrik North-Eastern Zone
+13506189522,VEGETABLE STALL,marketplace,26.1585601,91.7820863,OpenStreetMap/Geofabrik North-Eastern Zone
+13506197122,Royal Store,marketplace,26.1749818,91.7591544,OpenStreetMap/Geofabrik North-Eastern Zone
+13506197129,Ma durga store,marketplace,26.1749612,91.7602016,OpenStreetMap/Geofabrik North-Eastern Zone
+13506197135,royal grocers,marketplace,26.1749017,91.7606972,OpenStreetMap/Geofabrik North-Eastern Zone
+13506197142,Shiv Bhandar,marketplace,26.1752192,91.7620904,OpenStreetMap/Geofabrik North-Eastern Zone
+13506197144,Priya General Store,marketplace,26.1753607,91.7626049,OpenStreetMap/Geofabrik North-Eastern Zone
+13506197157,ANNAPURNA BHANDAR,marketplace,26.1258841,91.7866684,OpenStreetMap/Geofabrik North-Eastern Zone
+13506229573,Annapurna Bhandar,marketplace,26.1258952,91.7866647,OpenStreetMap/Geofabrik North-Eastern Zone
+13506229574,S.T. commercial,marketplace,26.1260024,91.7866485,OpenStreetMap/Geofabrik North-Eastern Zone
+13506245566,R choudhuary,marketplace,26.1785749,91.7566454,OpenStreetMap/Geofabrik North-Eastern Zone
+13506276160,P.P Store,marketplace,26.1915005,91.7537123,OpenStreetMap/Geofabrik North-Eastern Zone
+13508245270,Unique supermart,marketplace,26.1743632,91.7580298,OpenStreetMap/Geofabrik North-Eastern Zone
+13509596256,AKANHASI,marketplace,26.1709383,91.755448,OpenStreetMap/Geofabrik North-Eastern Zone
+13511273859,KIBRIYA MART,marketplace,26.1289466,91.784868,OpenStreetMap/Geofabrik North-Eastern Zone
+13511365117,SMART BAZAAR,marketplace,26.1659384,91.7678772,OpenStreetMap/Geofabrik North-Eastern Zone
+13511655671,M. J. Store,marketplace,26.1764255,91.7335436,OpenStreetMap/Geofabrik North-Eastern Zone
+13511655677,M. K. Store,marketplace,26.1771879,91.7350427,OpenStreetMap/Geofabrik North-Eastern Zone
+13511688910,ROODRAKSH,marketplace,26.166223,91.7675277,OpenStreetMap/Geofabrik North-Eastern Zone
+13511688911,SMART BAZZER,marketplace,26.1659094,91.7679488,OpenStreetMap/Geofabrik North-Eastern Zone
+13511708018,KAMAL TEA COMPANY,marketplace,26.1777315,91.7356811,OpenStreetMap/Geofabrik North-Eastern Zone
+13511708023,dee kay tea,marketplace,26.178231,91.7360734,OpenStreetMap/Geofabrik North-Eastern Zone
+13516553693,Mangalam Market,marketplace,26.1708416,91.7554217,OpenStreetMap/Geofabrik North-Eastern Zone
+13516613204,GARG ASSOCIATES,marketplace,26.1425023,91.72654,OpenStreetMap/Geofabrik North-Eastern Zone
+13516613207,POWER SYSTEM & SOUNDS,marketplace,26.1417801,91.7261745,OpenStreetMap/Geofabrik North-Eastern Zone
+13516749877,RAHUL COMPLEX,marketplace,26.1321142,91.806982,OpenStreetMap/Geofabrik North-Eastern Zone
+13516772181,QUICK SHOPPE EXPRESS,marketplace,26.18718,91.7521864,OpenStreetMap/Geofabrik North-Eastern Zone
+13517182662,Suvidha,marketplace,26.1703903,91.742005,OpenStreetMap/Geofabrik North-Eastern Zone
+13517338067,PRINCE SUPER MARKET,marketplace,26.1318492,91.7938816,OpenStreetMap/Geofabrik North-Eastern Zone
+13522630924,dewan market,marketplace,26.1834245,91.7823834,OpenStreetMap/Geofabrik North-Eastern Zone
+13522630941,M/S Biraja Enterprise,marketplace,26.1839829,91.7800448,OpenStreetMap/Geofabrik North-Eastern Zone
+13522630946,joy guru,marketplace,26.1840286,91.778354,OpenStreetMap/Geofabrik North-Eastern Zone
+13620021759,Biponi Market,marketplace,26.7250049,94.1987942,OpenStreetMap/Geofabrik North-Eastern Zone
+13844904819,Deb Brothers,marketplace,25.91781,92.9488093,OpenStreetMap/Geofabrik North-Eastern Zone
+14051774277,lake side mart,marketplace,26.1219771,91.6180705,OpenStreetMap/Geofabrik North-Eastern Zone
+14106998801,বড় হরিণা বাজার Bara Harina,marketplace,22.930052,92.3755417,OpenStreetMap/Geofabrik North-Eastern Zone
