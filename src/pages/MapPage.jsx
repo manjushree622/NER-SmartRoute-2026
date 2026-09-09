@@ -13,6 +13,7 @@ export default function MapPage({ user, onLogout }) {
   // Search inputs initialized with primary demo route
   const [source, setSource] = useState('Assam');
   const [destination, setDestination] = useState('Tripura');
+  const [vehicleType, setVehicleType] = useState('logistics_vehicle');
 
   // Route calculation states
   const [routeData, setRouteData] = useState(null);
@@ -26,7 +27,7 @@ export default function MapPage({ user, onLogout }) {
   const [locationNotice, setLocationNotice] = useState('');
 
   // Search route handler
-  const handleSearchRoute = useCallback(async (src, dest) => {
+  const handleSearchRoute = useCallback(async (src, dest, selectedVehicleType = vehicleType) => {
     const s = src || source;
     const d = dest || destination;
 
@@ -45,16 +46,16 @@ export default function MapPage({ user, onLogout }) {
     setIsNavigating(false);
 
     try {
-      const data = await fetchRoute(s, d);
+      const data = await fetchRoute(s, d, selectedVehicleType);
       setRouteData(data);
-      // Backend guarantees recommended_route is safest; select it by default
+      // The backend orders routes by safety score, so start on its recommendation.
       setActiveRouteType('safest');
     } catch (err) {
       setErrorMessage(err.message || 'Unable to compute safe routes at this time.');
     } finally {
       setIsLoading(false);
     }
-  }, [source, destination]);
+  }, [source, destination, vehicleType]);
 
   // Initial load: automatically load primary demo route Assam -> Tripura
   useEffect(() => {
@@ -119,6 +120,8 @@ export default function MapPage({ user, onLogout }) {
             setDestination={setDestination}
             onSearch={handleSearchRoute}
             isLoading={isLoading}
+            vehicleType={vehicleType}
+            setVehicleType={setVehicleType}
           />
 
           <div style={{ padding: '0 20px', marginTop: '16px' }}>

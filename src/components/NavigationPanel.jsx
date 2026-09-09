@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Navigation, Compass, ShieldCheck, MapPin, XCircle, AlertTriangle } from 'lucide-react';
 import { getRiskColor } from '../utils/navigation';
+import { formatDistanceKm } from '../utils/navigation';
 
 export default function NavigationPanel({
   route,
@@ -60,7 +61,7 @@ export default function NavigationPanel({
       <div className="nav-metrics-row">
         <div className="nav-stat">
           <span className="label">Total Distance</span>
-          <span className="val">{route?.distance_km} km</span>
+          <span className="val">{formatDistanceKm(route?.distance_km)} km</span>
         </div>
 
         <div className="nav-stat">

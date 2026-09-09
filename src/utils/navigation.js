@@ -39,6 +39,25 @@ export function getRiskColor(level) {
   return '#6B7280';
 }
 
+export function getSafetyClassification(score) {
+  if (score >= 80) return { label: 'EXCELLENT', emoji: '🟢', color: '#10B981' };
+  if (score >= 60) return { label: 'GOOD', emoji: '🟡', color: '#F59E0B' };
+  if (score >= 40) return { label: 'MODERATE', emoji: '🟠', color: '#F97316' };
+  return { label: 'HIGH RISK', emoji: '🔴', color: '#EF4444' };
+}
+
+export function formatDistanceKm(distance) {
+  if (distance === undefined || distance === null || Number.isNaN(Number(distance))) return 'N/A';
+  return Math.round(Number(distance)).toString();
+}
+
+export const VEHICLE_LABELS = {
+  two_wheeler: '🏍️ Two-Wheeler',
+  four_wheeler: '🚗 Four-Wheeler',
+  emergency_vehicle: '🚑 Emergency Vehicle',
+  logistics_vehicle: '🚚 Logistics Vehicle'
+};
+
 /**
  * Returns a human-friendly background badge style
  */

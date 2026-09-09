@@ -4,13 +4,20 @@
 
 from fastapi import FastAPI, Query
 from fastapi.middleware.cors import CORSMiddleware
-
+from typing import Optional
+import logging
+from weather_service import get_current_weather
+from fastapi import FastAPI, HTTPException
 from route_optimization import (
     G,
     normalize_state,
-    safest_route,
-    alternate_route
+    find_meaningful_routes,
+    DEFAULT_VEHICLE_TYPE,
+    VEHICLE_TYPES
 )
+
+
+LOGGER = logging.getLogger(__name__)
 
 
 # =========================================================
@@ -25,6 +32,12 @@ app = FastAPI(
     ),
     version="1.0.0"
 )
+@app.get("/weather")
+def weather(lat: float, lon: float):
+    try:
+        return get_current_weather(lat, lon)
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
 
 
 # =========================================================
@@ -144,7 +157,13 @@ def get_route(
         description=(
             "Destination state or supported capital"
         )
-    )
+    ),
+
+    vehicle_type: Optional[str] = Query(
+        None,
+        description="Optional vehicle type for route planning"
+    ),
+
 ):
 
     # -----------------------------------------------------
@@ -204,75 +223,39 @@ def get_route(
             )
         }
 
+    selected_vehicle = vehicle_type if vehicle_type in VEHICLE_TYPES else DEFAULT_VEHICLE_TYPE
 
-    # -----------------------------------------------------
-    # CALCULATE SAFEST ROUTE
-    # -----------------------------------------------------
-
-    recommended_route = safest_route(
+    routes = find_meaningful_routes(
         G,
         normalized_source,
-        normalized_target
+        normalized_target,
+        vehicle_type=selected_vehicle
     )
 
-
-    # -----------------------------------------------------
-    # CHECK RECOMMENDED ROUTE ERROR
-    # -----------------------------------------------------
-
-    if (
-        recommended_route is None
-        or "error" in recommended_route
-    ):
+    if isinstance(routes, dict) and "error" in routes:
 
         return {
             "success": False,
-
-            "error": (
-                recommended_route.get(
-                    "error",
-                    "Unable to calculate safest route."
-                )
-                if recommended_route
-                else
-                "Unable to calculate safest route."
-            )
+            "error": routes["error"]
         }
 
-
-    # -----------------------------------------------------
-    # CALCULATE ALTERNATE ROUTE
-    # -----------------------------------------------------
-
-    alternative_route = alternate_route(
-        G,
-        normalized_source,
-        normalized_target
+    recommended_route = next(
+        (route for route in routes if route.get("is_recommended")),
+        routes[0] if routes else None
     )
-
-
-    # -----------------------------------------------------
-    # CHECK ALTERNATE ROUTE ERROR
-    # -----------------------------------------------------
-
-    if (
-        alternative_route is None
-        or "error" in alternative_route
-    ):
-
-        return {
-            "success": False,
-
-            "error": (
-                alternative_route.get(
-                    "error",
-                    "Unable to calculate alternate route."
-                )
-                if alternative_route
-                else
-                "Unable to calculate alternate route."
-            )
-        }
+    shortest_route = next(
+        (route for route in routes if route.get("is_shortest")),
+        None
+    )
+    safest_route = next(
+        (route for route in routes if route.get("is_safest")),
+        None
+    )
+    LOGGER.info(
+        "Route response diagnostics: meaningful_generated=%s routes_returned=%s",
+        len(routes),
+        len(routes)
+    )
 
 
     # =====================================================
@@ -292,13 +275,20 @@ def get_route(
         "recommended_route":
             recommended_route,
 
-        "alternate_route":
-            alternative_route,
+        "shortest_route":
+            shortest_route,
+
+        "safest_route":
+            safest_route,
 
         "routes": [
-            recommended_route,
-            alternative_route
+            *routes
         ],
+
+        "route_count": len(routes),
+        "vehicle_type": selected_vehicle,
+
+        "multiple_routes_available": len(routes) > 1,
 
         "navigation_enabled":
             True,
@@ -327,16 +317,16 @@ def get_route(
                 "[longitude, latitude]",
 
             "recommended_route_color":
-                "green",
+                "safety-score based",
 
-            "alternate_route_color":
-                "red"
+            "route_colors":
+                "safety-score based"
         },
 
         "message":
             (
-                "Safest route recommended based on "
-                "environmental and disaster-risk factors."
+                "Recommended route selected by balancing GIS distance, "
+                "travel time and environmental safety."
             )
     }
 

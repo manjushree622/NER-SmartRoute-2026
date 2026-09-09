@@ -1,10 +1,11 @@
 import React from 'react';
 import { ShieldCheck, CloudRain, Mountain, AlertTriangle, Activity, BarChart2, CheckCircle2 } from 'lucide-react';
 import { getRiskColor } from '../utils/navigation';
+import { formatDistanceKm } from '../utils/navigation';
 
 export default function RiskSummary({
   safestRoute,
-  alternateRoute,
+  routes = [],
   activeRoute
 }) {
   if (!safestRoute) return null;
@@ -13,7 +14,6 @@ export default function RiskSummary({
   const isViewingSafest = current === safestRoute;
 
   const safestTime = safestRoute.travel_time || (safestRoute.travel_time_min ? `${safestRoute.travel_time_min} min` : 'N/A');
-  const alternateTime = alternateRoute?.travel_time || (alternateRoute?.travel_time_min ? `${alternateRoute.travel_time_min} min` : 'N/A');
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
@@ -24,9 +24,7 @@ export default function RiskSummary({
           <span>WHY THIS ROUTE?</span>
         </div>
         <p className="why-text">
-          {safestRoute.recommendation_reason || (
-            `This route is recommended because it has a lower overall environmental risk probability (${safestRoute.risk_probability}%) compared to the alternate route, evaluating rainfall hazard (${safestRoute.rainfall_risk || safestRoute.rainfall || 'normal'}), slope (${safestRoute.slope_risk || safestRoute.slope || 'normal'}) and landslide vulnerability (${safestRoute.landslide_risk || safestRoute.landslide || 'low'}).`
-          )}
+          {safestRoute.recommendation_reason || 'Recommended based on the highest safety score. Distance is used as a tie-breaker when safety scores are equal.'}
         </p>
       </div>
 
@@ -80,62 +78,24 @@ export default function RiskSummary({
         </div>
       </div>
 
-      {/* ROUTE COMPARISON MATRIX (🟢 SAFEST vs 🔴 ALTERNATE) */}
-      {alternateRoute && (
+      {routes.length > 1 && (
         <div className="comparison-box">
           <div className="comparison-title">
             <span>ROUTE COMPARISON MATRIX</span>
           </div>
 
-          <div className="comparison-grid">
-            {/* Safest Column */}
-            <div className="comparison-col safest">
-              <span style={{ fontSize: '0.75rem', fontWeight: 800, color: '#10B981', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                🟢 SAFEST
-              </span>
-              <div className="comp-metric-row safest-val">
-                <span className="label">Distance</span>
-                <span className="val">{safestRoute.distance_km} km</span>
+          <div className="comparison-grid dynamic-route-comparison">
+            {routes.map((route) => (
+              <div className={`comparison-col ${route.route_type === 'recommended' ? 'safest' : 'alternate'}`} key={route.route_id}>
+                <span style={{ fontSize: '0.75rem', fontWeight: 800 }}>
+                  ROUTE {route.route_number} {route.route_type === 'recommended' ? 'RECOMMENDED' : 'ALTERNATIVE'}
+                </span>
+                <div className="comp-metric-row"><span className="label">Distance</span><span className="val">{formatDistanceKm(route.distance_km)} km</span></div>
+                <div className="comp-metric-row"><span className="label">Est. Time</span><span className="val">{route.travel_time}</span></div>
+                <div className="comp-metric-row"><span className="label">Risk</span><span className="val">{route.risk_level}</span></div>
+                <div className="comp-metric-row"><span className="label">Safety</span><span className="val">{route.safety_score}%</span></div>
               </div>
-              <div className="comp-metric-row safest-val">
-                <span className="label">Est. Time</span>
-                <span className="val">{safestTime}</span>
-              </div>
-              <div className="comp-metric-row safest-val">
-                <span className="label">Risk Level</span>
-                <span className="val">{safestRoute.risk_level}</span>
-              </div>
-              <div className="comp-metric-row safest-val">
-                <span className="label">Probability</span>
-                <span className="val">{safestRoute.risk_probability}%</span>
-              </div>
-            </div>
-
-            {/* VS Badge */}
-            <div className="comparison-vs-badge">VS</div>
-
-            {/* Alternate Column */}
-            <div className="comparison-col alternate">
-              <span style={{ fontSize: '0.75rem', fontWeight: 800, color: '#EF4444', display: 'flex', alignItems: 'center', justifyContent: 'flex-end', gap: '4px' }}>
-                🔴 ALTERNATE
-              </span>
-              <div className="comp-metric-row alternate-val">
-                <span className="label">Distance</span>
-                <span className="val">{alternateRoute.distance_km} km</span>
-              </div>
-              <div className="comp-metric-row alternate-val">
-                <span className="label">Est. Time</span>
-                <span className="val">{alternateTime}</span>
-              </div>
-              <div className="comp-metric-row alternate-val">
-                <span className="label">Risk Level</span>
-                <span className="val">{alternateRoute.risk_level}</span>
-              </div>
-              <div className="comp-metric-row alternate-val">
-                <span className="label">Probability</span>
-                <span className="val">{alternateRoute.risk_probability}%</span>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       )}

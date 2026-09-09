@@ -2,13 +2,22 @@ import React from 'react';
 import { MapPin, Navigation, ArrowUpDown, Search, Sparkles } from 'lucide-react';
 import { POPULAR_LOCATIONS } from '../utils/navigation';
 
+const VEHICLE_OPTIONS = [
+  ['two_wheeler', '🏍️ Two-Wheeler'],
+  ['four_wheeler', '🚗 Four-Wheeler'],
+  ['emergency_vehicle', '🚑 Emergency Vehicle'],
+  ['logistics_vehicle', '🚚 Logistics Vehicle']
+];
+
 export default function SearchPanel({
   source,
   setSource,
   destination,
   setDestination,
   onSearch,
-  isLoading
+  isLoading,
+  vehicleType,
+  setVehicleType
 }) {
   const handleSwap = () => {
     const temp = source;
@@ -18,7 +27,7 @@ export default function SearchPanel({
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSearch(source, destination);
+    onSearch(source, destination, vehicleType);
   };
 
   return (
@@ -79,6 +88,24 @@ export default function SearchPanel({
               autoComplete="off"
             />
           </div>
+        </div>
+
+        <div className="vehicle-planning-section">
+          <div className="vehicle-section-title">VEHICLE TYPE</div>
+          <div className="vehicle-options">
+            {VEHICLE_OPTIONS.map(([value, label]) => (
+              <label key={value} className={`vehicle-option ${vehicleType === value ? 'selected' : ''}`}>
+                <input
+                  type="radio"
+                  name="vehicle-type"
+                  checked={vehicleType === value}
+                  onChange={() => setVehicleType(value)}
+                />
+                <span>{label}</span>
+              </label>
+            ))}
+          </div>
+          <p className="vehicle-data-note">Vehicle-specific road restrictions are applied only where supported by available road-network data.</p>
         </div>
 
         {/* Datalist for autocomplete */}

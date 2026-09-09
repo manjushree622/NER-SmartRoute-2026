@@ -5,6 +5,14 @@ import { geoJsonToLeafletCoordinates, calculateRouteBounds, NER_CENTER, NER_DEFA
 import MapControls from './MapControls';
 import DistrictLabels from './DistrictLabels';
 import StateLabels from './StateLabels';
+import { formatDistanceKm, VEHICLE_LABELS } from '../utils/navigation';
+
+const getSafetyColor = (safetyScore = 0) => {
+  if (safetyScore >= 80) return '#10B981';
+  if (safetyScore >= 60) return '#F59E0B';
+  if (safetyScore >= 40) return '#F97316';
+  return '#EF4444';
+};
 
 // Custom SVG Icons for Source and Target Markers
 const createSvgIcon = (color, text, isFinish = false) => {
@@ -79,35 +87,44 @@ export default function MapView({
   const [showStates, setShowStates] = useState(true);
   const [fitTrigger, setFitTrigger] = useState(0);
 
-  // Convert backend GeoJSON geometry to Leaflet coordinates
-  const safestCoords = useMemo(() => {
-    if (!routeData?.recommended_route?.geometry?.coordinates) return [];
-    return geoJsonToLeafletCoordinates(routeData.recommended_route.geometry.coordinates);
-  }, [routeData?.recommended_route]);
+  const routes = routeData?.routes || [];
+  const renderedRoutes = useMemo(() => routes.map((route) => ({
+    route,
+    coords: geoJsonToLeafletCoordinates(
+      route.geojson?.coordinates || route.geometry?.coordinates
+    )
+  })).filter(({ coords }) => coords.length >= 2), [routes]);
 
-  const alternateCoords = useMemo(() => {
-    if (!routeData?.alternate_route?.geometry?.coordinates) return [];
-    return geoJsonToLeafletCoordinates(routeData.alternate_route.geometry.coordinates);
-  }, [routeData?.alternate_route]);
+  useEffect(() => {
+    if (routeData) {
+      console.info('[NER SmartRoute] Map route diagnostics', {
+        routesReceived: routes.length,
+        routePolylinesRendered: renderedRoutes.length
+      });
+    }
+  }, [routeData, routes.length, renderedRoutes.length]);
 
   // Compute bounding box
   const routeBounds = useMemo(() => {
-    if (safestCoords.length === 0 && alternateCoords.length === 0) return null;
-    return calculateRouteBounds(safestCoords, alternateCoords);
-  }, [safestCoords, alternateCoords]);
+    if (!renderedRoutes.length) return null;
+    return calculateRouteBounds(...renderedRoutes.map(({ coords }) => coords));
+  }, [renderedRoutes]);
 
   const handleManualFit = () => {
     setFitTrigger((prev) => prev + 1);
   };
 
   // Extract source & destination coordinates for pin placement
-  const sourcePoint = safestCoords[0] || null;
-  const targetPoint = safestCoords[safestCoords.length - 1] || null;
+  const recommendedRoute = routes.find((route) => route.is_recommended) || routes[0];
+  const recommendedCoords = renderedRoutes.find(({ route }) => route === recommendedRoute)?.coords || [];
+  const sourcePoint = recommendedCoords[0] || null;
+  const targetPoint = recommendedCoords[recommendedCoords.length - 1] || null;
 
-  const sourceName = routeData?.recommended_route?.source || 'Origin';
-  const targetName = routeData?.recommended_route?.target || 'Destination';
+  const sourceName = recommendedRoute?.source || 'Origin';
+  const targetName = recommendedRoute?.target || 'Destination';
 
-  const isSafestActive = activeRouteType === 'safest';
+  const getRouteWeight = (route) => route.route_id === activeRouteType || route.is_recommended ? 6 : 3.5;
+  const getRouteOpacity = (route) => route.route_id === activeRouteType || route.is_recommended ? 1 : 0.82;
 
   return (
     <div className="map-canvas-container" style={{ width: '100%', height: '100%', position: 'relative' }}>
@@ -134,101 +151,34 @@ export default function MapView({
         {/* Auto-fit map to calculated route */}
         <RouteBoundsFitter bounds={routeBounds} triggerKey={fitTrigger} />
 
-        {/* =========================================================
-            🔴 HIGHER-RISK ALTERNATE ROUTE (ALWAYS VISIBLE)
-            ========================================================= */}
-        {alternateCoords.length >= 2 && (
-          <>
-            {/* Glow / Casing for Alternate */}
-            <Polyline
-              positions={alternateCoords}
-              pathOptions={{
-                color: !isSafestActive ? 'rgba(239, 68, 68, 0.45)' : 'rgba(239, 68, 68, 0.25)',
-                weight: !isSafestActive ? 9 : 7,
-                lineCap: 'round',
-                lineJoin: 'round'
-              }}
-            />
-
-            {/* Core Polyline */}
-            <Polyline
-              positions={alternateCoords}
-              pathOptions={{
-                color: '#EF4444',
-                weight: !isSafestActive ? 5 : 3.5,
-                dashArray: !isSafestActive ? undefined : '6, 8',
-                opacity: !isSafestActive ? 1 : 0.85,
-                lineCap: 'round',
-                lineJoin: 'round'
-              }}
-              eventHandlers={{
-                click: () => setActiveRouteType('alternate')
-              }}
-            >
-              <Popup>
-                <div style={{ padding: '6px', fontFamily: 'Inter, sans-serif' }}>
-                  <span style={{ fontSize: '11px', fontWeight: 800, color: '#EF4444' }}>
-                    🔴 HIGHER-RISK ALTERNATE ROUTE
-                  </span>
-                  <div style={{ fontSize: '12px', marginTop: '4px', lineHeight: 1.4 }}>
-                    <div>Distance: <strong>{routeData?.alternate_route?.distance_km} km</strong></div>
-                    <div>Travel Time: <strong>{routeData?.alternate_route?.travel_time}</strong></div>
-                    <div>Risk Level: <strong>{routeData?.alternate_route?.risk_level} ({routeData?.alternate_route?.risk_probability}%)</strong></div>
+        {renderedRoutes.map(({ route, coords }) => {
+          const isSelected = route.route_id === activeRouteType;
+          const color = getSafetyColor(route.safety_score);
+          const scoreLabel = route.safety_score >= 80 ? 'EXCELLENT' : route.safety_score >= 60 ? 'GOOD' : route.safety_score >= 40 ? 'MODERATE' : 'HIGH RISK';
+          return (
+            <React.Fragment key={route.route_id}>
+              <Polyline positions={coords} pathOptions={{ color: `${color}55`, weight: getRouteWeight(route) + 5, opacity: getRouteOpacity(route), lineCap: 'round', lineJoin: 'round' }} />
+              <Polyline
+                positions={coords}
+                pathOptions={{ color, weight: getRouteWeight(route), opacity: getRouteOpacity(route), dashArray: isSelected || route.is_recommended ? undefined : '7, 7', lineCap: 'round', lineJoin: 'round' }}
+                eventHandlers={{ click: () => setActiveRouteType(route.route_id) }}
+              >
+                <Popup>
+                  <div style={{ padding: '6px', lineHeight: 1.5 }}>
+                    <strong style={{ color }}>ROUTE {route.route_number}</strong>
+                    <div>{(route.labels || []).join(' · ') || 'Meaningful Route'}</div>
+                    <div>Distance: <strong>{formatDistanceKm(route.distance_km)} km</strong></div>
+                    <div>Travel Time: <strong>{route.travel_time}</strong></div>
+                    <div>Risk: <strong>{route.risk_level}</strong></div>
+                    <div>Risk Probability: <strong>{route.risk_probability}%</strong></div>
+                    <div>Safety Score: <strong>{route.safety_score}% ({scoreLabel})</strong></div>
+                    <div>Vehicle: <strong>{VEHICLE_LABELS[route.vehicle_type] || route.vehicle_type || 'N/A'}</strong></div>
                   </div>
-                </div>
-              </Popup>
-            </Polyline>
-          </>
-        )}
-
-        {/* =========================================================
-            🟢 RECOMMENDED SAFEST ROUTE (ALWAYS VISIBLE & EMPHASIZED)
-            ========================================================= */}
-        {safestCoords.length >= 2 && (
-          <>
-            {/* Emerald Neon Glow Outer Casing */}
-            <Polyline
-              positions={safestCoords}
-              pathOptions={{
-                color: isSafestActive ? 'rgba(16, 185, 129, 0.5)' : 'rgba(16, 185, 129, 0.25)',
-                weight: isSafestActive ? 12 : 9,
-                lineCap: 'round',
-                lineJoin: 'round'
-              }}
-            />
-
-            {/* Main Thick Emerald Line */}
-            <Polyline
-              positions={safestCoords}
-              pathOptions={{
-                color: '#10B981',
-                weight: isSafestActive ? 6.5 : 5,
-                opacity: 1,
-                lineCap: 'round',
-                lineJoin: 'round'
-              }}
-              eventHandlers={{
-                click: () => setActiveRouteType('safest')
-              }}
-            >
-              <Popup>
-                <div style={{ padding: '6px', fontFamily: 'Inter, sans-serif' }}>
-                  <span style={{ fontSize: '11px', fontWeight: 800, color: '#10B981' }}>
-                    🟢 RECOMMENDED SAFEST ROUTE
-                  </span>
-                  <div style={{ fontSize: '12px', marginTop: '4px', lineHeight: 1.4 }}>
-                    <div>Distance: <strong>{routeData?.recommended_route?.distance_km} km</strong></div>
-                    <div>Travel Time: <strong>{routeData?.recommended_route?.travel_time}</strong></div>
-                    <div>Risk Level: <strong>{routeData?.recommended_route?.risk_level} ({routeData?.recommended_route?.risk_probability}%)</strong></div>
-                    <p style={{ marginTop: '4px', fontSize: '11px', color: '#CBD5E1' }}>
-                      {routeData?.recommended_route?.recommendation_reason}
-                    </p>
-                  </div>
-                </div>
-              </Popup>
-            </Polyline>
-          </>
-        )}
+                </Popup>
+              </Polyline>
+            </React.Fragment>
+          );
+        })}
 
         {/* Source Marker */}
         {sourcePoint && (
@@ -299,7 +249,7 @@ export default function MapView({
         <MapControls
           onLocateUser={onLocateUser}
           onFitRoute={handleManualFit}
-          hasRoute={safestCoords.length > 0}
+          hasRoute={renderedRoutes.length > 0}
           showDistricts={showDistricts}
           setShowDistricts={setShowDistricts}
           showStates={showStates}
@@ -311,14 +261,11 @@ export default function MapView({
       <div className="map-legend-card" role="region" aria-label="Map Legend">
         <div className="legend-title">Route Intelligence</div>
         <div className="legend-items">
-          <div className="legend-item">
-            <div className="legend-line safest" />
-            <span>🟢 Safest Route (Selected)</span>
-          </div>
-          <div className="legend-item">
-            <div className="legend-line alternate" />
-            <span>🔴 Higher-Risk Alternate</span>
-          </div>
+          <div className="legend-item"><span>🟢 80–100% — Excellent</span></div>
+          <div className="legend-item"><span>🟡 60–79% — Good</span></div>
+          <div className="legend-item"><span>🟠 40–59% — Moderate</span></div>
+          <div className="legend-item"><span>🔴 0–39% — High Risk</span></div>
+          <div className="legend-item"><span>Recommended route is emphasized</span></div>
           <div className="legend-item">
             <div className="legend-dot-loc" />
             <span>📍 Current Location</span>

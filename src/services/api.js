@@ -7,12 +7,12 @@
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://127.0.0.1:8000';
 
 /**
- * Fetch safest and alternate routes between source and target locations
+ * Fetch meaningful GIS routes between source and target locations
  * @param {string} source - Source state or capital
  * @param {string} target - Target state or capital
  * @returns {Promise<Object>} Backend route response
  */
-export async function fetchRoute(source, target) {
+export async function fetchRoute(source, target, vehicleType = 'logistics_vehicle') {
   if (!source || !target) {
     throw new Error('Please enter both source and destination.');
   }
@@ -24,7 +24,12 @@ export async function fetchRoute(source, target) {
     throw new Error('Source and destination cannot be the same location.');
   }
 
-  const url = `${API_BASE_URL}/get_route?source=${encodeURIComponent(cleanSource)}&target=${encodeURIComponent(cleanTarget)}`;
+  const params = new URLSearchParams({
+    source: cleanSource,
+    target: cleanTarget,
+    vehicle_type: vehicleType
+  });
+  const url = `${API_BASE_URL}/get_route?${params.toString()}`;
 
   try {
     const response = await fetch(url);
@@ -46,8 +51,8 @@ export async function fetchRoute(source, target) {
       throw new Error(data.error || 'Failed to calculate routes.');
     }
 
-    if (!data.recommended_route) {
-      throw new Error('No recommended safest route found for the given locations.');
+    if (!Array.isArray(data.routes)) {
+      throw new Error('The routing service returned an invalid route list.');
     }
 
     return data;

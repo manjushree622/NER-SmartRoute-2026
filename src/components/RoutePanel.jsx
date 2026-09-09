@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Navigation, RotateCcw, ArrowRight } from 'lucide-react';
 import RouteCard from './RouteCard';
 import RiskSummary from './RiskSummary';
@@ -12,14 +12,33 @@ export default function RoutePanel({
   setIsNavigating,
   userLocation
 }) {
-  if (!routeData || !routeData.recommended_route) {
-    return null;
+  const routes = routeData?.routes || [];
+
+  useEffect(() => {
+    if (routeData) {
+      console.info('[NER SmartRoute] Frontend route diagnostics', {
+        routesReceived: routes.length,
+        routeCardsRendered: routes.length
+      });
+    }
+  }, [routeData, routes.length]);
+
+  if (!routeData) return null;
+
+  if (routes.length === 0) {
+    return (
+      <div className="route-results-container">
+        <div style={{ margin: '12px 0', color: '#CBD5E1', fontSize: '0.82rem' }}>
+          No connected GIS road route is available for the selected locations.
+        </div>
+      </div>
+    );
   }
 
-  const { recommended_route, alternate_route } = routeData;
-
-  const isSafestSelected = activeRouteType === 'safest';
-  const currentActiveRoute = isSafestSelected ? recommended_route : (alternate_route || recommended_route);
+  const recommendedRoute = routes.find((route) => route.is_recommended) || routes[0];
+  const currentActiveRoute = activeRouteType === 'safest'
+    ? recommendedRoute
+    : routes.find((route) => route.route_id === activeRouteType) || recommendedRoute;
 
   return (
     <div className="route-results-container">
@@ -27,7 +46,7 @@ export default function RoutePanel({
       {isNavigating ? (
         <NavigationPanel
           route={currentActiveRoute}
-          isSafest={isSafestSelected}
+          isSafest={currentActiveRoute?.is_safest}
           userLocation={userLocation}
           onExit={() => setIsNavigating(false)}
         />
@@ -43,8 +62,14 @@ export default function RoutePanel({
             <span>START NAVIGATION</span>
           </button>
 
-          {/* Quick toggle if viewing alternate */}
-          {!isSafestSelected && (
+          <div style={{ margin: '12px 0', color: '#CBD5E1', fontSize: '0.82rem' }}>
+            {routes.length === 1
+              ? 'Only one meaningful road route is available. NER SmartRoute is showing the available route instead of inventing alternatives.'
+              : `${routes.length} meaningful route(s) found.`}
+          </div>
+
+          {/* Quick toggle if viewing an alternate */}
+          {currentActiveRoute !== recommendedRoute && (
             <button
               type="button"
               className="switch-route-action-btn"
@@ -55,28 +80,20 @@ export default function RoutePanel({
             </button>
           )}
 
-          {/* 🟢 SAFEST / RECOMMENDED ROUTE CARD */}
-          <RouteCard
-            route={recommended_route}
-            isSafest={true}
-            isSelected={isSafestSelected}
-            onSelect={() => setActiveRouteType('safest')}
-          />
-
-          {/* 🔴 HIGHER-RISK ALTERNATE ROUTE CARD */}
-          {alternate_route && (
+          {routes.map((route, index) => (
             <RouteCard
-              route={alternate_route}
-              isSafest={false}
-              isSelected={!isSafestSelected}
-              onSelect={() => setActiveRouteType('alternate')}
+              key={route.route_id || `${route.source}-${route.target}-${index}`}
+              route={route}
+              isSafest={route.is_safest}
+              isSelected={route === currentActiveRoute}
+              onSelect={() => setActiveRouteType(route.route_id)}
             />
-          )}
+          ))}
 
           {/* ENVIRONMENTAL RISK DASHBOARD & COMPARISON */}
           <RiskSummary
-            safestRoute={recommended_route}
-            alternateRoute={alternate_route}
+            recommendedRoute={recommendedRoute}
+            routes={routes}
             activeRoute={currentActiveRoute}
           />
         </>
