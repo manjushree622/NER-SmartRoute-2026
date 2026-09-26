@@ -2,15 +2,18 @@
 # NER SMARTROUTE - ROUTE OPTIMIZATION
 # =========================================================
 
+import array
+import csv
+import gzip
 import math
 import logging
+import threading
 import time
 from copy import deepcopy
 from collections import OrderedDict
 from pathlib import Path
 
 import numpy as np
-import pandas as pd
 import networkx as nx
 from scipy.spatial import cKDTree
 
@@ -18,6 +21,82 @@ from weather_service import get_current_weather, get_location_name
 
 
 LOGGER = logging.getLogger(__name__)
+
+EDGE_LENGTHS = array.array("d")
+EDGE_ROAD_IDS = array.array("i")
+PENALIZED_EDGE_WEIGHTS = {}
+
+
+class CompactEdgeAttributes(int):
+    __slots__ = ()
+
+    def __new__(cls, index=-1):
+        return int.__new__(cls, index)
+
+    def __getitem__(self, key):
+        index = int(self)
+        if key == "length_m":
+            return EDGE_LENGTHS[index]
+        if key == "road_id":
+            value = EDGE_ROAD_IDS[index]
+            return None if value < 0 else value
+        if key == "search_weight":
+            return PENALIZED_EDGE_WEIGHTS.get(index, EDGE_LENGTHS[index])
+        raise KeyError(key)
+
+    def __setitem__(self, key, value):
+        index = int(self)
+        if key == "length_m":
+            EDGE_LENGTHS[index] = value
+        elif key == "road_id":
+            EDGE_ROAD_IDS[index] = -1 if value is None else value
+        elif key == "search_weight":
+            PENALIZED_EDGE_WEIGHTS[index] = value
+        else:
+            raise KeyError(key)
+
+    def __iter__(self):
+        if int(self) < 0:
+            return iter(())
+        return iter(("length_m", "road_id", "search_weight"))
+
+    def __len__(self):
+        return 0 if int(self) < 0 else 3
+
+    def get(self, key, default=None):
+        try:
+            return self[key]
+        except KeyError:
+            return default
+
+    def update(self, values=(), **kwargs):
+        if hasattr(values, "items"):
+            values = values.items()
+        for key, value in values:
+            self[key] = value
+        for key, value in kwargs.items():
+            self[key] = value
+
+    def copy(self):
+        return dict(self.items())
+
+    def items(self):
+        if int(self) < 0:
+            return iter(())
+        return ((key, self[key]) for key in ("length_m", "road_id", "search_weight"))
+
+    def keys(self):
+        return iter(("length_m", "road_id", "search_weight"))
+
+    def values(self):
+        return (self[key] for key in ("length_m", "road_id", "search_weight"))
+
+
+_SHARED_EMPTY_NODE_ATTRIBUTES = {}
+
+
+def _empty_node_attributes():
+    return _SHARED_EMPTY_NODE_ATTRIBUTES
 
 
 # =========================================================
@@ -27,35 +106,6 @@ LOGGER = logging.getLogger(__name__)
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 GIS_DATA_DIR = PROJECT_ROOT / "Member-4-GIS and Routing"
 
-
-try:
-    rainfall_slope_df = pd.read_csv(
-        PROJECT_ROOT / "member6_ml_ready_with_slope.csv"
-    )
-except Exception as error:
-    LOGGER.warning(
-        "Could not load environmental dataset: %s",
-        error
-    )
-    rainfall_slope_df = pd.DataFrame()
-
-
-try:
-    district_risk_df = pd.read_csv(
-        PROJECT_ROOT / "district_risk_predictions.csv"
-    )
-except Exception as error:
-    LOGGER.warning(
-        "Could not load district risk dataset: %s",
-        error
-    )
-    district_risk_df = pd.DataFrame()
-
-
-# =========================================================
-# ENVIRONMENTAL DATA
-# =========================================================
-
 ENVIRONMENTAL_COLUMNS = [
     "annual_rainfall_2022_mm",
     "slope_deg",
@@ -63,80 +113,59 @@ ENVIRONMENTAL_COLUMNS = [
     "prototype_risk_score"
 ]
 
+ENVIRONMENTAL_DATA_COLUMNS = [
+    "latitude",
+    "longitude",
+    *ENVIRONMENTAL_COLUMNS
+]
 
-if not rainfall_slope_df.empty:
+def _read_numeric_csv_columns(path, columns):
+    with path.open("r", newline="", encoding="utf-8") as source:
+        reader = csv.reader(source)
+        header = next(reader, [])
+        missing = [column for column in columns if column not in header]
+        if missing:
+            raise ValueError(f"Dataset missing columns: {', '.join(missing)}")
+        column_indices = [header.index(column) for column in columns]
+        values = np.fromiter(
+            (
+                float(row[index]) if row[index].strip() else np.nan
+                for row in reader
+                for index in column_indices
+            ),
+            dtype=np.float64
+        )
+    if values.size == 0:
+        return np.empty((0, len(columns)), dtype=np.float64)
+    return values.reshape((-1, len(columns)))
 
-    required_columns = [
-        "latitude",
-        "longitude",
-        *ENVIRONMENTAL_COLUMNS
+
+try:
+    environmental_data = _read_numeric_csv_columns(
+        PROJECT_ROOT / "member6_ml_ready_with_slope.csv",
+        ENVIRONMENTAL_DATA_COLUMNS
+    )
+    environmental_data = environmental_data[
+        ~np.isnan(environmental_data).any(axis=1)
     ]
-
-    missing_columns = [
-        column
-        for column in required_columns
-        if column not in rainfall_slope_df.columns
-    ]
-
-    if missing_columns:
-
-        LOGGER.warning(
-            "Environmental dataset missing columns: %s",
-            missing_columns
-        )
-
-        environmental_data = pd.DataFrame()
-        ENVIRONMENTAL_TREE = None
-        ENVIRONMENTAL_VALUES = np.empty(
-            (0, 4),
-            dtype=float
-        )
-
-    else:
-
-        environmental_data = rainfall_slope_df.dropna(
-            subset=required_columns
-        ).copy()
-
-        environmental_coordinates = (
-            environmental_data[
-                ["latitude", "longitude"]
-            ]
-            .to_numpy(dtype=float)
-        )
-
-        ENVIRONMENTAL_VALUES = (
-            environmental_data[
-                ENVIRONMENTAL_COLUMNS
-            ]
-            .to_numpy(dtype=float)
-        )
-
-        if len(environmental_coordinates) > 0:
-
-            ENVIRONMENTAL_TREE = cKDTree(
-                environmental_coordinates
-            )
-
-        else:
-
-            ENVIRONMENTAL_TREE = None
-
-            ENVIRONMENTAL_VALUES = np.empty(
-                (0, 4),
-                dtype=float
-            )
-
-else:
-
-    environmental_data = pd.DataFrame()
-
+    environmental_coordinates = environmental_data[:, :2]
+    ENVIRONMENTAL_VALUES = environmental_data[:, 2:]
+    ENVIRONMENTAL_TREE = (
+        cKDTree(environmental_coordinates)
+        if len(environmental_coordinates)
+        else None
+    )
+except Exception as error:
+    LOGGER.warning("Could not load environmental dataset: %s", error)
+    ENVIRONMENTAL_VALUES = np.empty((0, len(ENVIRONMENTAL_COLUMNS)), dtype=np.float64)
     ENVIRONMENTAL_TREE = None
 
-    ENVIRONMENTAL_VALUES = np.empty(
-        (0, 4),
-        dtype=float
+ENVIRONMENTAL_THRESHOLDS = {
+    column: tuple(
+        np.quantile(ENVIRONMENTAL_VALUES[:, index], [0.33, 0.66], method="linear")
     )
+    for index, column in enumerate(ENVIRONMENTAL_COLUMNS)
+} if len(ENVIRONMENTAL_VALUES) else {}
 
 
 # =========================================================
@@ -289,30 +318,92 @@ def normalize_state(location):
 # ROAD NETWORK
 # =========================================================
 
-ROAD_NODES = pd.read_csv(
-    GIS_DATA_DIR / "road_nodes-1.csv"
-)
+road_node_ids_storage = array.array("i")
+road_latitudes_storage = array.array("d")
+road_longitudes_storage = array.array("d")
+with (GIS_DATA_DIR / "road_nodes-1.csv").open(
+    "r",
+    newline="",
+    encoding="utf-8"
+) as node_file:
+    node_reader = csv.reader(node_file)
+    node_header = next(node_reader)
+    node_columns = {
+        name: node_header.index(name)
+        for name in ("node_id", "latitude", "longitude")
+    }
+    for row in node_reader:
+        road_node_ids_storage.append(int(row[node_columns["node_id"]]))
+        road_latitudes_storage.append(float(row[node_columns["latitude"]]))
+        road_longitudes_storage.append(float(row[node_columns["longitude"]]))
+
+road_node_ids = np.frombuffer(road_node_ids_storage, dtype=np.int32)
+ROAD_NODE_IDS = road_node_ids
+road_latitudes = np.frombuffer(road_latitudes_storage, dtype=np.float64)
+road_longitudes = np.frombuffer(road_longitudes_storage, dtype=np.float64)
+max_road_node_id = int(road_node_ids.max()) if len(road_node_ids) else 0
+
+if (
+    len(road_node_ids) > 0
+    and road_node_ids[0] == 1
+    and road_node_ids[-1] == len(road_node_ids)
+    and np.all(np.diff(road_node_ids) == 1)
+):
+    NODE_LONGITUDES = road_longitudes
+    NODE_LATITUDES = road_latitudes
+    NODE_COORDINATE_OFFSET = 1
+    NODE_COORDINATE_LOOKUP = None
+elif max_road_node_id <= max(1, len(road_node_ids) * 2):
+    NODE_LONGITUDES = np.full(max_road_node_id + 1, np.nan, dtype=np.float64)
+    NODE_LATITUDES = np.full(max_road_node_id + 1, np.nan, dtype=np.float64)
+    NODE_LONGITUDES[road_node_ids] = road_longitudes
+    NODE_LATITUDES[road_node_ids] = road_latitudes
+    NODE_COORDINATE_OFFSET = 0
+    NODE_COORDINATE_LOOKUP = None
+else:
+    NODE_LONGITUDES = None
+    NODE_LATITUDES = None
+    NODE_COORDINATE_OFFSET = 0
+    NODE_COORDINATE_LOOKUP = {
+        int(node_id): (float(longitude), float(latitude))
+        for node_id, longitude, latitude
+        in zip(road_node_ids, road_longitudes, road_latitudes)
+    }
 
 
-ROAD_EDGES = pd.read_csv(
-    GIS_DATA_DIR / "road_edges.csv.gz"
-)
+def _node_coordinates(node_id):
+    node_id = int(node_id)
+    if NODE_COORDINATE_LOOKUP is not None:
+        return NODE_COORDINATE_LOOKUP.get(node_id)
+    coordinate_index = node_id - NODE_COORDINATE_OFFSET
+    if coordinate_index < 0 or coordinate_index >= len(NODE_LONGITUDES):
+        return None
+    longitude = NODE_LONGITUDES[coordinate_index]
+    latitude = NODE_LATITUDES[coordinate_index]
+    if np.isnan(longitude) or np.isnan(latitude):
+        return None
+    return float(longitude), float(latitude)
 
 
-# =========================================================
-# NODE COORDINATES
-# =========================================================
+def _load_junction_pair_indices():
+    mean_latitude = float(road_latitudes.mean())
+    projected_coordinates = np.column_stack(
+        (road_latitudes, road_longitudes)
+    )
+    projected_coordinates[:, 1] *= math.cos(math.radians(mean_latitude))
+    projected_coordinates *= 111320
+    junction_tree = cKDTree(projected_coordinates)
+    junction_pair_set = junction_tree.query_pairs(50)
+    # Preserve scipy set iteration order without retaining its large tuples.
+    junction_pair_buffer = array.array("i")
+    for first_index, second_index in junction_pair_set:
+        junction_pair_buffer.append(first_index)
+        junction_pair_buffer.append(second_index)
+    del junction_pair_set, junction_tree, projected_coordinates
+    return np.frombuffer(junction_pair_buffer, dtype=np.int32), junction_pair_buffer
 
-NODE_COORDINATES = {
 
-    int(row.node_id):
-        (
-            float(row.longitude),
-            float(row.latitude)
-        )
-
-    for row in ROAD_NODES.itertuples()
-}
+JUNCTION_PAIR_INDICES, junction_pair_buffer = _load_junction_pair_indices()
 
 
 # =========================================================
@@ -320,137 +411,110 @@ NODE_COORDINATES = {
 # =========================================================
 
 G = nx.DiGraph()
+G.node_attr_dict_factory = _empty_node_attributes
 
 
-for row in ROAD_EDGES.itertuples():
+def _add_compact_edge(from_node, to_node, length_m, road_id):
+    if G.has_edge(from_node, to_node):
+        edge = G._succ[from_node][to_node]
+        edge["length_m"] = length_m
+        edge["search_weight"] = length_m
+        edge["road_id"] = road_id
+        return
 
-    G.add_edge(
+    if from_node not in G:
+        G.add_node(from_node)
+    if to_node not in G:
+        G.add_node(to_node)
 
-        int(row.from_node),
+    edge_index = len(EDGE_LENGTHS)
+    EDGE_LENGTHS.append(length_m)
+    EDGE_ROAD_IDS.append(-1 if road_id is None else road_id)
+    edge_attributes = CompactEdgeAttributes(edge_index)
+    G._succ[from_node][to_node] = edge_attributes
+    G._pred[to_node][from_node] = edge_attributes
 
-        int(row.to_node),
-
-        length_m=float(row.length_m),
-
-        road_id=str(row.road_id),
-
-        direction=getattr(
-            row,
-            "direction",
-            None
+with gzip.open(
+    GIS_DATA_DIR / "road_edges.csv.gz",
+    "rt",
+    newline="",
+    encoding="utf-8"
+) as edge_file:
+    edge_reader = csv.reader(edge_file)
+    edge_header = next(edge_reader)
+    edge_columns = {
+        name: edge_header.index(name)
+        for name in ("road_id", "from_node", "to_node", "length_m")
+    }
+    for row in edge_reader:
+        edge_length_m = float(row[edge_columns["length_m"]])
+        _add_compact_edge(
+            int(row[edge_columns["from_node"]]),
+            int(row[edge_columns["to_node"]]),
+            edge_length_m,
+            int(row[edge_columns["road_id"]])
         )
-    )
 
 
 # =========================================================
 # RESTORE PHYSICAL JUNCTIONS
 # =========================================================
 
-node_ids = ROAD_NODES.node_id.to_numpy()
+for pair_index in range(0, len(JUNCTION_PAIR_INDICES), 2):
+    first_node = int(ROAD_NODE_IDS[JUNCTION_PAIR_INDICES[pair_index]])
+    second_node = int(ROAD_NODE_IDS[JUNCTION_PAIR_INDICES[pair_index + 1]])
 
-mean_latitude = ROAD_NODES.latitude.mean()
+    if not G.has_edge(first_node, second_node):
+        _add_compact_edge(first_node, second_node, 0.0, None)
 
-
-projected_coordinates = ROAD_NODES[
-    ["latitude", "longitude"]
-].to_numpy(
-    dtype=float,
-    copy=True
-)
+    if not G.has_edge(second_node, first_node):
+        _add_compact_edge(second_node, first_node, 0.0, None)
 
 
-projected_coordinates[:, 1] *= math.cos(
-    math.radians(mean_latitude)
-)
+node_order = np.empty(max(G) + 1, dtype=np.int32)
+for order, node in enumerate(G):
+    node_order[node] = order
 
-
-projected_coordinates *= 111320
-
-
-junction_tree = cKDTree(
-    projected_coordinates
-)
-
-
-junction_pairs = junction_tree.query_pairs(
-    50
-)
-
-
-for first_index, second_index in junction_pairs:
-
-    first_node = int(
-        node_ids[first_index]
-    )
-
-    second_node = int(
-        node_ids[second_index]
-    )
-
-
-    # Add only if the directed edge does not
-    # already exist with useful road information.
-
-    if not G.has_edge(
-        first_node,
-        second_node
-    ):
-
-        G.add_edge(
-
-            first_node,
-
-            second_node,
-
-            length_m=0.0,
-
-            road_id=None,
-
-            direction="junction"
+# Match DiGraph.copy() predecessor ordering so equal-cost ties stay identical.
+for node in G:
+    predecessors = G._pred[node]
+    if len(predecessors) > 1:
+        G._pred[node] = dict(
+            sorted(
+                predecessors.items(),
+                key=lambda item: node_order[item[0]]
+            )
         )
 
-
-    if not G.has_edge(
-        second_node,
-        first_node
-    ):
-
-        G.add_edge(
-
-            second_node,
-
-            first_node,
-
-            length_m=0.0,
-
-            road_id=None,
-
-            direction="junction"
-        )
+del node_order
+del JUNCTION_PAIR_INDICES, junction_pair_buffer
+del road_node_ids, road_node_ids_storage
+del road_latitudes_storage, road_longitudes_storage
 
 
 # =========================================================
 # ROAD COMPONENTS
 # =========================================================
 
-ROAD_COMPONENTS = list(
-    nx.weakly_connected_components(G)
+ROAD_COMPONENT_BY_NODE = np.full(
+    max(G) + 1,
+    -1,
+    dtype=np.int32
 )
-
-
-ROAD_COMPONENT_BY_NODE = {
-
-    node:
-        component_number
-
-    for component_number, component
-    in enumerate(ROAD_COMPONENTS)
-
-    for node in component
-}
+for component_number, component in enumerate(nx.weakly_connected_components(G)):
+    for node in component:
+        ROAD_COMPONENT_BY_NODE[node] = component_number
 
 
 STATE_ENDPOINT_CANDIDATES = {}
+
+
+def _component_for_node(node_id):
+    node_id = int(node_id)
+    if node_id < 0 or node_id >= len(ROAD_COMPONENT_BY_NODE):
+        return None
+    component_number = int(ROAD_COMPONENT_BY_NODE[node_id])
+    return component_number if component_number >= 0 else None
 
 
 # =========================================================
@@ -520,13 +584,17 @@ DUPLICATE_OVERLAP_THRESHOLD = 0.80
 # ENVIRONMENT CACHE
 # =========================================================
 
-ENVIRONMENT_NODE_CACHE = {}
+ENVIRONMENT_NODE_CACHE = OrderedDict()
+ENVIRONMENT_NODE_CACHE_LIMIT = 5000
 
 
 ROUTE_RESULT_CACHE = OrderedDict()
 
 
-ROUTE_RESULT_CACHE_LIMIT = 32
+ROUTE_RESULT_CACHE_LIMIT = 4
+
+
+ROUTE_SEARCH_LOCK = threading.RLock()
 
 
 # =========================================================
@@ -553,53 +621,19 @@ def _state_endpoint_candidates(state):
             state
         ]
 
-        latitude_difference = (
-            ROAD_NODES.latitude
-            - latitude
-        )
-
-        longitude_difference = (
-            ROAD_NODES.longitude
-            - longitude
-        )
-
-        squared_distance = (
-            latitude_difference ** 2
-            +
-            longitude_difference ** 2
-        )
-
-        nearest_indices = (
-            squared_distance
-            .nsmallest(3000)
-            .index
-        )
-
-        nearest_nodes = ROAD_NODES.loc[
-            nearest_indices
-        ]
+        latitude_difference = road_latitudes - latitude
+        longitude_difference = road_longitudes - longitude
+        squared_distance = latitude_difference ** 2 + longitude_difference ** 2
+        nearest_indices = np.argsort(squared_distance, kind="stable")[:3000]
 
         candidates = []
 
-        for index, row in nearest_nodes.iterrows():
-
-            node_id = int(
-                row.node_id
-            )
-
-            if node_id not in ROAD_COMPONENT_BY_NODE:
+        for index in nearest_indices:
+            node_id = int(ROAD_NODE_IDS[index])
+            if _component_for_node(node_id) is None:
                 continue
-
-            offset = float(
-                squared_distance.loc[index]
-            ) ** 0.5
-
-            candidates.append(
-                (
-                    node_id,
-                    offset
-                )
-            )
+            offset = float(squared_distance[index]) ** 0.5
+            candidates.append((node_id, offset))
 
         STATE_ENDPOINT_CANDIDATES[state] = (
             candidates
@@ -608,6 +642,10 @@ def _state_endpoint_candidates(state):
     return STATE_ENDPOINT_CANDIDATES[
         state
     ]
+
+
+for _state in STATE_COORDINATES:
+    _state_endpoint_candidates(_state)
 
 
 # =========================================================
@@ -626,9 +664,7 @@ def _select_endpoint_pair(
         source
     ):
 
-        component = ROAD_COMPONENT_BY_NODE.get(
-            node
-        )
+        component = _component_for_node(node)
 
         if component is None:
             continue
@@ -656,9 +692,7 @@ def _select_endpoint_pair(
         target
     ):
 
-        component = ROAD_COMPONENT_BY_NODE.get(
-            node
-        )
+        component = _component_for_node(node)
 
         if component is None:
             continue
@@ -736,73 +770,30 @@ def _environment_for_node(node_id):
     node_id = int(node_id)
 
 
-    cached = ENVIRONMENT_NODE_CACHE.get(
-        node_id
-    )
-
-
+    cached = ENVIRONMENT_NODE_CACHE.get(node_id)
     if cached is not None:
+        ENVIRONMENT_NODE_CACHE.move_to_end(node_id)
         return cached
 
-
-    coordinates = NODE_COORDINATES.get(
-        node_id
-    )
-
-
+    coordinates = _node_coordinates(node_id)
     if coordinates is None:
         return None
 
-
     longitude, latitude = coordinates
-
-
-    _, nearest_index = ENVIRONMENTAL_TREE.query(
-        [
-            latitude,
-            longitude
-        ]
-    )
-
-
-    nearest_index = int(
-        nearest_index
-    )
-
-
-    if (
-        nearest_index < 0
-        or
-        nearest_index >= len(
-            ENVIRONMENTAL_VALUES
-        )
-    ):
+    _, nearest_index = ENVIRONMENTAL_TREE.query([latitude, longitude])
+    nearest_index = int(nearest_index)
+    if nearest_index < 0 or nearest_index >= len(ENVIRONMENTAL_VALUES):
         return None
 
-
-    values = ENVIRONMENTAL_VALUES[
-        nearest_index
-    ]
-
-
+    values = ENVIRONMENTAL_VALUES[nearest_index]
     environment = {
-
-        column:
-            float(value)
-
-        for column, value
-        in zip(
-            ENVIRONMENTAL_COLUMNS,
-            values
-        )
+        column: float(value)
+        for column, value in zip(ENVIRONMENTAL_COLUMNS, values)
     }
-
-
-    ENVIRONMENT_NODE_CACHE[
-        node_id
-    ] = environment
-
-
+    ENVIRONMENT_NODE_CACHE[node_id] = environment
+    ENVIRONMENT_NODE_CACHE.move_to_end(node_id)
+    while len(ENVIRONMENT_NODE_CACHE) > ENVIRONMENT_NODE_CACHE_LIMIT:
+        ENVIRONMENT_NODE_CACHE.popitem(last=False)
     return environment
 
 
@@ -837,20 +828,12 @@ def _environment_for_nodes(node_ids):
 
 
     for node_id in unique_nodes:
-
-        cached = ENVIRONMENT_NODE_CACHE.get(
-            node_id
-        )
-
+        cached = ENVIRONMENT_NODE_CACHE.get(node_id)
         if cached is not None:
-
+            ENVIRONMENT_NODE_CACHE.move_to_end(node_id)
             result[node_id] = cached
-
-        elif node_id in NODE_COORDINATES:
-
-            uncached_nodes.append(
-                node_id
-            )
+        elif _node_coordinates(node_id) is not None:
+            uncached_nodes.append(node_id)
 
 
     if not uncached_nodes:
@@ -858,18 +841,13 @@ def _environment_for_nodes(node_ids):
 
 
     query_coordinates = np.asarray(
-
         [
-
             [
-                NODE_COORDINATES[node_id][1],
-                NODE_COORDINATES[node_id][0]
+                _node_coordinates(node_id)[1],
+                _node_coordinates(node_id)[0]
             ]
-
             for node_id in uncached_nodes
-
         ],
-
         dtype=float
     )
 
@@ -894,33 +872,16 @@ def _environment_for_nodes(node_ids):
     )
 
 
-    for index, node_id in enumerate(
-        uncached_nodes
-    ):
-
-        values = selected_values[
-            index
-        ]
-
-
+    for index, node_id in enumerate(uncached_nodes):
+        values = selected_values[index]
         environment = {
-
-            column:
-                float(value)
-
-            for column, value
-            in zip(
-                ENVIRONMENTAL_COLUMNS,
-                values
-            )
+            column: float(value)
+            for column, value in zip(ENVIRONMENTAL_COLUMNS, values)
         }
-
-
-        ENVIRONMENT_NODE_CACHE[
-            node_id
-        ] = environment
-
-
+        ENVIRONMENT_NODE_CACHE[node_id] = environment
+        ENVIRONMENT_NODE_CACHE.move_to_end(node_id)
+        while len(ENVIRONMENT_NODE_CACHE) > ENVIRONMENT_NODE_CACHE_LIMIT:
+            ENVIRONMENT_NODE_CACHE.popitem(last=False)
         result[node_id] = environment
 
 
@@ -933,13 +894,11 @@ def _environment_for_nodes(node_ids):
 
 def _risk_band(
     value,
-    values
+    thresholds
 ):
 
     if (
-        values is None
-        or
-        len(values) == 0
+        thresholds is None
         or
         value is None
     ):
@@ -947,14 +906,7 @@ def _risk_band(
         return "Medium"
 
 
-    low_threshold = values.quantile(
-        0.33
-    )
-
-
-    high_threshold = values.quantile(
-        0.66
-    )
+    low_threshold, high_threshold = thresholds
 
 
     if value >= high_threshold:
@@ -1132,45 +1084,14 @@ def _calculate_route_environment(
     }
 
 
-    rainfall_values = (
-        environmental_data[
-            "annual_rainfall_2022_mm"
-        ]
-        if (
-            not environmental_data.empty
-            and
-            "annual_rainfall_2022_mm"
-            in environmental_data.columns
-        )
-        else None
+    rainfall_values = ENVIRONMENTAL_THRESHOLDS.get(
+        "annual_rainfall_2022_mm"
     )
 
+    slope_values = ENVIRONMENTAL_THRESHOLDS.get("slope_deg")
 
-    slope_values = (
-        environmental_data[
-            "slope_deg"
-        ]
-        if (
-            not environmental_data.empty
-            and
-            "slope_deg"
-            in environmental_data.columns
-        )
-        else None
-    )
-
-
-    landslide_values = (
-        environmental_data[
-            "historical_landslides_1998_2022_state_count"
-        ]
-        if (
-            not environmental_data.empty
-            and
-            "historical_landslides_1998_2022_state_count"
-            in environmental_data.columns
-        )
-        else None
+    landslide_values = ENVIRONMENTAL_THRESHOLDS.get(
+        "historical_landslides_1998_2022_state_count"
     )
 
 
@@ -1904,9 +1825,7 @@ def _get_route_weather(
 
     for node_id in sample_nodes:
 
-        coordinates = NODE_COORDINATES.get(
-            node_id
-        )
+        coordinates = _node_coordinates(node_id)
 
 
         if coordinates is None:
@@ -2606,16 +2525,11 @@ def build_graph_route(
     # ROUTE GEOMETRY
     # =====================================================
 
-    geometry = [
-
-        list(
-            NODE_COORDINATES[node]
-        )
-
-        for node in path
-
-        if node in NODE_COORDINATES
-    ]
+    geometry = []
+    for node in path:
+        coordinates = _node_coordinates(node)
+        if coordinates is not None:
+            geometry.append(list(coordinates))
 
 
     if len(geometry) < 2:
@@ -3335,7 +3249,7 @@ def _select_recommended_route(
 # FIND MEANINGFUL GRAPH ROUTES
 # =========================================================
 
-def find_meaningful_routes(
+def _find_meaningful_routes_impl(
     graph,
     source,
     target,
@@ -3483,25 +3397,13 @@ def find_meaningful_routes(
     # SEARCH GRAPH
     # =====================================================
 
-    candidate_graph = graph.copy()
-
-
-    for (
-        first_node,
-        second_node,
-        edge
-    ) in candidate_graph.edges(
-        data=True
-    ):
-
-        edge[
-            "search_weight"
-        ] = float(
-            edge.get(
-                "length_m",
-                0.0
-            )
-        )
+    if graph is G:
+        PENALIZED_EDGE_WEIGHTS.clear()
+        candidate_graph = graph
+    else:
+        candidate_graph = graph.copy()
+        for first_node, second_node, edge in candidate_graph.edges(data=True):
+            edge["search_weight"] = float(edge.get("length_m", 0.0))
 
 
     # =====================================================
@@ -3682,25 +3584,7 @@ def find_meaningful_routes(
             ]
 
 
-            current_weight = float(
-                edge.get(
-                    "search_weight",
-                    edge.get(
-                        "length_m",
-                        0.0
-                    )
-                )
-            )
-
-
-            edge[
-                "search_weight"
-            ] = (
-
-                current_weight
-                *
-                1.35
-            )
+            edge["search_weight"] = float(edge["search_weight"]) * 1.35
 
 
     LOGGER.info(
@@ -4164,6 +4048,23 @@ def find_meaningful_routes(
         len(paths)
     )
     return paths
+
+
+def find_meaningful_routes(
+    graph,
+    source,
+    target,
+    max_routes=MAX_MEANINGFUL_ROUTES,
+    vehicle_type=None
+):
+    with ROUTE_SEARCH_LOCK:
+        return _find_meaningful_routes_impl(
+            graph,
+            source,
+            target,
+            max_routes=max_routes,
+            vehicle_type=vehicle_type
+        )
 
 
 # =========================================================

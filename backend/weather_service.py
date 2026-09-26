@@ -4,6 +4,7 @@ import threading
 import time
 import unicodedata
 import requests
+from collections import OrderedDict
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -14,10 +15,12 @@ OPENWEATHER_API_KEY = os.getenv("OPENWEATHER_API_KEY")
 
 BASE_URL = "https://api.openweathermap.org/data/2.5/weather"
 REVERSE_GEOCODE_URL = "https://nominatim.openstreetmap.org/reverse"
-REVERSE_GEOCODE_CACHE = {}
-WEATHER_CACHE = {}
+REVERSE_GEOCODE_CACHE = OrderedDict()
+WEATHER_CACHE = OrderedDict()
 WEATHER_CACHE_LOCK = threading.Lock()
 WEATHER_CACHE_TTL_SECONDS = 300
+REVERSE_GEOCODE_CACHE_LIMIT = 2048
+WEATHER_CACHE_LIMIT = 512
 
 
 def is_latin_location_name(value):
@@ -87,8 +90,10 @@ def get_location_name(lat, lon):
         return None
 
     cache_key = (round(float(lat), 4), round(float(lon), 4))
-    if cache_key in REVERSE_GEOCODE_CACHE:
-        return REVERSE_GEOCODE_CACHE[cache_key]
+    with WEATHER_CACHE_LOCK:
+        if cache_key in REVERSE_GEOCODE_CACHE:
+            REVERSE_GEOCODE_CACHE.move_to_end(cache_key)
+            return REVERSE_GEOCODE_CACHE[cache_key]
 
     try:
         response = requests.get(
@@ -118,7 +123,11 @@ def get_location_name(lat, lon):
             error
         )
 
-    REVERSE_GEOCODE_CACHE[cache_key] = location_name
+    with WEATHER_CACHE_LOCK:
+        REVERSE_GEOCODE_CACHE[cache_key] = location_name
+        REVERSE_GEOCODE_CACHE.move_to_end(cache_key)
+        while len(REVERSE_GEOCODE_CACHE) > REVERSE_GEOCODE_CACHE_LIMIT:
+            REVERSE_GEOCODE_CACHE.popitem(last=False)
     return location_name
 
 
@@ -131,7 +140,10 @@ def get_current_weather(lat, lon):
     with WEATHER_CACHE_LOCK:
         cached = WEATHER_CACHE.get(cache_key)
         if cached and current_time - cached[0] < WEATHER_CACHE_TTL_SECONDS:
+            WEATHER_CACHE.move_to_end(cache_key)
             return dict(cached[1])
+        if cached:
+            WEATHER_CACHE.pop(cache_key, None)
 
     params = {
         "lat": lat,
@@ -168,4 +180,7 @@ def get_current_weather(lat, lon):
 
     with WEATHER_CACHE_LOCK:
         WEATHER_CACHE[cache_key] = (current_time, result)
+        WEATHER_CACHE.move_to_end(cache_key)
+        while len(WEATHER_CACHE) > WEATHER_CACHE_LIMIT:
+            WEATHER_CACHE.popitem(last=False)
     return dict(result)
