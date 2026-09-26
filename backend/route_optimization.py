@@ -4,6 +4,9 @@
 
 import math
 import logging
+import time
+from copy import deepcopy
+from collections import OrderedDict
 from pathlib import Path
 
 import numpy as np
@@ -455,23 +458,26 @@ STATE_ENDPOINT_CANDIDATES = {}
 # =========================================================
 
 VEHICLE_TYPES = {
-
-    "two_wheeler":
-        "🏍️ Two-Wheeler",
-
-    "four_wheeler":
-        "🚗 Four-Wheeler",
-
-    "emergency_vehicle":
-        "🚑 Emergency Vehicle",
-
-    "logistics_vehicle":
-        "🚚 Logistics Vehicle"
+    "motorcycle": "Motorcycle",
+    "scooter": "Scooter",
+    "auto_rickshaw": "Auto-rickshaw",
+    "e_rickshaw": "E-rickshaw",
+    "hatchback": "Hatchback",
+    "sedan": "Sedan",
+    "suv": "SUV",
+    "city_bus": "City Bus",
+    "interstate_luxury_coach": "Interstate Luxury Coach",
+    "mini_bus": "Mini Bus",
+    "small_cargo_truck": "Small Cargo Truck",
+    "pickup": "Pickup",
+    "multi_axle_truck": "Multi-axle Truck",
+    "tractor_trailer": "Tractor-trailer",
+    "tipper": "Tipper"
 }
 
 
 DEFAULT_VEHICLE_TYPE = (
-    "logistics_vehicle"
+    "sedan"
 )
 
 
@@ -515,6 +521,12 @@ DUPLICATE_OVERLAP_THRESHOLD = 0.80
 # =========================================================
 
 ENVIRONMENT_NODE_CACHE = {}
+
+
+ROUTE_RESULT_CACHE = OrderedDict()
+
+
+ROUTE_RESULT_CACHE_LIMIT = 32
 
 
 # =========================================================
@@ -2467,6 +2479,8 @@ def build_graph_route(
         return None
 
 
+    risk_started = time.perf_counter()
+
     route_segments = (
         _calculate_route_segments(
             graph,
@@ -2519,85 +2533,11 @@ def build_graph_route(
         return None
 
 
-    # =====================================================
-    # LIVE WEATHER
-    # =====================================================
-
-    route_weather = (
-        _get_route_weather(
-            graph,
-            path,
-            sample_count=WEATHER_SAMPLE_COUNT
-        )
-    )
-
-
-    weather_risk = (
-        _calculate_weather_risk(
-            route_weather
-        )
-    )
-
-
-    # =====================================================
-    # GIS RISK
-    # =====================================================
-
-    gis_risk_probability = (
+    risk_probability = (
         route_environment[
             "risk_probability"
         ]
     )
-
-
-    # =====================================================
-    # WEATHER RISK
-    # =====================================================
-
-    weather_risk_probability = (
-        weather_risk[
-            "weather_risk_probability"
-        ]
-    )
-
-
-    # =====================================================
-    # FINAL RISK
-    #
-    # GIS = 80%
-    # Weather = 20%
-    # =====================================================
-
-    risk_probability = round(
-
-        (
-            gis_risk_probability
-            *
-            0.80
-        )
-
-        +
-
-        (
-            weather_risk_probability
-            *
-            0.20
-        ),
-
-        1
-    )
-
-
-    risk_probability = min(
-
-        100.0,
-
-        max(
-            0.0,
-            risk_probability
-        )
-    )
-
 
     if risk_probability >= 70:
 
@@ -2706,18 +2646,6 @@ def build_graph_route(
     })
 
 
-    if route_weather:
-
-        risk_reason += (
-
-            " "
-            +
-            weather_risk[
-                "weather_risk_reason"
-            ]
-        )
-
-
     # =====================================================
     # VEHICLE
     # =====================================================
@@ -2729,13 +2657,20 @@ def build_graph_route(
     )
 
 
-    vehicle_suitability = (
+    vehicle_suitability = [
+        {
+            "vehicle_type": vehicle_id,
+            "label": label,
+            "status": "estimated",
+            "suitable": None
+        }
+        for vehicle_id, label in VEHICLE_TYPES.items()
+    ]
 
-        "Vehicle-specific road restrictions "
-        "are applied only where supported by "
-        "available road-network data. No "
-        "vehicle-specific restrictions are "
-        "present in the supplied GIS data."
+    LOGGER.info(
+        "Route %s risk calculation completed in %.1f ms",
+        route_number,
+        (time.perf_counter() - risk_started) * 1000
     )
 
 
@@ -2828,6 +2763,9 @@ def build_graph_route(
         "risk_probability":
             risk_probability,
 
+        "reason":
+            risk_reason,
+
         "safety_score":
             safety_score,
 
@@ -2839,23 +2777,19 @@ def build_graph_route(
         # =================================================
 
         "gis_risk_probability":
-            gis_risk_probability,
+            risk_probability,
 
         "weather_risk_probability":
-            weather_risk_probability,
+            None,
 
         "live_weather":
-            route_weather,
+            None,
 
         "weather_risk_level":
-            weather_risk[
-                "weather_risk_level"
-            ],
+            "NOT_INCLUDED",
 
         "weather_risk_reason":
-            weather_risk[
-                "weather_risk_reason"
-            ],
+            "Weather is fetched separately and does not delay route results.",
 
         # =================================================
         # RISK METHODOLOGY
@@ -2870,12 +2804,11 @@ def build_graph_route(
 
         "risk_methodology":
             (
-                "Final route risk combines the existing "
-                "length-weighted GIS environmental risk "
-                "with a controlled live-weather contribution "
-                "from OpenWeather samples taken along the "
-                "actual GIS route. GIS risk contributes 80% "
-                "and live weather contributes 20%."
+                "Route risk is calculated independently from "
+                "length-weighted rainfall, slope, landslide, "
+                "and prototype risk records sampled along the "
+                "actual GIS road segments. Live weather is "
+                "reported separately and does not alter this score."
             ),
 
         "environmental_averages":
@@ -3037,6 +2970,14 @@ def _is_duplicate_route(
 
 
     return False, 0.0
+
+
+def _cache_route_results(cache_key, routes):
+    ROUTE_RESULT_CACHE[cache_key] = deepcopy(routes)
+    ROUTE_RESULT_CACHE.move_to_end(cache_key)
+
+    while len(ROUTE_RESULT_CACHE) > ROUTE_RESULT_CACHE_LIMIT:
+        ROUTE_RESULT_CACHE.popitem(last=False)
 
 
 # =========================================================
@@ -3417,6 +3358,7 @@ def find_meaningful_routes(
     # NORMALIZE
     # =====================================================
 
+    route_started = time.perf_counter()
     source = normalize_state(source) or source
 
     target = normalize_state(target) or target
@@ -3476,6 +3418,23 @@ def find_meaningful_routes(
         route_limit = MAX_MEANINGFUL_ROUTES
 
 
+    cache_key = (
+        id(graph),
+        source,
+        target,
+        route_limit
+    )
+
+    cached_routes = ROUTE_RESULT_CACHE.get(cache_key)
+    if cached_routes is not None:
+        ROUTE_RESULT_CACHE.move_to_end(cache_key)
+        LOGGER.info("Route cache hit for %s -> %s", source, target)
+        routes = deepcopy(cached_routes)
+        for route in routes:
+            route["vehicle_type"] = vehicle_type or DEFAULT_VEHICLE_TYPE
+        return routes
+
+
     # =====================================================
     # ENDPOINTS
     # =====================================================
@@ -3516,6 +3475,8 @@ def find_meaningful_routes(
 
         target_node
     )
+
+    search_started = time.perf_counter()
 
 
     # =====================================================
@@ -3568,6 +3529,7 @@ def find_meaningful_routes(
     # =====================================================
 
     candidate_routes = []
+    distinct_candidate_routes = []
 
 
     for candidate_number in range(
@@ -3650,6 +3612,14 @@ def find_meaningful_routes(
         candidate_routes.append(
             candidate
         )
+
+        if not any(
+            _route_segment_overlap(candidate, accepted) >= DUPLICATE_OVERLAP_THRESHOLD
+            for accepted in distinct_candidate_routes
+        ):
+            distinct_candidate_routes.append(candidate)
+            if len(distinct_candidate_routes) >= route_limit:
+                break
 
 
         # -------------------------------------------------
@@ -3735,9 +3705,11 @@ def find_meaningful_routes(
 
     LOGGER.info(
 
-        "Generated %s lightweight candidate routes.",
+        "Generated %s lightweight candidate routes in %.1f ms.",
 
-        len(candidate_routes)
+        len(candidate_routes),
+
+        (time.perf_counter() - search_started) * 1000
     )
 
 
@@ -3927,6 +3899,11 @@ def find_meaningful_routes(
 
     if not paths:
 
+        _cache_route_results(cache_key, paths)
+        LOGGER.info(
+            "Route generation completed in %.1f ms; no routes built.",
+            (time.perf_counter() - route_started) * 1000
+        )
         return []
 
 
@@ -4180,6 +4157,12 @@ def find_meaningful_routes(
     # RETURN ALL MEANINGFUL GIS ROUTES
     # =====================================================
 
+    _cache_route_results(cache_key, paths)
+    LOGGER.info(
+        "Route generation completed in %.1f ms (%s routes).",
+        (time.perf_counter() - route_started) * 1000,
+        len(paths)
+    )
     return paths
 
 

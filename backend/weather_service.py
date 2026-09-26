@@ -1,5 +1,7 @@
 import os
 import logging
+import threading
+import time
 import unicodedata
 import requests
 from dotenv import load_dotenv
@@ -13,6 +15,9 @@ OPENWEATHER_API_KEY = os.getenv("OPENWEATHER_API_KEY")
 BASE_URL = "https://api.openweathermap.org/data/2.5/weather"
 REVERSE_GEOCODE_URL = "https://nominatim.openstreetmap.org/reverse"
 REVERSE_GEOCODE_CACHE = {}
+WEATHER_CACHE = {}
+WEATHER_CACHE_LOCK = threading.Lock()
+WEATHER_CACHE_TTL_SECONDS = 300
 
 
 def is_latin_location_name(value):
@@ -121,6 +126,13 @@ def get_current_weather(lat, lon):
     if not OPENWEATHER_API_KEY:
         raise RuntimeError("OPENWEATHER_API_KEY is not configured")
 
+    cache_key = (round(float(lat), 4), round(float(lon), 4))
+    current_time = time.monotonic()
+    with WEATHER_CACHE_LOCK:
+        cached = WEATHER_CACHE.get(cache_key)
+        if cached and current_time - cached[0] < WEATHER_CACHE_TTL_SECONDS:
+            return dict(cached[1])
+
     params = {
         "lat": lat,
         "lon": lon,
@@ -143,7 +155,7 @@ def get_current_weather(lat, lon):
     wind_info = data.get("wind", {})
     rain_info = data.get("rain", {})
 
-    return {
+    result = {
         "latitude": lat,
         "longitude": lon,
         "temperature_c": main_info.get("temp"),
@@ -153,3 +165,7 @@ def get_current_weather(lat, lon):
         "description": weather_info.get("description"),
         "rain_1h": rain_info.get("1h", 0),
     }
+
+    with WEATHER_CACHE_LOCK:
+        WEATHER_CACHE[cache_key] = (current_time, result)
+    return dict(result)

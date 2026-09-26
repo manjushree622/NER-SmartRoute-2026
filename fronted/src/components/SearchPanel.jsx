@@ -1,13 +1,16 @@
 import React from 'react';
-import { MapPin, Navigation, ArrowUpDown, Search, Sparkles } from 'lucide-react';
-import { POPULAR_LOCATIONS } from '../utils/navigation';
+import { MapPin, Navigation, ArrowUpDown, Search, Sparkles, ShieldAlert } from 'lucide-react';
+import { POPULAR_LOCATIONS, VEHICLE_GROUPS } from '../utils/navigation';
 
 export default function SearchPanel({
   source,
   setSource,
   destination,
   setDestination,
+  vehicleType,
+  setVehicleType,
   onSearch,
+  onReportHazard,
   isLoading
 }) {
   const handleSwap = () => {
@@ -18,7 +21,7 @@ export default function SearchPanel({
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSearch(source, destination);
+    onSearch(source, destination, vehicleType);
   };
 
   return (
@@ -81,6 +84,22 @@ export default function SearchPanel({
           </div>
         </div>
 
+        <label className="vehicle-select-label" htmlFor="vehicle-type-select">Vehicle type</label>
+        <select
+          id="vehicle-type-select"
+          className="custom-route-input vehicle-select"
+          value={vehicleType}
+          onChange={(event) => setVehicleType(event.target.value)}
+        >
+          {VEHICLE_GROUPS.map((group) => (
+            <optgroup label={group.label} key={group.label}>
+              {group.options.map(([value, label]) => (
+                <option value={value} key={value}>{label}</option>
+              ))}
+            </optgroup>
+          ))}
+        </select>
+
         {/* Datalist for autocomplete */}
         <datalist id="locations-list">
           {POPULAR_LOCATIONS.map((loc, idx) => (
@@ -101,6 +120,10 @@ export default function SearchPanel({
           <span>{isLoading ? 'FINDING SAFEST ROUTE...' : 'FIND SAFEST ROUTE'}</span>
         </button>
       </form>
+      <button type="button" className="btn-report-hazard" onClick={onReportHazard}>
+        <ShieldAlert size={17} />
+        <span>REPORT ROAD HAZARD</span>
+      </button>
     </div>
   );
 }

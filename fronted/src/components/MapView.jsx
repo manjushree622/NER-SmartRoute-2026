@@ -1,10 +1,13 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { MapContainer, TileLayer, Polyline, Marker, Popup, CircleMarker, useMap } from 'react-leaflet';
+import { MapContainer, TileLayer, Polyline, Marker, Popup, CircleMarker, useMap, useMapEvents } from 'react-leaflet';
 import L from 'leaflet';
 import { geoJsonToLeafletCoordinates, calculateRouteBounds, NER_CENTER, NER_DEFAULT_ZOOM } from '../utils/geo';
+import { getRouteRiskColor, getRouteRiskLabel } from '../utils/navigation';
 import MapControls from './MapControls';
 import DistrictLabels from './DistrictLabels';
 import StateLabels from './StateLabels';
+
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://127.0.0.1:8000';
 
 // Custom SVG Icons for Source and Target Markers
 const createSvgIcon = (color, text, isFinish = false) => {
@@ -68,50 +71,67 @@ function RouteBoundsFitter({ bounds, triggerKey }) {
   return null;
 }
 
+function MapClickCapture({ enabled, onMapPick }) {
+  useMapEvents({
+    click(event) {
+      if (enabled) onMapPick({ lat: event.latlng.lat, lon: event.latlng.lng });
+    }
+  });
+  return null;
+}
+
+const createHazardIcon = (status) => L.divIcon({
+  className: 'hazard-map-pin',
+  html: `<span class="hazard-marker ${String(status || '').toLowerCase()}">!</span>`,
+  iconSize: [26, 26],
+  iconAnchor: [13, 13]
+});
+
 export default function MapView({
   routeData,
   activeRouteType,
   setActiveRouteType,
   userLocation,
-  onLocateUser
+  onLocateUser,
+  hazardReports = [],
+  isPickingHazardLocation = false,
+  onMapPick = () => {}
 }) {
   const [showDistricts, setShowDistricts] = useState(true);
   const [showStates, setShowStates] = useState(true);
   const [fitTrigger, setFitTrigger] = useState(0);
 
-  // Convert backend GeoJSON geometry to Leaflet coordinates
-  const safestCoords = useMemo(() => {
-    if (!routeData?.recommended_route?.geometry?.coordinates) return [];
-    return geoJsonToLeafletCoordinates(routeData.recommended_route.geometry.coordinates);
-  }, [routeData?.recommended_route]);
+  const routes = routeData?.routes?.length
+    ? routeData.routes
+    : [routeData?.recommended_route, routeData?.alternate_route].filter(Boolean);
+  const routeCoordinates = useMemo(() => routes.map((route) => ({
+    route,
+    positions: geoJsonToLeafletCoordinates(route.geometry?.coordinates || route.geojson?.coordinates || [])
+  })), [routeData?.routes, routeData?.recommended_route, routeData?.alternate_route]);
 
-  const alternateCoords = useMemo(() => {
-    if (!routeData?.alternate_route?.geometry?.coordinates) return [];
-    return geoJsonToLeafletCoordinates(routeData.alternate_route.geometry.coordinates);
-  }, [routeData?.alternate_route]);
-
-  // Compute bounding box
   const routeBounds = useMemo(() => {
-    if (safestCoords.length === 0 && alternateCoords.length === 0) return null;
-    return calculateRouteBounds(safestCoords, alternateCoords);
-  }, [safestCoords, alternateCoords]);
+    const allCoordinates = routeCoordinates.map((item) => item.positions);
+    if (!allCoordinates.some((coordinates) => coordinates.length)) return null;
+    return calculateRouteBounds(...allCoordinates);
+  }, [routeCoordinates]);
 
   const handleManualFit = () => {
     setFitTrigger((prev) => prev + 1);
   };
 
   // Extract source & destination coordinates for pin placement
-  const sourcePoint = safestCoords[0] || null;
-  const targetPoint = safestCoords[safestCoords.length - 1] || null;
+  const recommendedCoordinates = routeCoordinates.find((item) => item.route.is_recommended)?.positions
+    || routeCoordinates[0]?.positions || [];
+  const sourcePoint = recommendedCoordinates[0] || null;
+  const targetPoint = recommendedCoordinates[recommendedCoordinates.length - 1] || null;
 
-  const sourceName = routeData?.recommended_route?.source || 'Origin';
-  const targetName = routeData?.recommended_route?.target || 'Destination';
-
-  const isSafestActive = activeRouteType === 'safest';
+  const sourceName = routeData?.source || routeData?.recommended_route?.source || 'Origin';
+  const targetName = routeData?.target || routeData?.recommended_route?.target || 'Destination';
 
   return (
     <div className="map-canvas-container" style={{ width: '100%', height: '100%', position: 'relative' }}>
       <MapContainer
+        className={isPickingHazardLocation ? 'map-picking-location' : ''}
         center={NER_CENTER}
         zoom={NER_DEFAULT_ZOOM}
         zoomControl={false}
@@ -133,102 +153,40 @@ export default function MapView({
 
         {/* Auto-fit map to calculated route */}
         <RouteBoundsFitter bounds={routeBounds} triggerKey={fitTrigger} />
+        <MapClickCapture enabled={isPickingHazardLocation} onMapPick={onMapPick} />
 
-        {/* =========================================================
-            🔴 HIGHER-RISK ALTERNATE ROUTE (ALWAYS VISIBLE)
-            ========================================================= */}
-        {alternateCoords.length >= 2 && (
-          <>
-            {/* Glow / Casing for Alternate */}
-            <Polyline
-              positions={alternateCoords}
-              pathOptions={{
-                color: !isSafestActive ? 'rgba(239, 68, 68, 0.45)' : 'rgba(239, 68, 68, 0.25)',
-                weight: !isSafestActive ? 9 : 7,
-                lineCap: 'round',
-                lineJoin: 'round'
-              }}
-            />
-
-            {/* Core Polyline */}
-            <Polyline
-              positions={alternateCoords}
-              pathOptions={{
-                color: '#EF4444',
-                weight: !isSafestActive ? 5 : 3.5,
-                dashArray: !isSafestActive ? undefined : '6, 8',
-                opacity: !isSafestActive ? 1 : 0.85,
-                lineCap: 'round',
-                lineJoin: 'round'
-              }}
-              eventHandlers={{
-                click: () => setActiveRouteType('alternate')
-              }}
-            >
-              <Popup>
-                <div style={{ padding: '6px', fontFamily: 'Inter, sans-serif' }}>
-                  <span style={{ fontSize: '11px', fontWeight: 800, color: '#EF4444' }}>
-                    🔴 HIGHER-RISK ALTERNATE ROUTE
-                  </span>
-                  <div style={{ fontSize: '12px', marginTop: '4px', lineHeight: 1.4 }}>
-                    <div>Distance: <strong>{routeData?.alternate_route?.distance_km} km</strong></div>
-                    <div>Travel Time: <strong>{routeData?.alternate_route?.travel_time}</strong></div>
-                    <div>Risk Level: <strong>{routeData?.alternate_route?.risk_level} ({routeData?.alternate_route?.risk_probability}%)</strong></div>
+        {routeCoordinates.map(({ route, positions }) => {
+          if (positions.length < 2) return null;
+          const isSelected = route.route_id === activeRouteType;
+          const isEmphasized = isSelected || route.is_recommended;
+          const routeColor = getRouteRiskColor(route.safety_score);
+          return (
+            <React.Fragment key={route.route_id}>
+              {isSelected && <Polyline positions={positions} pathOptions={{ color: '#FFFFFF', weight: 11, opacity: 0.75, lineCap: 'round', lineJoin: 'round' }} />}
+              <Polyline
+                positions={positions}
+                pathOptions={{
+                  color: routeColor,
+                  weight: isEmphasized ? 7 : 4,
+                  opacity: isEmphasized ? 1 : 0.76,
+                  dashArray: isSelected ? undefined : '8, 7',
+                  lineCap: 'round',
+                  lineJoin: 'round'
+                }}
+                eventHandlers={{ click: () => setActiveRouteType(route.route_id) }}
+              >
+                <Popup>
+                  <div className="route-map-popup">
+                    <strong style={{ color: routeColor }}>Route {route.route_number}{route.is_recommended ? ' · Recommended' : ''} · {getRouteRiskLabel(route.safety_score)}</strong>
+                    <span>{route.distance_km} km · {route.travel_time}</span>
+                    <span>Risk {route.risk_probability}% · Safety {route.safety_score}/100</span>
+                    {route.hazard_warning && <span>{route.hazard_warning}</span>}
                   </div>
-                </div>
-              </Popup>
-            </Polyline>
-          </>
-        )}
-
-        {/* =========================================================
-            🟢 RECOMMENDED SAFEST ROUTE (ALWAYS VISIBLE & EMPHASIZED)
-            ========================================================= */}
-        {safestCoords.length >= 2 && (
-          <>
-            {/* Emerald Neon Glow Outer Casing */}
-            <Polyline
-              positions={safestCoords}
-              pathOptions={{
-                color: isSafestActive ? 'rgba(16, 185, 129, 0.5)' : 'rgba(16, 185, 129, 0.25)',
-                weight: isSafestActive ? 12 : 9,
-                lineCap: 'round',
-                lineJoin: 'round'
-              }}
-            />
-
-            {/* Main Thick Emerald Line */}
-            <Polyline
-              positions={safestCoords}
-              pathOptions={{
-                color: '#10B981',
-                weight: isSafestActive ? 6.5 : 5,
-                opacity: 1,
-                lineCap: 'round',
-                lineJoin: 'round'
-              }}
-              eventHandlers={{
-                click: () => setActiveRouteType('safest')
-              }}
-            >
-              <Popup>
-                <div style={{ padding: '6px', fontFamily: 'Inter, sans-serif' }}>
-                  <span style={{ fontSize: '11px', fontWeight: 800, color: '#10B981' }}>
-                    🟢 RECOMMENDED SAFEST ROUTE
-                  </span>
-                  <div style={{ fontSize: '12px', marginTop: '4px', lineHeight: 1.4 }}>
-                    <div>Distance: <strong>{routeData?.recommended_route?.distance_km} km</strong></div>
-                    <div>Travel Time: <strong>{routeData?.recommended_route?.travel_time}</strong></div>
-                    <div>Risk Level: <strong>{routeData?.recommended_route?.risk_level} ({routeData?.recommended_route?.risk_probability}%)</strong></div>
-                    <p style={{ marginTop: '4px', fontSize: '11px', color: '#CBD5E1' }}>
-                      {routeData?.recommended_route?.recommendation_reason}
-                    </p>
-                  </div>
-                </div>
-              </Popup>
-            </Polyline>
-          </>
-        )}
+                </Popup>
+              </Polyline>
+            </React.Fragment>
+          );
+        })}
 
         {/* Source Marker */}
         {sourcePoint && (
@@ -259,6 +217,25 @@ export default function MapView({
             </Popup>
           </Marker>
         )}
+
+        {hazardReports.map((report) => (
+          <Marker
+            key={report.report_id}
+            position={[report.latitude, report.longitude]}
+            icon={createHazardIcon(report.status)}
+          >
+            <Popup>
+              <div className="hazard-map-popup">
+                <strong>{report.hazard_type}</strong>
+                <p>{report.description}</p>
+                <span>{new Date(report.reported_at).toLocaleString()}</span>
+                <span>{report.severity} · {report.status}</span>
+                <span>{Number(report.latitude).toFixed(4)}, {Number(report.longitude).toFixed(4)}</span>
+                {report.photo_url && <img src={`${API_BASE_URL}${report.photo_url}`} alt="Reported road hazard" />}
+              </div>
+            </Popup>
+          </Marker>
+        ))}
 
         {/* Current User Location Marker (Pulsing Blue) */}
         {userLocation && (
@@ -299,7 +276,7 @@ export default function MapView({
         <MapControls
           onLocateUser={onLocateUser}
           onFitRoute={handleManualFit}
-          hasRoute={safestCoords.length > 0}
+          hasRoute={routeCoordinates.length > 0}
           showDistricts={showDistricts}
           setShowDistricts={setShowDistricts}
           showStates={showStates}
@@ -311,17 +288,13 @@ export default function MapView({
       <div className="map-legend-card" role="region" aria-label="Map Legend">
         <div className="legend-title">Route Intelligence</div>
         <div className="legend-items">
-          <div className="legend-item">
-            <div className="legend-line safest" />
-            <span>🟢 Safest Route (Selected)</span>
-          </div>
-          <div className="legend-item">
-            <div className="legend-line alternate" />
-            <span>🔴 Higher-Risk Alternate</span>
-          </div>
+          <div className="legend-item"><span className="safety-swatch low-risk" /> <span>Green · Low Risk · Safety 80–100</span></div>
+          <div className="legend-item"><span className="safety-swatch medium-risk" /> <span>Orange · Medium Risk · Safety 40–79</span></div>
+          <div className="legend-item"><span className="safety-swatch high-risk" /> <span>Red · High Risk · Safety 0–39</span></div>
+          <div className="legend-item"><span className="hazard-legend-marker">!</span> <span>Community report</span></div>
           <div className="legend-item">
             <div className="legend-dot-loc" />
-            <span>📍 Current Location</span>
+            <span>Current location</span>
           </div>
         </div>
       </div>

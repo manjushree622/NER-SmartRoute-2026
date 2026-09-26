@@ -1,117 +1,79 @@
 import React from 'react';
-import { ShieldCheck, AlertTriangle, CloudRain, Mountain, Activity, Clock, Navigation } from 'lucide-react';
-import { getRiskColor } from '../utils/navigation';
+import { AlertTriangle, Check, CloudRain, Mountain, ShieldCheck } from 'lucide-react';
+import { getRouteRiskColor, getRouteRiskLabel, VEHICLE_GROUPS } from '../utils/navigation';
 
-export default function RouteCard({
-  route,
-  isSafest,
-  isSelected,
-  onSelect
-}) {
+export default function RouteCard({ route, isRecommended, isSelected, onSelect, selectedVehicle }) {
   if (!route) return null;
 
-  const distanceKm = route.distance_km ?? 'N/A';
-  const travelTime = route.travel_time ?? (route.travel_time_min ? `${route.travel_time_min} min` : 'N/A');
-  const riskLevel = route.risk_level ?? 'MEDIUM';
-  const riskProbability = route.risk_probability !== undefined ? `${route.risk_probability}%` : 'N/A';
-  const rainfall = route.rainfall_risk ?? route.rainfall ?? 'N/A';
-  const slope = route.slope_risk ?? route.slope ?? 'N/A';
-  const landslide = route.landslide_risk ?? route.landslide ?? 'N/A';
+  const riskColor = getRouteRiskColor(route.safety_score);
+  const riskLabel = getRouteRiskLabel(route.safety_score);
   const reason = route.recommendation_reason || route.risk_reason || route.reason || '';
-
-  const riskColor = getRiskColor(riskLevel);
+  const vehicleLabel = VEHICLE_GROUPS.flatMap((group) => group.options)
+    .find(([key]) => key === selectedVehicle)?.[1] || selectedVehicle;
 
   return (
     <div
-      className={`route-selection-card ${isSafest ? 'safest' : 'alternate'} ${isSelected ? 'selected' : ''}`}
+      className={`route-selection-card ${isSelected ? 'selected' : ''}`}
+      style={{
+        borderColor: riskColor,
+        borderWidth: isRecommended ? 3 : 2,
+        background: 'var(--bg-card)',
+        boxShadow: isSelected
+          ? `0 0 0 2px ${riskColor}`
+          : isRecommended
+            ? `0 0 0 1px ${riskColor}`
+            : 'none'
+      }}
       onClick={onSelect}
       role="button"
       tabIndex={0}
-      aria-label={`${isSafest ? 'Recommended Safest Route' : 'Higher Risk Alternate Route'} card`}
+      aria-label={`Route ${route.route_number}, safety ${route.safety_score}`}
     >
-      {/* Header Tag */}
       <div className="card-top-row">
-        <span className={`badge-tag ${isSafest ? 'safest' : 'alternate'}`}>
-          {isSafest ? (
-            <>
-              <ShieldCheck size={14} />
-              <span>✓ RECOMMENDED SAFEST ROUTE</span>
-            </>
-          ) : (
-            <>
-              <AlertTriangle size={14} />
-              <span>🔴 HIGHER-RISK ALTERNATE</span>
-            </>
-          )}
+        <span className="badge-tag" style={{ color: riskColor, borderColor: riskColor }}>
+          {route.not_recommended ? <AlertTriangle size={14} /> : isRecommended ? <ShieldCheck size={14} /> : null}
+          <span>{route.not_recommended ? route.recommendation_status : `${route.recommendation_status || `ROUTE ${route.route_number}`} · ${riskLabel}`}</span>
         </span>
-
-        {isSelected && (
-          <span style={{ fontSize: '0.7rem', fontWeight: 700, color: isSafest ? '#34D399' : '#F87171', textTransform: 'uppercase' }}>
-            ● Active View
-          </span>
-        )}
+        {isSelected && <span className="route-active-tag" style={{ color: riskColor }}>SELECTED</span>}
       </div>
 
-      {/* Main Distance and Travel Time Metrics */}
       <div className="metric-highlights-grid">
         <div className="metric-item">
           <span className="metric-label">Distance</span>
-          <span className="metric-val">
-            {distanceKm} <span className="metric-unit">km</span>
-          </span>
+          <span className="metric-val">{route.distance_km} <span className="metric-unit">km</span></span>
         </div>
-
         <div className="metric-item">
-          <span className="metric-label">Est. Travel Time</span>
-          <span className="metric-val" style={{ fontSize: '1.05rem' }}>
-            {travelTime}
-          </span>
+          <span className="metric-label">Est. travel time</span>
+          <span className="metric-val">{route.travel_time || 'N/A'}</span>
         </div>
       </div>
 
-      {/* Risk Metrics */}
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '10px' }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-          <Activity size={15} style={{ color: riskColor }} />
-          <span style={{ fontSize: '0.78rem', color: '#94A3B8' }}>Overall Risk:</span>
-          <span style={{ fontSize: '0.82rem', fontWeight: 800, color: riskColor }}>
-            {riskLevel}
-          </span>
-        </div>
-
-        <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-          <span style={{ fontSize: '0.78rem', color: '#94A3B8' }}>Risk Probability:</span>
-          <span style={{ fontSize: '0.85rem', fontWeight: 800, color: riskColor }}>
-            {riskProbability}
-          </span>
-        </div>
+      <div className="route-score-row">
+        <span>Risk: <strong style={{ color: riskColor }}>{riskLabel} ({route.risk_probability}%)</strong></span>
+        <span>Safety: <strong style={{ color: riskColor }}>{route.safety_score ?? 'N/A'} / 100</strong></span>
       </div>
 
-      {/* Environmental Factors */}
       <div className="risk-factors-row">
-        <div className="factor-chip" title="Rainfall Hazard Factor">
-          <CloudRain size={13} color="#38BDF8" />
-          <span>Rain: <strong>{rainfall}</strong></span>
-        </div>
-
-        <div className="factor-chip" title="Terrain Slope Factor">
-          <Mountain size={13} color="#FBBF24" />
-          <span>Slope: <strong>{slope}</strong></span>
-        </div>
-
-        <div className="factor-chip" title="Landslide Vulnerability Factor">
-          <AlertTriangle size={13} color="#F87171" />
-          <span>Landslide: <strong>{landslide}</strong></span>
-        </div>
+        <div className="factor-chip"><CloudRain size={13} /><span>Rain: <strong>{route.rainfall_risk}</strong></span></div>
+        <div className="factor-chip"><Mountain size={13} /><span>Slope: <strong>{route.slope_risk}</strong></span></div>
+        <div className="factor-chip"><AlertTriangle size={13} /><span>Landslide: <strong>{route.landslide_risk}</strong></span></div>
       </div>
 
-      {/* Decision Reason */}
-      {reason && (
-        <div className="card-reason-text">
-          <strong style={{ color: '#F1F5F9' }}>Note: </strong>
-          {reason}
+      {route.hazard_warning && <div className="route-hazard-warning"><AlertTriangle size={15} /><span>{route.hazard_warning}</span></div>}
+      {reason && <div className="card-reason-text"><strong>Reason: </strong>{reason}</div>}
+
+      <div className="vehicle-estimate-row">
+        Selected: <strong>{vehicleLabel}</strong>
+        <span>Estimated from available road and risk data</span>
+      </div>
+      <details className="vehicle-suitability-details">
+        <summary>Vehicle suitability estimates</summary>
+        <div className="vehicle-suitability-list">
+          {(route.vehicle_suitability || []).map((vehicle) => (
+            <span key={vehicle.vehicle_type}><Check size={13} /> {vehicle.label}: estimated</span>
+          ))}
         </div>
-      )}
+      </details>
     </div>
   );
 }

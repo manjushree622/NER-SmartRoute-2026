@@ -5,3 +5,5 @@ networkx==3.6.1
 scikit-learn==1.9.0
 scipy>=1.10
 joblib==1.6.0
+requests>=2.31
+python-dotenv>=1.0

@@ -1,18 +1,20 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Navigation, ShieldAlert, Sparkles, MapPin, Compass } from 'lucide-react';
-import { fetchRoute } from '../services/api';
-import { getUserLocation } from '../utils/navigation';
+import { fetchCommunityHazards, fetchRoute, fetchWeather } from '../services/api';
+import { getUserLocation, getWeatherCoordinates } from '../utils/navigation';
 import SearchPanel from '../components/SearchPanel';
 import RoutePanel from '../components/RoutePanel';
 import MapView from '../components/MapView';
 import LoadingIndicator from '../components/LoadingIndicator';
 import ErrorMessage from '../components/ErrorMessage';
 import ProfileMenu from '../components/ProfileMenu';
+import HazardReportForm from '../components/HazardReportForm';
 
 export default function MapPage({ user, onLogout }) {
   // Search inputs initialized with primary demo route
   const [source, setSource] = useState('Assam');
   const [destination, setDestination] = useState('Tripura');
+  const [vehicleType, setVehicleType] = useState('sedan');
 
   // Route calculation states
   const [routeData, setRouteData] = useState(null);
@@ -20,13 +22,18 @@ export default function MapPage({ user, onLogout }) {
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
   const [isNavigating, setIsNavigating] = useState(false);
+  const [weather, setWeather] = useState({ source: null, destination: null });
+  const [hazardReports, setHazardReports] = useState([]);
+  const [showHazardForm, setShowHazardForm] = useState(false);
+  const [isPickingHazardLocation, setIsPickingHazardLocation] = useState(false);
+  const [hazardLocation, setHazardLocation] = useState(null);
 
   // User Geolocation
   const [userLocation, setUserLocation] = useState(null);
   const [locationNotice, setLocationNotice] = useState('');
 
   // Search route handler
-  const handleSearchRoute = useCallback(async (src, dest) => {
+  const handleSearchRoute = useCallback(async (src, dest, selectedVehicle = vehicleType) => {
     const s = src || source;
     const d = dest || destination;
 
@@ -43,23 +50,49 @@ export default function MapPage({ user, onLogout }) {
     setIsLoading(true);
     setErrorMessage('');
     setIsNavigating(false);
+    setWeather({ source: null, destination: null });
 
     try {
-      const data = await fetchRoute(s, d);
+      const data = await fetchRoute(s, d, selectedVehicle);
       setRouteData(data);
-      // Backend guarantees recommended_route is safest; select it by default
-      setActiveRouteType('safest');
+      setActiveRouteType(data.recommended_route?.route_id || data.routes?.[0]?.route_id || 'safest');
     } catch (err) {
       setErrorMessage(err.message || 'Unable to compute safe routes at this time.');
     } finally {
       setIsLoading(false);
     }
-  }, [source, destination]);
+  }, [source, destination, vehicleType]);
 
   // Initial load: automatically load primary demo route Assam -> Tripura
   useEffect(() => {
     handleSearchRoute('Assam', 'Tripura');
   }, []);
+
+  useEffect(() => {
+    fetchCommunityHazards()
+      .then((data) => setHazardReports(data.reports || []))
+      .catch(() => setHazardReports([]));
+  }, []);
+
+  useEffect(() => {
+    if (!routeData) return;
+    const sourceCoordinates = getWeatherCoordinates(routeData.source);
+    const destinationCoordinates = getWeatherCoordinates(routeData.target);
+    if (!sourceCoordinates || !destinationCoordinates) return;
+
+    let isCurrent = true;
+    Promise.allSettled([
+      fetchWeather(...sourceCoordinates),
+      fetchWeather(...destinationCoordinates)
+    ]).then(([sourceResult, destinationResult]) => {
+      if (!isCurrent) return;
+      setWeather({
+        source: sourceResult.status === 'fulfilled' ? sourceResult.value : null,
+        destination: destinationResult.status === 'fulfilled' ? destinationResult.value : null
+      });
+    });
+    return () => { isCurrent = false; };
+  }, [routeData]);
 
   // Browser Geolocation trigger
   const handleLocateUser = async () => {
@@ -72,6 +105,19 @@ export default function MapPage({ user, onLogout }) {
       setLocationNotice(err.message);
       setTimeout(() => setLocationNotice(''), 6000);
     }
+  };
+
+  const handleHazardSubmitted = (report) => {
+    setHazardReports((current) => [report, ...current]);
+    setShowHazardForm(false);
+    setIsPickingHazardLocation(false);
+    handleSearchRoute(source, destination, vehicleType);
+  };
+
+  const handleMapPick = (point) => {
+    if (!isPickingHazardLocation) return;
+    setHazardLocation(point);
+    setIsPickingHazardLocation(false);
   };
 
   return (
@@ -117,9 +163,24 @@ export default function MapPage({ user, onLogout }) {
             setSource={setSource}
             destination={destination}
             setDestination={setDestination}
+            vehicleType={vehicleType}
+            setVehicleType={setVehicleType}
             onSearch={handleSearchRoute}
+            onReportHazard={() => setShowHazardForm(true)}
             isLoading={isLoading}
           />
+
+          {showHazardForm && (
+            <HazardReportForm
+              location={hazardLocation}
+              onPickLocation={() => setIsPickingHazardLocation(true)}
+              onCancel={() => { setShowHazardForm(false); setIsPickingHazardLocation(false); }}
+              onSubmitted={handleHazardSubmitted}
+            />
+          )}
+          {isPickingHazardLocation && (
+            <p className="map-pick-instruction">Click the map to place the hazard report.</p>
+          )}
 
           <div style={{ padding: '0 20px', marginTop: '16px' }}>
             <ErrorMessage
@@ -140,6 +201,9 @@ export default function MapPage({ user, onLogout }) {
               routeData={routeData}
               activeRouteType={activeRouteType}
               setActiveRouteType={setActiveRouteType}
+              vehicleSuitabilityNote={routeData.vehicle_suitability_note}
+              weather={weather}
+              selectedVehicle={routeData.vehicle_type || vehicleType}
               isNavigating={isNavigating}
               setIsNavigating={setIsNavigating}
               userLocation={userLocation}
@@ -155,6 +219,9 @@ export default function MapPage({ user, onLogout }) {
             setActiveRouteType={setActiveRouteType}
             userLocation={userLocation}
             onLocateUser={handleLocateUser}
+            hazardReports={hazardReports}
+            isPickingHazardLocation={isPickingHazardLocation}
+            onMapPick={handleMapPick}
           />
         </section>
       </main>

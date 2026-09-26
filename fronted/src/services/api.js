@@ -12,7 +12,7 @@ const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://127.0.0.1:8000
  * @param {string} target - Target state or capital
  * @returns {Promise<Object>} Backend route response
  */
-export async function fetchRoute(source, target) {
+export async function fetchRoute(source, target, vehicleType) {
   if (!source || !target) {
     throw new Error('Please enter both source and destination.');
   }
@@ -24,7 +24,7 @@ export async function fetchRoute(source, target) {
     throw new Error('Source and destination cannot be the same location.');
   }
 
-  const url = `${API_BASE_URL}/get_route?source=${encodeURIComponent(cleanSource)}&target=${encodeURIComponent(cleanTarget)}`;
+  const url = `${API_BASE_URL}/get_route?source=${encodeURIComponent(cleanSource)}&target=${encodeURIComponent(cleanTarget)}&vehicle_type=${encodeURIComponent(vehicleType || 'sedan')}`;
 
   try {
     const response = await fetch(url);
@@ -46,7 +46,7 @@ export async function fetchRoute(source, target) {
       throw new Error(data.error || 'Failed to calculate routes.');
     }
 
-    if (!data.recommended_route) {
+    if (!data.recommended_route && !data.routes?.length) {
       throw new Error('No recommended safest route found for the given locations.');
     }
 
@@ -59,6 +59,56 @@ export async function fetchRoute(source, target) {
     }
     throw error;
   }
+}
+
+const weatherCache = new Map();
+
+export async function fetchWeather(latitude, longitude) {
+  const key = `${latitude.toFixed(4)},${longitude.toFixed(4)}`;
+  if (weatherCache.has(key)) return weatherCache.get(key);
+
+  const request = fetch(
+    `${API_BASE_URL}/weather?lat=${encodeURIComponent(latitude)}&lon=${encodeURIComponent(longitude)}`
+  ).then(async (response) => {
+    if (!response.ok) throw new Error('Weather is currently unavailable.');
+    return response.json();
+  }).catch((error) => {
+    weatherCache.delete(key);
+    throw error;
+  });
+  weatherCache.set(key, request);
+  return request;
+}
+
+export async function fetchCommunityHazards() {
+  const response = await fetch(`${API_BASE_URL}/community-hazards`);
+  if (!response.ok) throw new Error('Unable to load community hazard reports.');
+  return response.json();
+}
+
+export async function submitCommunityHazard(report) {
+  const response = await fetch(`${API_BASE_URL}/community-hazards`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(report)
+  });
+  const data = await response.json();
+  if (!response.ok) throw new Error(data.detail || 'Unable to submit hazard report.');
+  return data;
+}
+
+export async function updateCommunityHazardStatus(reportId, status, reviewToken) {
+  const response = await fetch(`${API_BASE_URL}/community-hazards/${encodeURIComponent(reportId)}/status`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'X-Hazard-Review-Token': reviewToken || ''
+    },
+    body: JSON.stringify({ status })
+  });
+  const data = await response.json();
+  if (!response.ok) throw new Error(data.detail || 'Unable to update report status.');
+  return data;
 }
 
 /**

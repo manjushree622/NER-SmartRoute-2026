@@ -27,6 +27,39 @@ export const POPULAR_LOCATIONS = [
   { name: 'West Tripura', capital: 'Agartala' }
 ];
 
+export const VEHICLE_GROUPS = [
+  { label: 'Two-Wheelers', options: [['motorcycle', 'Motorcycle'], ['scooter', 'Scooter']] },
+  { label: 'Three-Wheelers', options: [['auto_rickshaw', 'Auto-rickshaw'], ['e_rickshaw', 'E-rickshaw']] },
+  { label: 'Cars', options: [['hatchback', 'Hatchback'], ['sedan', 'Sedan'], ['suv', 'SUV']] },
+  { label: 'Buses', options: [['city_bus', 'City Bus'], ['interstate_luxury_coach', 'Interstate Luxury Coach'], ['mini_bus', 'Mini Bus']] },
+  { label: 'Light Commercial Vehicles', options: [['small_cargo_truck', 'Small Cargo Truck'], ['pickup', 'Pickup']] },
+  { label: 'Heavy Commercial Vehicles', options: [['multi_axle_truck', 'Multi-axle Truck'], ['tractor_trailer', 'Tractor-trailer'], ['tipper', 'Tipper']] }
+];
+
+const WEATHER_LOCATIONS = {
+  assam: [26.1445, 91.7362],
+  guwahati: [26.1445, 91.7362],
+  'arunachal pradesh': [27.0844, 93.6053],
+  itanagar: [27.0844, 93.6053],
+  manipur: [24.817, 93.9368],
+  imphal: [24.817, 93.9368],
+  meghalaya: [25.5788, 91.8933],
+  shillong: [25.5788, 91.8933],
+  mizoram: [23.7271, 92.7176],
+  aizawl: [23.7271, 92.7176],
+  nagaland: [25.6751, 94.1086],
+  kohima: [25.6751, 94.1086],
+  sikkim: [27.3389, 88.6065],
+  gangtok: [27.3389, 88.6065],
+  tripura: [23.8315, 91.2868],
+  'west tripura': [23.8315, 91.2868],
+  agartala: [23.8315, 91.2868]
+};
+
+export function getWeatherCoordinates(location) {
+  return WEATHER_LOCATIONS[String(location || '').trim().toLowerCase()] || null;
+}
+
 /**
  * Returns color hex code for risk level
  * @param {string} level - LOW | MEDIUM | HIGH
@@ -48,6 +81,38 @@ export function getRiskBadgeClass(level) {
   if (norm === 'MEDIUM') return 'badge-medium';
   if (norm === 'HIGH') return 'badge-high';
   return 'badge-neutral';
+}
+
+function getRouteSafetyBand(score) {
+  if (
+    score === null
+    || score === undefined
+    || typeof score === 'boolean'
+    || (typeof score === 'string' && !score.trim())
+  ) return null;
+  const value = Number(score);
+  if (!Number.isFinite(value) || value < 0 || value > 100) return null;
+  if (value >= 80) return 'low';
+  if (value >= 40) return 'medium';
+  return 'high';
+}
+
+export function getRouteRiskColor(safetyScore) {
+  const colors = {
+    low: '#16A34A',
+    medium: '#F97316',
+    high: '#DC2626'
+  };
+  return colors[getRouteSafetyBand(safetyScore)] || '#6B7280';
+}
+
+export function getRouteRiskLabel(safetyScore) {
+  const labels = {
+    low: 'LOW RISK',
+    medium: 'MEDIUM RISK',
+    high: 'HIGH RISK'
+  };
+  return labels[getRouteSafetyBand(safetyScore)] || 'RISK UNAVAILABLE';
 }
 
 /**

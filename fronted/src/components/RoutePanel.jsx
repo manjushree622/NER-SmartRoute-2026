@@ -1,25 +1,34 @@
 import React from 'react';
-import { Navigation, RotateCcw, ArrowRight } from 'lucide-react';
+import { Navigation } from 'lucide-react';
 import RouteCard from './RouteCard';
-import RiskSummary from './RiskSummary';
+import RouteComparison from './RouteComparison';
 import NavigationPanel from './NavigationPanel';
 
 export default function RoutePanel({
   routeData,
   activeRouteType,
   setActiveRouteType,
+  vehicleSuitabilityNote,
+  weather,
+  selectedVehicle,
   isNavigating,
   setIsNavigating,
   userLocation
 }) {
-  if (!routeData || !routeData.recommended_route) {
+  if (!routeData) {
     return null;
   }
 
-  const { recommended_route, alternate_route } = routeData;
+  const routes = routeData.routes?.length
+    ? routeData.routes
+    : [routeData.recommended_route, routeData.alternate_route].filter(Boolean);
+  if (!routes.length) return null;
 
-  const isSafestSelected = activeRouteType === 'safest';
-  const currentActiveRoute = isSafestSelected ? recommended_route : (alternate_route || recommended_route);
+  const currentActiveRoute = routes.find((route) => route.route_id === activeRouteType)
+    || routes.find((route) => route.is_recommended)
+    || routes[0];
+  const estimatedArrival = new Date(Date.now() + (currentActiveRoute.travel_time_min || 0) * 60000);
+  const arrivalText = estimatedArrival.toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' });
 
   return (
     <div className="route-results-container">
@@ -27,57 +36,43 @@ export default function RoutePanel({
       {isNavigating ? (
         <NavigationPanel
           route={currentActiveRoute}
-          isSafest={isSafestSelected}
+          isSafest={currentActiveRoute.is_recommended}
           userLocation={userLocation}
           onExit={() => setIsNavigating(false)}
         />
       ) : (
         <>
-          {/* Action button to Start Navigation */}
+          <div className="journey-preview">
+            <div><span>Selected route</span><strong>Route {currentActiveRoute.route_number}</strong></div>
+            <div><span>Distance</span><strong>{currentActiveRoute.distance_km} km</strong></div>
+            <div><span>Travel time</span><strong>{currentActiveRoute.travel_time}</strong></div>
+            <div><span>Estimated arrival</span><strong>{arrivalText}</strong></div>
+          </div>
           <button
             type="button"
             className="btn-start-navigation"
             onClick={() => setIsNavigating(true)}
           >
             <Navigation size={18} />
-            <span>START NAVIGATION</span>
+            <span>START JOURNEY</span>
           </button>
 
-          {/* Quick toggle if viewing alternate */}
-          {!isSafestSelected && (
-            <button
-              type="button"
-              className="switch-route-action-btn"
-              onClick={() => setActiveRouteType('safest')}
-            >
-              <RotateCcw size={15} />
-              <span>VIEW SAFEST ROUTE (RECOMMENDED)</span>
-            </button>
-          )}
-
-          {/* 🟢 SAFEST / RECOMMENDED ROUTE CARD */}
-          <RouteCard
-            route={recommended_route}
-            isSafest={true}
-            isSelected={isSafestSelected}
-            onSelect={() => setActiveRouteType('safest')}
-          />
-
-          {/* 🔴 HIGHER-RISK ALTERNATE ROUTE CARD */}
-          {alternate_route && (
+          {routes.map((route) => (
             <RouteCard
-              route={alternate_route}
-              isSafest={false}
-              isSelected={!isSafestSelected}
-              onSelect={() => setActiveRouteType('alternate')}
+              key={route.route_id}
+              route={route}
+              isRecommended={route.is_recommended}
+              isSelected={currentActiveRoute.route_id === route.route_id}
+              selectedVehicle={selectedVehicle}
+              onSelect={() => setActiveRouteType(route.route_id)}
             />
-          )}
+          ))}
 
-          {/* ENVIRONMENTAL RISK DASHBOARD & COMPARISON */}
-          <RiskSummary
-            safestRoute={recommended_route}
-            alternateRoute={alternate_route}
-            activeRoute={currentActiveRoute}
+          <RouteComparison
+            routes={routes}
+            weather={weather}
+            selectedVehicle={selectedVehicle}
+            vehicleSuitabilityNote={vehicleSuitabilityNote}
           />
         </>
       )}
